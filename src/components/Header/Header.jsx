@@ -4,7 +4,8 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-contents">
-        <h2>Buy & Sell Food In Your City</h2>
+        <h2>Buy & Sell Food</h2>
+        <h2>In Your City</h2>
         {/* <p>
           Choose from a diverse menu featuring a delectable array of dishes
           crafted with the finest indegredients and culinary expertise. Our
@@ -16,7 +17,10 @@ const Header = () => {
           <form action="" class="main-select-box">
             <div class="upper-box">
               <div class="select-small-div">
-                <label for="country">Country</label> <br />
+                <label for="country" style={{ color: "black" }}>
+                  Country
+                </label>{" "}
+                <br />
                 <select name="country" id="country">
                   <option value=""></option>
                   <option value="Afghanistan">Afghanistan</option>
@@ -48,7 +52,10 @@ const Header = () => {
                 </select>
               </div>
               <div class="select-small-div">
-                <label for="state">State</label> <br />
+                <label for="state" style={{ color: "black" }}>
+                  State
+                </label>{" "}
+                <br />
                 <select name="state" id="state">
                   <option value=""></option>
                   <option value="Uttar Pradesh">Connacht</option>
@@ -82,7 +89,10 @@ const Header = () => {
                 </select>
               </div>
               <div class="select-small-div">
-                <label for="city">City</label> <br />
+                <label for="city" style={{ color: "black" }}>
+                  City
+                </label>{" "}
+                <br />
                 <select name="city" id="city">
                   <option value=""></option>
                   <option value="Athenry">Athenry</option>
@@ -129,7 +139,10 @@ const Header = () => {
                 </select>
               </div>
               <div class="select-small-div">
-                <label for="food-group">Food Group</label> <br />
+                <label for="food-group" style={{ color: "black" }}>
+                  Food Group
+                </label>{" "}
+                <br />
                 <select name="food-group" id="food-group">
                   <option value=""></option>
                   <option value="Vegan">Vegan</option>
@@ -141,7 +154,10 @@ const Header = () => {
                 </select>
               </div>
               <div class="select-small-div">
-                <label for="country">Food Make</label> <br />
+                <label for="country" style={{ color: "black" }}>
+                  Food Make
+                </label>{" "}
+                <br />
                 <select name="country" id="country">
                   <option value=""></option>
                   <option value="Ready to  Eat Food">Ready to Eat Food</option>
@@ -152,7 +168,10 @@ const Header = () => {
               </div>
 
               <div class="select-big-div">
-                <label for="food-free">Food Free From</label> <br />
+                <label for="food-free" style={{ color: "black" }}>
+                  Food Free From
+                </label>{" "}
+                <br />
                 <select name="food-free" id="food-free">
                   <option value=""></option>
                   <option value="Gluten ,Wheat">Gluten ,Wheat</option>
@@ -168,7 +187,10 @@ const Header = () => {
               </div>
 
               <div class="select-big-div">
-                <label for="country">Food Variety</label> <br />
+                <label for="country" style={{ color: "black" }}>
+                  Food Variety
+                </label>{" "}
+                <br />
                 <select name="food_variety" id="food-variety">
                   <option value=""></option>
                   <option value="Pizza">Pizza</option>
@@ -198,7 +220,10 @@ const Header = () => {
                 </select>
               </div>
               <div class="select-big-div">
-                <label for="country">Price Range</label> <br />
+                <label for="country" style={{ color: "black" }}>
+                  Price Range
+                </label>{" "}
+                <br />
                 <select name="price_range" id="price-range">
                   <option value=""></option>
                   <option value="50-1000">50-1000</option>
@@ -208,7 +233,10 @@ const Header = () => {
                 </select>
               </div>
               <div class="select-big-div">
-                <label for="country">Calorie Count Range</label> <br />
+                <label for="country" style={{ color: "black" }}>
+                  Calorie Count Range
+                </label>{" "}
+                <br />
                 <select name="calorie_count_range" id="calorie-count-range">
                   <option value="calorie_count_range"></option>
                   <option value="1200">1200</option>
