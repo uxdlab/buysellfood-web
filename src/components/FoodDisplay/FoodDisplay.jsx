@@ -22,7 +22,7 @@ const FoodDisplay = ({ category }) => {
       description: "Traditional Italian pasta with meat sauce",
       price: 10.99,
       image: assets.img2,
-      category: "Pasta",
+      category: "Rolls",
     },
     {
       _id: "3",
@@ -38,7 +38,7 @@ const FoodDisplay = ({ category }) => {
       description: "Juicy grilled beef patty with cheese, lettuce, and tomato",
       price: 9.99,
       image: assets.img2,
-      category: "Burger",
+      category: "Deserts",
     },
     {
       _id: "5",
@@ -47,6 +47,30 @@ const FoodDisplay = ({ category }) => {
       price: 18.99,
       image: assets.img1,
       category: "Sushi",
+    },
+    {
+      _id: "6",
+      name: "Veg",
+      description: "Assorted  with fresh vegetables",
+      price: 18.99,
+      image: assets.img1,
+      category: "Pure Veg",
+    },
+    {
+      _id: "7",
+      name: "Cake",
+      description: "Delicious Cakes",
+      price: 18.99,
+      image: assets.img1,
+      category: "Cake",
+    },
+    {
+      _id: "7",
+      name: "Pasta",
+      description: "Alfredo Pasta",
+      price: 18.99,
+      image: assets.img1,
+      category: "Pasta",
     },
   ];
 
