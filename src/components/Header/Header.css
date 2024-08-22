@@ -1,9 +1,11 @@
 .header {
-  height: 70vh;
+  min-height: 650px;
+  max-height: 800px;
   margin: 30px auto;
   background: url("/public/header_img.png") no-repeat;
   background-size: cover;
   position: relative;
+  background-position: right;
   width: 100%;
 }
 
@@ -46,9 +48,11 @@
   }
 } */
 
+
 @media (max-width: 750px) {
   .header-contents {
-    max-width: 65%;
+    max-width: 85%;
+    top: 10%;
   }
   .header-contents p {
     display: none;
@@ -63,6 +67,21 @@
   }
 }
 
+@media (max-width:576px){
+  .header{
+    min-height: 520px;
+  }
+  .header-contents h2 {
+    font-weight: 600;
+    color: black;
+    font-size: 30px;
+  }
+  }
+  @media (max-width:516px){
+    .header{
+      min-height: 700px;
+    }
+    }
 @media (min-width: 750px) and (max-width: 1000px) {
   .header-contents h2 {
     font-weight: 600;
@@ -146,7 +165,7 @@ label {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 2px;
     margin-bottom: 25px;
   }
   .select-small-div {
