@@ -26,8 +26,8 @@ const Chooseus = () => {
       <h2>Why Choose Us</h2>
       <div className="row mt-md-4 mt-0">
         {cards.map((card, index) => (
-          <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={index}>
-            <div className=" p-5 card text-center card-hover d-flex align-items-center justify-content-center mt-lg-0 mt-md-4 mt-4">
+          <div className="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12" key={index}>
+            <div className="p-md-5 p-3 card text-center card-hover d-flex align-items-center justify-content-center mt-xl-0 mt-lg-4 mt-md-4 mt-4">
               <img
                 src={card.imgSrc}
                 className="card-img-top "
