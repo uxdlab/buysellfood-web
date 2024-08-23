@@ -20,11 +20,11 @@ const Navbar = ({ setShowLogin }) => {
     const navigateToOrder = () => {
         navigate("/myorders");
     }
-
+    
     return (
-        <div className="navbar">
+        <div className="navbar p-3">
             <Link to={"/"}>
-                <img src={assets.logo} alt="" className="logo" width="40px" />
+                <img src={assets.logo} alt="" className="logo" width="50px" />
             </Link>
             <ul className="navbar-menu">
                 <Link to={"/"} onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>Home</Link>

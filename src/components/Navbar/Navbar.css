@@ -17,6 +17,17 @@
   font-size: 18px;
 }
 
+.navbar-menu a,
+.navbar-menu .active {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure text color is consistent */
+}
+
+.navbar-menu a:hover {
+  text-decoration: none; /* Keep underline removed on hover */
+  color: inherit;
+}
+
 .navbar-right {
   display: flex;
   align-items: center;

@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="logo" className=""  />
+          <img src={assets.logo} alt="logo" className="" />
           <p>
             Our job is to filling your tummy with delicious food and with fast
             and free delivery.
@@ -19,8 +19,8 @@ const Footer = () => {
         </div>
 
         <div className="footer-content-right">
-          <h3>ABOUT US</h3>
-          <ul>
+          <h5>ABOUT US</h5>
+          <ul style={{ paddingLeft: "0px" }}>
             <li>Home</li>
             <li>About us</li>
             <li>Delivery</li>
@@ -28,8 +28,8 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-content-right">
-          <h3>COMPANY</h3>
-          <ul>
+          <h5>COMPANY</h5>
+          <ul style={{ paddingLeft: "0px" }}>
             <li>Partnership</li>
             <li>Terms of Use</li>
             <li>Privacy</li>
@@ -38,8 +38,8 @@ const Footer = () => {
         </div>
 
         <div className="footer-content-center">
-          <h3>GET IN TOUCH</h3>
-          <ul>
+          <h5>GET IN TOUCH</h5>
+          <ul style={{ paddingLeft: "0px" }}>
             <li>+91 9876543210</li>
             <li>contact@Buy&Sell.com</li>
           </ul>

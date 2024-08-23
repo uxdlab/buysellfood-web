@@ -1,0 +1,16 @@
+.select-display {
+  margin-top: 30px;
+}
+.select-display h2 {
+  font-weight: 600;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  border: none;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
