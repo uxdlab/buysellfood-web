@@ -1,0 +1,77 @@
+
+
+.restaurant-container {
+    width: 80%; 
+    margin: auto;
+    padding: 20px; 
+}
+
+.restaurant-name {
+    text-align: start; 
+    margin-bottom: 20px;  
+    font-size: 2rem; 
+    color: #333; 
+}
+
+.restaurant-content {
+    border: 2px solid #ccc; 
+    border-radius: 10px;
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.restaurant-content p {
+    margin: 0 0 10px 0; 
+    color: #333; 
+}
+
+.rating-info {
+    font-weight: 700;
+    font-size: 1.25rem; 
+}
+
+.food-type { 
+    font-weight: 700;
+}
+
+.location-info {
+    color: #666; 
+}
+
+.delivery-time {
+    font-weight: 700;
+}
+
+/* 
+//second para offer */
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    gap: 10px;
+}
+
+/*offer container*/
+
+.offer-container{
+    display: flex;
+    gap: 10px;
+}
+.offer-one{
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc; 
+    border-radius: 10px;
+    padding: 5px;
+}
+.offer-para p{
+    margin: 0px;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+h4{
+    padding: 20px 0px;
+    text-align: center;
+}

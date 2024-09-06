@@ -10,6 +10,8 @@ import Verify from "./pages/Verify/Verify"
 import MyOrders from "./pages/MyOrders/MyOrders"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import RestaurantView from "./page/RestaurantView"
+import RestaurantList from "./page/RestaurantList"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -26,6 +28,9 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
+          <Route path="/restaurantview" element={<RestaurantView />} />
+          <Route path="/restaurantlist" element={<RestaurantList/>}/>
+
         </Routes>
       </div>
       <Footer />
