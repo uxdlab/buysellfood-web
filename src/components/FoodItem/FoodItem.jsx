@@ -11,7 +11,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
   const quantity = cartItems && cartItems[id] ? cartItems[id] : 0;
 
   return (
-    <Link to="/restaurantlist" style={{textDecoration:"none"}}> <div className="food-item">
+    <Link to="/restaurantlist" style={{textDecoration:"none",color:'black'}}> <div className="food-item">
       <div className="food-item-img-container">
         {/* <img className="food-item-image" src={`${url}/images/${image}`} alt="" />
                  {!quantity ? (

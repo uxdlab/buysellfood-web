@@ -56,7 +56,7 @@ export const Restaurants = () => {
             className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3"
             key={restaurant.id}
           >
-             <Link to="/restaurantview"> <div className=" restaurant-card">
+             <Link to="/restaurantview" style={{textDecoration:"none",color:'black'}}> <div className=" restaurant-card">
               <img
                 src={restaurant.largeImage}
                 className="card-img-top"
