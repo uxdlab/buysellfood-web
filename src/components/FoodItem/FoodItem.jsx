@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { assets } from "../../assets/assets";
 import "./FoodItem.css";
 import { StoreContext } from "../../context/StoreContext";
+import { Link } from "react-router-dom";
 
 const FoodItem = ({ id, name, price, description, image }) => {
   const { cartItems, addToCart, removeFromCart, url } =
@@ -10,7 +11,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
   const quantity = cartItems && cartItems[id] ? cartItems[id] : 0;
 
   return (
-    <div className="food-item">
+    <Link to="/restaurantlist"> <div className="food-item">
       <div className="food-item-img-container">
         {/* <img className="food-item-image" src={`${url}/images/${image}`} alt="" />
                  {!quantity ? (
@@ -33,7 +34,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <p className="food-item-desc">{description}</p>
         <p className="food-item-price">${price}</p>
       </div>
-    </div>
+    </div></Link>
   );
 };
 
