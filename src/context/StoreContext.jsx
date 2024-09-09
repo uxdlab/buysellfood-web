@@ -9,6 +9,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
     const [food_list, setFoodList] = useState([]);
+    const [selectedItem, setSelectedItem] = useState([]);
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
@@ -27,6 +28,20 @@ const StoreContextProvider = (props) => {
             await axios.post(`${url}/api/cart/remove`, { itemId }, { headers: {token} });
         }    
     }
+
+   
+    const addItem = (item) => {
+        setSelectedItem((prev) => [...prev, item]);
+      };
+      
+      const removeItem = (itemRemove) => {
+        setSelectedItem((prev) =>
+          prev.filter((item) => item !== itemRemove)
+        );
+      };
+    
+
+
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
@@ -73,7 +88,10 @@ const StoreContextProvider = (props) => {
         url,
         token,
         setToken,
-        fetchFoodList
+        fetchFoodList,
+        addItem,
+        removeItem,
+        selectedItem
     };
 
     return (

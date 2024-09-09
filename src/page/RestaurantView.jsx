@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./RestaurantView.css"; // Ensure this path is correct
 import { BsArrowLeftShort } from "react-icons/bs";
 import { TiArrowRight } from "react-icons/ti";
 import { offerUrl, SwiggyUrl } from "../constant";
+import { StoreContext } from "../context/StoreContext";
+import { AiOutlineClose } from "react-icons/ai";
+
 
 const RestaurantView = () => {
   const [restdata, setrestdata] = useState([]);
+  const { addItem } = useContext(StoreContext);
+  const [showPopup, setShowPopup] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
+
 
   const fetchApi = async () => {
     try {
@@ -27,6 +34,19 @@ const RestaurantView = () => {
   const cardMenu = restdata.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
     info => info.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
+
+  const addHandler = (item) => {
+    addItem(item);
+    console.log("item",item);
+  }
+
+
+  const handleShowPopup = (item) => {
+    setCurrentItem(item); // Save the current item
+    setShowPopup(true);   // Show the popup
+  };
+
+
 
   return (
     <div className="restaurant-container">  
@@ -98,18 +118,18 @@ const RestaurantView = () => {
                 >
                   <div className="accordion-body">
                     {itemCards.map((item, itemIndex) => (
-                      <div key={itemIndex} style={{ display: 'flex', justifyContent: 'space-between',borderBottom: '1px solid gray', marginBottom: '10px' }}>
+                      <div key={itemIndex} style={{ display: 'flex', justifyContent: 'space-between',alignItems:'center',borderBottom: '1px solid gray',padding:'10px 0px' }}>
                         <div>
                           <p>{item.card.info.name}</p>
                           <p>₹{Math.floor(item.card.info.price / 100)}</p>
                         </div>
-                        <div  className="accordion-add-img" >
+                        <div  className="accordion-add-img" onClick={()=>handleShowPopup(item)} >
                           <img
-                            style={{ width: '100px', height: '100px',borderRadius:'10px' }}
-                            src={item.card.info.imageId ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item.card.info.imageId}` : 'https://via.placeholder.com/100'}
+                            style={{ width: '100px', height: '100px',borderRadius:'10px',cursor:'pointer' }}
+                            src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item.card.info.imageId}`}
                             alt={item.card.info.name}
                           />
-                          <button className="add-btn" >Add</button>
+                          <button onClick={()=> addHandler(item)} className="add-btn" >Add</button>
                         </div>
                       </div>
                     ))}
@@ -120,6 +140,31 @@ const RestaurantView = () => {
           })}
         </div>
       </div>
+              {showPopup && (
+                <div className="popup">
+                   <img
+                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${currentItem.card.info.imageId}`}
+                    alt={currentItem.card.info.name}
+                    />
+                  <div className="popup-content">
+                  <div>
+                    <p>{currentItem.card.info.name}</p>
+                    <p>₹{Math.floor(currentItem.card.info.price / 100)}</p>
+                    <p>✨{currentItem.card.info.ratings.aggregatedRating.rating} Rating</p>
+                  </div>
+                  <div>
+                  <button onClick={()=> addHandler(currentItem)} className="popup-add" >Add</button>
+                  </div>
+                </div>
+
+                <div onClick={() => setShowPopup(false)} className="popup-close">
+                  <AiOutlineClose style={{fontSize:'1.5rem'}}/>
+                </div>
+
+                </div>
+
+              )}
+
     </div>
   );
 };
