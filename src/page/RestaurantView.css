@@ -1,5 +1,4 @@
-
-
+/* Default styles */
 .restaurant-container {
     width: 80%; 
     margin: auto;
@@ -42,8 +41,7 @@
     font-weight: 700;
 }
 
-/* 
-//second para offer */
+/* Button container styles */
 .btn-container{
     display: flex;
     justify-content: space-between;
@@ -51,9 +49,26 @@
     margin: 10px;
     gap: 10px;
 }
+.btn-container p{
+    font-size: large;
+    font-weight: bold;
+}
+.btn-container button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    background-color: gray;
+    color: white;
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+}
 
-/*offer container*/
-
+/* Offer container styles */
 .offer-container{
     display: flex;
     gap: 10px;
@@ -74,4 +89,62 @@
 h4{
     padding: 20px 0px;
     text-align: center;
+}
+
+/* Accordion styles */
+.accordion-body p{
+    font-size: large;
+    margin: 0px;
+    font-weight: 300;
+}
+.accordion-add-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.add-btn{
+    padding: 5px;
+    background-color: green;
+    outline: none;
+    border: none;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 0px;
+    padding: 5px 10px;
+}
+
+/* Media Query for Small Devices */
+@media (max-width: 900px) {
+    .restaurant-container {
+        width: 100%; 
+        padding: 10px; /* Optional: Adjust padding for smaller screens */
+    }
+
+    .restaurant-name {
+        font-size: 1.5rem; /* Optional: Adjust font size for smaller screens */
+    }
+
+    .restaurant-content {
+        padding: 15px; /* Optional: Adjust padding for smaller screens */
+    }
+
+    .rating-info {
+        font-size: 1rem; /* Optional: Adjust font size for smaller screens */
+    }
+
+    .food-type, .location-info, .delivery-time {
+        font-size: 0.9rem; /* Optional: Adjust font size for smaller screens */
+    }
+
+  
+
+    .offer-container {
+        flex-direction: column; /* Stack offer items vertically on small screens */
+    }
+    
+    .offer-one {
+        width: 100%; /* Make offer items full width */
+    }
 }

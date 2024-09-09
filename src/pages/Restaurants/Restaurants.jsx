@@ -1,6 +1,7 @@
 import React from "react";
 import "./Restaurants.css";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 export const Restaurants = () => {
   const restaurantData = [
@@ -55,7 +56,7 @@ export const Restaurants = () => {
             className="col-lg-4 col-md-6 col-sm-6 col-12 mt-3"
             key={restaurant.id}
           >
-            <div className=" restaurant-card">
+             <Link to="/restaurantview"> <div className=" restaurant-card">
               <img
                 src={restaurant.largeImage}
                 className="card-img-top"
@@ -84,7 +85,7 @@ export const Restaurants = () => {
                     : "Open now"}
                 </button>
               </div>
-            </div>
+            </div></Link>
           </div>
         ))}
       </div>

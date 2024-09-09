@@ -46,12 +46,12 @@ const RestaurantView = () => {
 
       <div className="dealsforyou">
         <div className="btn-container">
-          <p style={{ fontSize: 'large', fontWeight: 'bold' }}>Deals for you</p>
+          <p>Deals for you</p>
           <div className="btn-container">
-            <button style={{ width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid gray', backgroundColor: 'gray', color: '#fff', padding: '0', textAlign: 'center', fontSize: '14px' }} type="button" className="btn btn-outline-dark">
+            <button  type="button" className="btn btn-outline-dark">
               <BsArrowLeftShort style={{ fontSize: '2rem' }} />
             </button>
-            <button style={{ width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid gray', backgroundColor: 'gray', color: '#fff', padding: '0', textAlign: 'center', fontSize: '14px' }} type="button" className="btn btn-outline-dark">
+            <button type="button" className="btn btn-outline-dark">
               <TiArrowRight style={{ fontSize: '2rem' }} />
             </button>
           </div>
@@ -98,18 +98,18 @@ const RestaurantView = () => {
                 >
                   <div className="accordion-body">
                     {itemCards.map((item, itemIndex) => (
-                      <div key={itemIndex} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                      <div key={itemIndex} style={{ display: 'flex', justifyContent: 'space-between',borderBottom: '1px solid gray', marginBottom: '10px' }}>
                         <div>
                           <p>{item.card.info.name}</p>
                           <p>₹{Math.floor(item.card.info.price / 100)}</p>
                         </div>
-                        <div style={{ position: 'relative' }}>
+                        <div  className="accordion-add-img" >
                           <img
-                            style={{ width: '100px', height: '100px' }}
+                            style={{ width: '100px', height: '100px',borderRadius:'10px' }}
                             src={item.card.info.imageId ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item.card.info.imageId}` : 'https://via.placeholder.com/100'}
                             alt={item.card.info.name}
                           />
-                          <button style={{ padding: '5px', backgroundColor: 'green', outline: 'none', border: 'none', position: 'absolute', bottom: '0px', right: '25px' }}>Add</button>
+                          <button className="add-btn" >Add</button>
                         </div>
                       </div>
                     ))}
