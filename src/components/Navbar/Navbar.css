@@ -110,6 +110,33 @@
   color: green;
 }
 
+
+/* card items */
+
+.navbar-search-icon{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-search-icon div{
+  width: 20px;
+  padding: 12px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -15px;
+  left: 15px;
+}
+.navbar-search-icon p{
+  font-size: x-small;
+  padding-top: 15px;
+}
+
 @media (max-width: 1050px) {
   .navbar .logo {
     width: 140px;
