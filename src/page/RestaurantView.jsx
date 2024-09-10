@@ -129,7 +129,7 @@ const RestaurantView = () => {
                             src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item.card.info.imageId}`}
                             alt={item.card.info.name}
                           />
-                          <button onClick={()=> addHandler(item)} className="add-btn" >Add</button>
+                          <button onClick={(e)=> { e.stopPropagation(); addHandler(item)}} className="add-btn" >Add</button>
                         </div>
                       </div>
                     ))}
