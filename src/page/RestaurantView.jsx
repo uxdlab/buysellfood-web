@@ -12,7 +12,7 @@ const RestaurantView = () => {
   const [currentItem, setCurrentItem] = useState(null);
   const { addItem } = useContext(StoreContext);
 
-  // Sample restaurant data
+  // Sample restaurant data with additional details
   const restaurantData = [
     {
       id: 1,
@@ -21,6 +21,8 @@ const RestaurantView = () => {
       name: "Foodworld",
       rating: "4.5",
       status: "active",
+      description: "Delicious food from around the world.",
+      priceRange: "₹300-₹600"
     },
     {
       id: 2,
@@ -29,6 +31,8 @@ const RestaurantView = () => {
       name: "Foodworld",
       rating: "4.5",
       status: "active",
+      description: "Tasty and fresh ingredients.",
+      priceRange: "₹250-₹550"
     },
     {
       id: 3,
@@ -37,6 +41,8 @@ const RestaurantView = () => {
       name: "Foodworld",
       rating: "4.5",
       status: "inactive",
+      description: "A variety of international dishes.",
+      priceRange: "₹400-₹700"
     },
     {
       id: 4,
@@ -45,6 +51,8 @@ const RestaurantView = () => {
       name: "Foodworld",
       rating: "4.5",
       status: "active",
+      description: "Authentic flavors and recipes.",
+      priceRange: "₹350-₹650"
     },
     {
       id: 5,
@@ -53,6 +61,8 @@ const RestaurantView = () => {
       name: "Foodworld",
       rating: "4.5",
       status: "active",
+      description: "Experience global cuisine.",
+      priceRange: "₹300-₹600"
     },
   ];
 
@@ -117,20 +127,32 @@ const RestaurantView = () => {
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target={`#collapse${index}`}
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-controls={`collapse${index}`}
                 >
-                  {item.name} (Rating: {item.rating})
+                  {item.name}
                 </button>
               </h2>
               <div
                 id={`collapse${index}`}
-                className="accordion-collapse collapse show"
+                className="accordion-collapse collapse"
                 aria-labelledby={`heading${index}`}
                 data-bs-parent="#accordionExample"
               >
                 <div className="accordion-body">
-                  <strong>{item.name}</strong> - Rating: {item.rating}
+                  <div className="accordion-body-content" style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                    
+                    <div className="accordion-text">
+                      <p><strong>{item.name}</strong></p>
+                      <p>Rating: {item.rating}</p>
+                      <p>Description: {item.description}</p>
+                      <p>Price Range: {item.priceRange}</p>
+                    </div>
+                    <div className="accordion-image-container " style={{display:'flex',justifyContent:'end',alignItems:'center',position:'relative'}}>
+                      <img src={item.largeImage} alt={item.name} style={{width:"100px",height:'100px',borderRadius:'20px'}} className="accordion-image" />
+                      <button className="add-btn" style={{position:'absolute',bottom:'0px',right:'10px'}} onClick={() => addHandler(item)}>Add</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
