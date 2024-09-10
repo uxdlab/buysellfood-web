@@ -4,9 +4,7 @@ import FoodItem from "../FoodItem/FoodItem";
 import { assets } from "../../assets/assets";
 
 const FoodDisplay = ({ category }) => {
-  //   const { food_list } = useContext(StoreContext);
-  //   let menu = assets.menu_1;
-  // Static data for mapping
+  
   const staticFoodList = [
     {
       _id: "1",

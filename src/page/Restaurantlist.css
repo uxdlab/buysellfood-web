@@ -1,19 +1,28 @@
-.container{
-    width: 80%; 
-    margin: auto;
-    padding: 20px; 
-}
-.restaurantlist{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 20px;
-    box-shadow: 0 4px 8px rgba(108, 248, 162, 0.2); 
-    
-}
-.onecard{
-    width: 250px;
-    border-radius: 20px;
-    padding: 10px;
-    height: 300px;
-}
+.rest-display {
+    margin-top: 30px;
+  }
+  .rest-display h2 {
+    font-weight: 600;
+  }
+  
+  .restaurant-card {
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top {
+    /* width: 270px; */
+    height: 275px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .restaurant-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .restaurant-rating {
+    font-size: 1rem;
+    color: #f39c12;
+  }
+  
