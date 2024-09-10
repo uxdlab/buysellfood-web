@@ -129,6 +129,7 @@ const RestaurantView = () => {
                   data-bs-target={`#collapse${index}`}
                   aria-expanded="false"
                   aria-controls={`collapse${index}`}
+                  style={{fontWeight:'bold'}}
                 >
                   {item.name}
                 </button>
