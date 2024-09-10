@@ -6,13 +6,15 @@ import { offerUrl } from "../constant";
 import { StoreContext } from "../context/StoreContext";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Add Bootstrap CSS import
 import { assets } from "../assets/assets";
+import { AiOutlineClose } from "react-icons/ai";
+
 
 const RestaurantView = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
   const { addItem } = useContext(StoreContext);
 
-  // Sample restaurant data with additional details
+
   const restaurantData = [
     {
       id: 1,
@@ -22,7 +24,7 @@ const RestaurantView = () => {
       rating: "4.5",
       status: "active",
       description: "Delicious food from around the world.",
-      priceRange: "₹300-₹600"
+      priceRange: "₹300"
     },
     {
       id: 2,
@@ -32,7 +34,7 @@ const RestaurantView = () => {
       rating: "4.5",
       status: "active",
       description: "Tasty and fresh ingredients.",
-      priceRange: "₹250-₹550"
+      priceRange: "₹250"
     },
     {
       id: 3,
@@ -42,7 +44,7 @@ const RestaurantView = () => {
       rating: "4.5",
       status: "inactive",
       description: "A variety of international dishes.",
-      priceRange: "₹400-₹700"
+      priceRange: "₹400"
     },
     {
       id: 4,
@@ -52,7 +54,7 @@ const RestaurantView = () => {
       rating: "4.5",
       status: "active",
       description: "Authentic flavors and recipes.",
-      priceRange: "₹350-₹650"
+      priceRange: "₹350"
     },
     {
       id: 5,
@@ -62,7 +64,7 @@ const RestaurantView = () => {
       rating: "4.5",
       status: "active",
       description: "Experience global cuisine.",
-      priceRange: "₹300-₹600"
+      priceRange: "₹300"
     },
   ];
 
@@ -72,7 +74,7 @@ const RestaurantView = () => {
   };
 
   const handleShowPopup = (item) => {
-    setCurrentItem(item);
+    setCurrentItem(item)
     setShowPopup(true);
   };
 
@@ -149,9 +151,9 @@ const RestaurantView = () => {
                       <p>Description: {item.description}</p>
                       <p>Price Range: {item.priceRange}</p>
                     </div>
-                    <div className="accordion-image-container " style={{display:'flex',justifyContent:'end',alignItems:'center',position:'relative'}}>
-                      <img src={item.largeImage} alt={item.name} style={{width:"100px",height:'100px',borderRadius:'20px'}} className="accordion-image" />
-                      <button className="add-btn" style={{position:'absolute',bottom:'0px',right:'10px'}} onClick={() => addHandler(item)}>Add</button>
+                    <div className="accordion-add-img " onClick={()=>handleShowPopup(item)} style={{display:'flex',justifyContent:'end',alignItems:'center',position:'relative'}}>
+                      <img src={item.largeImage} alt={item.name} style={{width:"100px",cursor:'pointer',height:'100px',borderRadius:'20px'}} className="accordion-image" />
+                      <button className="add-btn" style={{position:'absolute',bottom:'0px',right:'10px'}} onClick={(e) => (e.stopPropagation(), addHandler(item))}>Add</button>
                     </div>
                   </div>
                 </div>
@@ -160,6 +162,30 @@ const RestaurantView = () => {
           ))}
         </div>
       </div>
+
+          {showPopup && (
+                <div className="popup">
+                   <img src={currentItem.largeImage} alt="" />
+                  <div className="popup-content">
+                  <div>
+                    <p>{currentItem.name}</p>
+                    <p>{currentItem.priceRange}</p>
+                    <p>✨{currentItem.rating}Rating</p>
+                  </div>
+                  <div>
+                  <button onClick={()=> addHandler(currentItem)} className="popup-add" >Add</button>
+                  </div>
+                </div>
+
+                <div onClick={() => setShowPopup(false)} className="popup-close">
+                  <AiOutlineClose style={{fontSize:'1.5rem'}}/>
+                </div>
+
+                </div>
+
+              )} 
+
+
     </div>
   );
 };
