@@ -73,7 +73,7 @@ const Restaurantlist = () => {
 
   return (
     <div className="food-display" id="food-display">
-      <h2>Top dishes near you</h2>
+      <h2>Restaurant List</h2>
       <div className="food-display-list">
         {staticFoodList.map((item) => (
           <Link to="/restaurantview"><div key={item._id} className="food-item">
