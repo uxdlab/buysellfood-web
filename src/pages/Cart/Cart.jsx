@@ -9,8 +9,8 @@ const Cart = () => {
   });
 
   const [food_list] = useState([
-    { id: '1', name: 'Burger', price: 500, imageId: 'burger_image' },
-    { id: '2', name: 'Pizza', price: 800, imageId: 'pizza_image' },
+    { id: '1', name: 'Burger', price: 500, imageId: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh' },
+    { id: '2', name: 'Pizza', price: 800, imageId: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh' },
   ]);
 
   const [selectedItem] = useState([
@@ -52,7 +52,7 @@ const Cart = () => {
           <div key={index}>
             <div className="cart-items-row cart-items-item">
               <img
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item.card.info.imageId}`}
+                src={item.card.info.imageId}
                 alt="item"
               />
               <p>{item.card.info.name}</p>
