@@ -54,11 +54,26 @@ Default styles
     font-size: large;
     font-weight: bold;
 }
-
-.btn-container button {
+.btn-group{
+    display: flex;
+    gap: 20px;
+}
+.btn-group button{
     width: 40px;
     height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
+    border: none;
+    background-color: #898484;
+    outline: none;
+}
+
+/* .btn-container button {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +83,7 @@ Default styles
     padding: 0;
     text-align: center;
     font-size: 14px;
-}
+} */
 
 /* Offer container styles */
 .offer-container {

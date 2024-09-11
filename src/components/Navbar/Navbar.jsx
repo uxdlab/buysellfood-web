@@ -56,21 +56,51 @@ const Navbar = ({ setShowLogin }) => {
 
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
-        <div className="navbar-search-icon ">
-          <Link to={"/cart"} style={{cursor:'pointer'}}>
-            <img src={assets.basket_icon}  alt="" />
 
+        <Link to={"/cart"} style={{cursor:'pointer'}}>
+        <div className="navbar-search-icon"> 
+            <img src={assets.basket_icon} className="basket-image"  alt="" />
             {selectedItem.length === 0 ? (
-              ""
+              <div className="cart-empty-div">
+              <h2>Cart Empty</h2>
+              <p>Good food is always cooking! Go ahead, order some yummy items from the menu.</p>
+            </div>
             ) : (
-              <div>
+              <div className="cart-number-wrapper">
+              <div id="cart-number">
                 <p style={{ fontSize: "1.5rem", color: "white" }}>
                   {selectedItem.length}
                 </p>
               </div>
+              <div className="cart-empty-div">
+                <div>
+                    <img style={{width:'100px',height:'100px',borderRadius:'10px'}} src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh' alt="image" />
+                    <div className="first">
+                      <p>Satkar Restaurant</p>
+                      <p>Satkar Chowk</p>
+                      <p style={{color:'green'}}>View Full Menu</p>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                  <p>food Name</p>
+                  <p>$50</p>
+                </div>
+                <hr />
+                <div>
+                  <p>subTotoal</p>
+                  <p>$50</p>
+                </div>
+                <button onClick={()=> navigate('/cart')} style={{width:'100%',backgroundColor:'green',color:'white'}}>CheckOut</button>
+            </div>
+              </div>
             )}
-          </Link>
-        </div>
+
+            
+
+        </div></Link>
+
+
 
         {!token ? (
           <button onClick={() => setShowLogin(true)}>sign in</button>

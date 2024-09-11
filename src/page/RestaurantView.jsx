@@ -98,11 +98,11 @@ const RestaurantView = () => {
         <div className="btn-container">
           <p>Deals for you</p>
           <div className="btn-group">
-            <button type="button" className="btn btn-outline-dark">
-              <BsArrowLeftShort style={{ fontSize: '2rem' }} />
+            <button type="button">
+              <BsArrowLeftShort style={{ fontSize: '2rem',color:'white' }} />
             </button>
-            <button type="button" className="btn btn-outline-dark">
-              <TiArrowRight style={{ fontSize: '2rem' }} />
+            <button type="button">
+              <TiArrowRight style={{ fontSize: '2rem',color:"white" }} />
             </button>
           </div>
         </div>
