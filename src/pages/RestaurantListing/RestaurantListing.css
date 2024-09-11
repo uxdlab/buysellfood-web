@@ -1,0 +1,31 @@
+.restaurant-container{
+    padding-left: 10px;
+}
+.restaurant-heading{
+    color: gray;
+}
+.restaurant-heading span{
+    color: green;
+}
+.heading-container{
+    width: 40%;
+}
+.heading-container p{
+    color: gray;
+}
+
+
+
+
+/* 
+client details */
+
+
+.client{
+    width: 100%;
+    display: flex;
+
+}
+.client-first{
+    width: 50%;
+}

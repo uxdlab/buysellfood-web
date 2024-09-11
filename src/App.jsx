@@ -10,9 +10,9 @@ import Verify from "./pages/Verify/Verify"
 import MyOrders from "./pages/MyOrders/MyOrders"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RestaurantView from "./page/RestaurantView"
-import RestaurantList from "./page/RestaurantList"
+import RestaurantView from "./pages/RestaurantView/RestaurantView"
 import AddressSlider from "./components/AddressSlider/AddressSlider"
+import RestaurantListing from "./pages/RestaurantListing/RestaurantListing"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/restaurantview" element={<RestaurantView />} />
-          <Route path="/restaurantlist" element={<RestaurantList/>}/>
+          <Route path="/restaurantlist" element={<RestaurantListing/>}/>
           <Route path="/address" element={<AddressSlider/>}/>
 
         </Routes>

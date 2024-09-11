@@ -1,0 +1,58 @@
+
+/* Card.css */
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 20px;
+
+}
+.card {
+    margin: 10px 0px ;
+    width: 450px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+.card-content{
+    display: flex;
+    flex-direction: column;
+}
+.card-content-one, .card-content-two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-content-one p{
+    font-weight: bolder;
+    padding-top: 10px;
+}
+
+.card-content-one div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: green;
+    background-color: green;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+.card-content-two div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+    color: gray;
+}
+.card-content-two p{
+    margin-top: -10px;
+    color: green;
+
+}
