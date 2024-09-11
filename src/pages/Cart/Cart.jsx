@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import './Cart.css';
 import { useNavigate } from 'react-router-dom';
+import AddressSlider from '../../components/AddressSlider/AddressSlider';
 
 const Cart = () => {
+
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleSlider = () => {
+    setIsVisible(!isVisible)
+    
+  };
+
   const [cartItems, setCartItems] = useState({
     '1': 2,
     '2': 1,
@@ -96,6 +106,7 @@ const Cart = () => {
           >
             PROCEED TO CHECKOUT
           </button>
+          <button   onClick={toggleSlider}>Address</button>
         </div>
         <div className="cart-promocode">
           <p>If you have a promo code, Enter it here</p>
@@ -105,6 +116,11 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
+          <div>
+           <AddressSlider isVisible={isVisible} onClose={toggleSlider} />
+          </div>
+
     </div>
   );
 };

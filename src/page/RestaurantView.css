@@ -70,20 +70,7 @@ Default styles
     outline: none;
 }
 
-/* .btn-container button {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid gray;
-    background-color: gray;
-    color: white;
-    padding: 0;
-    text-align: center;
-    font-size: 14px;
-} */
+
 
 /* Offer container styles */
 .offer-container {
