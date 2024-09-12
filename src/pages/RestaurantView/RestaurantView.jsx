@@ -86,7 +86,10 @@ const RestaurantView = () => {
       <div className="restaurantview-container">
 
           <div className="banner">
-              <img src={rectangle} alt="" />
+              <img src={rectangle} alt="banner image" />
+
+              
+
           </div>
 
           <div className="offer-title">

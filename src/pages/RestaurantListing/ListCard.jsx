@@ -3,11 +3,12 @@ import React from 'react';
 import "./ListCard.css"
 import { CiStar } from "react-icons/ci";
 import { IoMdTime } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 
 const ListCard = ({ name, description, price, image }) => (
   <div className='card-container'>
-  <div className="card" style={{border:'none'}}>
+   <Link to="/restaurantview" style={{textDecoration:'none'}}><div className="card" style={{border:'none',}} >
     <img src={image} alt={name} className="card-image" />
     <div className="card-content">
       <div className="card-content-one">
@@ -20,7 +21,7 @@ const ListCard = ({ name, description, price, image }) => (
         </div>
      
     </div>
-  </div>
+  </div></Link>
   </div>
 );
 

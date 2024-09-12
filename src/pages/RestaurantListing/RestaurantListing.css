@@ -36,6 +36,7 @@ client details */
     padding: 20px;
     flex-direction: column;
     border-radius: 20px;
+    position: relative;
 }
 .client-profile{
     display: flex;
@@ -54,6 +55,30 @@ client details */
 .client-description{
     text-align: center;
     color: gray;
-    padding-top: 20px;
+    padding: 20px 20px;
     font-size: small;
+
+}
+
+.client-btn-left, .client-btn-right  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    background-color: #13B251; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    position: absolute;
+}
+.client-btn-left:hover,
+.client-btn-right:hover {
+  background-color: #28df6e; /* Darker background color on hover */
+}
+
+.client-btn-left:active,
+.client-btn-right:active {
+  background-color: #20d264; /* Even darker background color on active */
+  transform: scale(0.98); /* Slightly scale down the button on click */
 }
