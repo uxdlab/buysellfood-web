@@ -2,6 +2,7 @@ import "./Restaurantlist.css";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 
+
 const Restaurantlist = () => {
   
   const staticFoodList = [

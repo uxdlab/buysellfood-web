@@ -1,0 +1,21 @@
+
+.card-div{
+    width: 450px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    box-shadow: 2px 3px 4px 1px gainsboro;
+}
+.card-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-details .first{
+    font-size:large;
+    font-weight: bold;
+}
+.card-details .second{
+    margin-top: -60px;
+    color: gray;
+}

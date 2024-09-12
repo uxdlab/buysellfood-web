@@ -1,0 +1,18 @@
+.button-container {
+    display: flex;
+    gap: 10px; /* Adjust gap as needed */
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* This makes the div circular */
+    background-color: #13B251; /* Adjust background color as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for a 3D effect */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+  }
+  
+  

@@ -102,23 +102,23 @@ const RestaurantListing = () => {
         </div>
 
           <div className="client-container">
-            <h2>Our Happy Client Says</h2>
+            <h2 style={{textAlign:'center',fontWeight:'bold',marginTop:'20px'}}>Our Happy Client Says</h2>
             <div className='client'>
                 <div className="client-first">
-                    <div>
+                    <div className='client-profile'>
                       <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/corporate-user-icon.png" alt="image" />
-                      <div>
+                      <div className='client-name-container'>
                           <p>john cina</p>
-                          <p>ceo & Co founder</p>
+                          <p style={{color:'gray'}}>ceo & Co founder</p>
                       </div>
                     </div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore praesentium saepe ipsam. Consequuntur dolorem quidem,
+                    <div className='client-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore praesentium saepe ipsam. Consequuntur dolorem quidem,
                          excepturi quis cupiditate nam in sapiente fuga dignissimos qui aspernatur debitis veritatis tempora. Repellat, ratione! Illo aliquam,
                          iusto quam animi corrupti, repellendus repudiandae commodi, modi qui cumque id cupiditate ut quidem quibusdam facere libero voluptatem!
                       </div>
                 </div>
-                <div className="second">
-                    <img src={staticFoodList[0].image} alt="" />
+                <div className="client-second">
+                    <img style={{borderRadius:"20px"}} src={staticFoodList[0].image} alt="" />
                 </div>
             </div>
           </div>

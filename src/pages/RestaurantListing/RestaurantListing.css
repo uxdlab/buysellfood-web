@@ -11,7 +11,7 @@
     width: 40%;
 }
 .heading-container p{
-    color: gray;
+    color: rgb(195, 192, 192);
 }
 
 
@@ -24,8 +24,36 @@ client details */
 .client{
     width: 100%;
     display: flex;
+    gap: 40px;
 
 }
 .client-first{
+    background-color: antiquewhite;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.client-profile{
+    display: flex;
+    align-items: center;
+}
+.client-name-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 5px;
+    font-weight: bold;
+}
+.client-name-container p{
+    margin: 0px;
+}
+.client-description{
+    text-align: center;
+    color: gray;
+    padding-top: 20px;
+    font-size: small;
 }
