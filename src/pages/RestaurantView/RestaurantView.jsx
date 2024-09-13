@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RestaurantCard from './RestaurantCard';
 import rectangle from "../../assets/rectangle.png"
 import map from "../../assets/map.png"
@@ -9,12 +9,21 @@ import { MdApps } from 'react-icons/md';
 import ButtonWithArrows from '../../helper/ButtonWithArrows';
 import { MdOutlineElectricBike } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
+import AddFoodPopup from './AddFoodPopup';
 
 
 
 
 
 const RestaurantView = () => {
+
+  
+  const [isVisible,setisVisible] = useState(false)
+
+  const toggleHandle = () =>{
+    setisVisible(!isVisible)
+  }
+
 
   const staticFoodList = [
     {
@@ -145,15 +154,21 @@ const RestaurantView = () => {
                   description={foodItem.description}
                   price={foodItem.price}
                   image={foodItem.image}
+                  openPopup={toggleHandle}
                 />
                 ))}
               </div>
+
+               
 
                 <div className='view-more-container'>
                   <button>View More</button>
                 </div>
             </div>
-
+            {
+              isVisible &&  <AddFoodPopup openPopup={toggleHandle} closePopup={toggleHandle}/>
+            }
+           
 
             <div className="box-four-container">
               <h2 className='menu-heading'>Explore Our Complete Menu</h2>

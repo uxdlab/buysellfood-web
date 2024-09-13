@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './RestaurantCard.css'
 import { BsPlusCircleFill } from "react-icons/bs";
 
 
-const RestaurantCard = ({ name, description, price, image }) => {
+const RestaurantCard = ({ name, description, price, image,openPopup }) => {
+
   return (
 
         <div className="card-div">
@@ -15,7 +16,7 @@ const RestaurantCard = ({ name, description, price, image }) => {
             <div style={{width:'150px',height:'150px',position:'relative'}}>
               <img src={image} style={{width:'100%',height:"100%",borderRadius:'20px'}} alt="" />
               <div className='add-btn'>
-                <BsPlusCircleFill/>
+                <BsPlusCircleFill  onClick={openPopup}/>
               </div>
             </div>
 
