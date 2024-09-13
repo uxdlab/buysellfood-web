@@ -97,11 +97,11 @@ const RestaurantListing = () => {
             <p>A classic Margherita pizza with a crispy crust, topped with rich tomato sauce, creamy mozzarella, fresh basil, and a drizzle of extra virgin olive oil.</p>
         </div>
 
-        <div className="heading-btn">
+        {/* <div className="heading-btn">
             <button>filter</button>
             <button>pizza</button>
             <button>sort by</button>
-        </div>
+        </div> */}
         
 
         <div className="card-containerlist">

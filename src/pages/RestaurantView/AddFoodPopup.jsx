@@ -33,6 +33,14 @@ const AddFoodPopup = ({closePopup}) => {
               <button style={{backgroundColor:'white'}}>Small</button>
               <button className='button-price'>$513</button>
             </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
      
         </div>
 
@@ -44,15 +52,15 @@ const AddFoodPopup = ({closePopup}) => {
                 <p>Say Cheese!</p>
             <div className='lable-box'>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline/>Double Cheese Slice</label>
+                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Double Cheese Slice</label>
                     <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline/>Truple Cheese Slice</label>
+                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Truple Cheese Slice</label>
                     <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline/>Loaded Cheese Slice</label>
+                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Loaded Cheese Slice</label>
                     <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
             </div>   
@@ -60,15 +68,15 @@ const AddFoodPopup = ({closePopup}) => {
             <p>Extra Chicken Piece!</p>
             <div className='lable-box'>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline/>Double Cheese Slice</label>
+                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Double Cheese Slice</label>
                     <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline/>Truple Cheese Slice</label>
+                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Truple Cheese Slice</label>
                     <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline/>Loaded Cheese Slice</label>
+                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Loaded Cheese Slice</label>
                     <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
             </div>                
