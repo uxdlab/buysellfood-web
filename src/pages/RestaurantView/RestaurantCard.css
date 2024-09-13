@@ -4,7 +4,9 @@
     display: flex;
     padding: 10px;
     justify-content: space-between;
-    box-shadow: 2px 3px 4px 1px gainsboro;
+    border:  2px solid ghostwhite;
+    border-radius: 10px;
+
 }
 .card-details{
     display: flex;

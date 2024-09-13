@@ -182,7 +182,6 @@ offer title */
 .navigation-card-container {
     display: flex;
     width: 100%;
-    box-shadow: 10px 2px 10px 4px gainsboro;
     overflow: hidden; /* Prevent content from overflowing the container */
 }
 
@@ -192,9 +191,10 @@ offer title */
 
 .navigation {
     width: 25%;
-    box-shadow: 10px 2px 10px 4px gainsboro;
+    border: 1px solid gainsboro;
     display: flex;
     flex-direction: column; 
+    border-radius: 10px;
     overflow-y: auto; 
 }
 
