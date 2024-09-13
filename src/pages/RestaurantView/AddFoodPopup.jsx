@@ -25,10 +25,15 @@ const AddFoodPopup = ({closePopup}) => {
           </div>
         </div>
         <div className="btn-container">
-            <div className='buttons'>
-              <button>Small</button>
+            <div className='buttons' style={{backgroundColor:'black'}}>
+              <button style={{backgroundColor:'black',color:'white'}}>Small</button>
               <button>$513</button>
             </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+     
         </div>
 
         <div className="secondbox">
