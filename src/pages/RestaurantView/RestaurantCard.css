@@ -19,3 +19,15 @@
     margin-top: -60px;
     color: gray;
 }
+
+.add-btn{
+    font-size: 2rem;
+    background-color: white;
+    opacity: 80%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 0px 10px;
+    border-top-left-radius: 20px;
+    cursor: pointer;
+}

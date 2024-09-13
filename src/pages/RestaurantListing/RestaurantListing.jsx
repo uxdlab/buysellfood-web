@@ -9,6 +9,18 @@ import { useNavigate } from 'react-router-dom';
 const RestaurantListing = () => {
   const navigate = useNavigate()
 
+  const clients = [
+  {
+    name: 'John Cena',
+    role: 'CEO & Co-Founder',
+    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore praesentium saepe ipsam. Consequuntur dolorem quidem,
+      excepturi quis cupiditate nam in sapiente fuga dignissimos qui aspernatur debitis veritatis tempora. Repellat, ratione! Illo aliquam,
+      iusto quam animi corrupti, repellendus repudiandae commodi, modi qui cumque id cupiditate ut quidem quibusdam facere libero voluptatem!`,
+    imageUrl: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/corporate-user-icon.png',
+  },
+  // Add more client objects here if needed
+];
+
   const staticFoodList = [
     {
       _id: "1",
@@ -93,7 +105,7 @@ const RestaurantListing = () => {
         </div>
         
 
-        <div className="card-container">
+        <div className="card-containerlist">
         {staticFoodList.map(foodItem => (
           <ListCard
             key={foodItem._id}

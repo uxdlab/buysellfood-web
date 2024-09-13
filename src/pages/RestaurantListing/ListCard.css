@@ -1,6 +1,6 @@
 
 /* Card.css */
-.card-container{
+.card-containerlist{
     display: flex;
     flex-wrap: wrap;
     justify-content: start;

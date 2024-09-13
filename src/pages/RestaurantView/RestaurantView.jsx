@@ -7,6 +7,10 @@ import { assets } from '../../assets/assets';
 import { IoIosRestaurant } from "react-icons/io";
 import { MdApps } from 'react-icons/md';
 import ButtonWithArrows from '../../helper/ButtonWithArrows';
+import { MdOutlineElectricBike } from "react-icons/md";
+import { IoTimeOutline } from "react-icons/io5";
+
+
 
 
 
@@ -20,6 +24,7 @@ const RestaurantView = () => {
       price: 12.99,
       image: assets.img1,
       category: "Pizza",
+      rating: 3.4,
     },
     {
       _id: "2",
@@ -88,6 +93,26 @@ const RestaurantView = () => {
           <div className="banner">
               <img src={rectangle} alt="banner image" />
 
+              <div className="absolute-banner">
+                <div className="leftside">
+                    <p>I'm Lovin' it!</p>
+                    <p id='name'>The Melting Pie</p>
+                    <button className='delivery-btn'><MdOutlineElectricBike /><span>Delivery in 20-25 minutes</span></button>
+                </div>
+                <div className="rightside">
+                        <div className="restaurant-img">
+                          <img style={{width:'100%',width:'100%'}} src={staticFoodList[0].image} alt="" />
+                          <div className='rating'>
+                            <p style={{fontSize:'3rem'}}>{staticFoodList[0].rating}</p>
+                            <p style={{fontSize:'small'}}>star star</p>
+                            <p style={{fontSize:'small'}}>1.360 views</p>
+                        </div>
+                        </div>
+                        
+                </div>
+              </div>
+
+              <button className=' open-timing'> <IoTimeOutline style={{fontSize:'2rem',fill:'white',marginRight:"20px"}} />Open until 3:00 AM</button>
               
 
           </div>
@@ -112,7 +137,7 @@ const RestaurantView = () => {
 
             <div className="box-three-container">
               <h2>Pizza</h2>
-              <div className="card-container">
+              <div className=" card-container-three">
               {staticFoodList.map(foodItem => (
                 <RestaurantCard
                   key={foodItem._id}
@@ -151,7 +176,7 @@ const RestaurantView = () => {
                           <p>Sauces</p>
                         </div>
                       </div>
-                      <div className="cards card-container">
+                      <div className="cards-container-four ">
                       {staticFoodList.map(foodItem => (
                       <RestaurantCard
                         key={foodItem._id}
@@ -251,6 +276,32 @@ const RestaurantView = () => {
                         </div>
 
 
+
+                        <div className="review-card">
+                            <div className="review-img">
+                            <img style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'20px'}} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
+                            </div>
+                           
+
+                            <div className="review-details">
+                              <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="" />
+                                <div className='name-details'>
+                                  <p style={{color:'black',marginBottom:'-3px'}}>St Glx</p>
+                                  <p>South Dublin</p>
+                                </div>
+                                <div>
+                                  star ratings
+                                </div>
+                                
+                            </div>
+
+                            <p className='date'>24th September,2024</p>
+                            <p className=' date review'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                               Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad
+                               fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.</p>
+
+                        </div>
+                        
 
                         <div className="review-card">
                             <div className="review-img">
