@@ -1,7 +1,7 @@
 import React from 'react'
 import ListCard from './ListCard';
 import { assets } from '../../assets/assets';
-import './restaurantListing.css'
+import './RestaurantListing.css'
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
