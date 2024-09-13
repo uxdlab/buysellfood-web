@@ -199,6 +199,7 @@ const RestaurantView = () => {
                         description={foodItem.description}
                         price={foodItem.price}
                         image={foodItem.image}
+                        openPopup={toggleHandle}
                       />
                       ))}
                       </div>

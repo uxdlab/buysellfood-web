@@ -4,10 +4,9 @@ import { assets } from '../../assets/assets';
 import './RestaurantListing.css'
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 
 const RestaurantListing = () => {
-  const navigate = useNavigate()
+
 
   const clients = [
   {
