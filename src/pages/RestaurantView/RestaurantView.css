@@ -1,3 +1,4 @@
+
 .banner {
     position: relative;
     width: 100%;
@@ -11,6 +12,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+
 }
 
 .banner::before {
@@ -36,8 +38,14 @@
     height: 100%;
     padding: 30px;
 }
+.leftside{
+    background-color: green;
+}
+.right-side{
+ 
+}
 .leftside #name{
-    font-size: 3rem;
+    font-size: 3.5vw;
     color: white;
 }
 .leftside p{
@@ -50,7 +58,7 @@
     padding: 5px 20px;
     border-radius: 30px;
     outline: none;
-    font-size: 2rem;
+    font-size: 2vw;
     background-color: transparent;
     border: 1px solid gray;
     display: flex;
@@ -60,15 +68,30 @@
     margin-top: 40px;
 }
 .delivery-btn span{
-    font-size: 1rem;
+    font-size: 1.5vw;
     font-weight: bold;   
 }
-.restaurant-img{
+.restaurant-img {
     border-radius: 20px;
-    width: 500px;
+    background-color: aqua;
+    width: 100%;
     height: 291px;
     position: relative;
 }
+.restaurant-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    height: 100%;
+    background: black;
+    opacity: 45%; /* Blue color with 50% opacity */
+    border-radius: 20px;
+    pointer-events: none; /* Allow clicks to pass through the overlay */
+}
+
+
 .open-timing{
     position: absolute;
     bottom: 0px;
@@ -110,6 +133,7 @@ offer title */
     justify-content: space-between;
     align-items: center;
     margin: 20px;
+    gap: 10%;
 }
 .offer-title p{
     font-size: 1.5rem;
@@ -131,7 +155,11 @@ offer title */
 .offer-image-container{
     display: flex;
     justify-content: space-between;
-    margin: 20px 0px;
+    gap: 5%;
+    padding-top: 10px;
+    overflow-x: scroll;
+    overflow: auto;
+
 }
 .offer-image{
     width: 450px;
@@ -139,7 +167,7 @@ offer title */
     border-radius: 20px;
 }
 .offer-image img{
-    width: 100%;
+    width: 450px;
     height: 100%;
     border-radius: 20px;
     object-fit: cover;
@@ -170,12 +198,12 @@ offer title */
     color: white;
     border: none;
 }
-.card-container-three{
-    display:flex ;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 4%;
+.card-container-three {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 30px;
 }
+
 
 /* box-four-container */
 

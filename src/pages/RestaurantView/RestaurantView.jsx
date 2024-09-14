@@ -112,7 +112,7 @@ const RestaurantView = () => {
                         <div className="restaurant-img">
                           <img style={{width:'100%'}} src={staticFoodList[0].image} alt="" />
                           <div className='rating'>
-                            <p style={{fontSize:'3rem'}}>{staticFoodList[0].rating}</p>
+                            <p style={{fontSize:'3vw'}}>{staticFoodList[0].rating}</p>
                             <p style={{fontSize:'small'}}>star star</p>
                             <p style={{fontSize:'small'}}>1.360 views</p>
                         </div>
@@ -138,6 +138,17 @@ const RestaurantView = () => {
                 <div className='offer-image'>
                   <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
                 </div><div className='offer-image'>
+                  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
+                </div>
+                <div className='offer-image'>
+                  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
+                </div>
+                <div className='offer-image'>
+                  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
+                </div><div className='offer-image'>
+                  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
+                </div>
+                <div className='offer-image'>
                   <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
                 </div>
                 
@@ -231,7 +242,7 @@ const RestaurantView = () => {
               </div>
 
 
-                <div className="box-five-container">
+                <div className="box-six-container">
                       <div className='review-header'>
                         <p>Customer Reviews</p>
                         <div>
