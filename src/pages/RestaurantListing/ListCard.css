@@ -1,17 +1,9 @@
 
-/* Card.css */
-.card-containerlist{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 20px;
-
-}
 .card {
-    margin: 10px 0px ;
-    width: 450px;
+    display: flex;
+    width: 100%;
   }
-  
+
   .card-image {
     width: 100%;
     height: auto;

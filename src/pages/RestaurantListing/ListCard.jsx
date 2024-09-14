@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 const ListCard = ({ name, description, price, image }) => (
-  <div className='card-containerlist'>
+
    <Link to="/restaurantview" style={{textDecoration:'none'}}><div className="card" style={{border:'none',}} >
     <img src={image} alt={name} className="card-image" />
     <div className="card-content">
@@ -22,7 +22,6 @@ const ListCard = ({ name, description, price, image }) => (
      
     </div>
   </div></Link>
-  </div>
 );
 
 export default ListCard;

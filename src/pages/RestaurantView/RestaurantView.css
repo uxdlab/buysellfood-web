@@ -156,6 +156,12 @@ offer title */
     overflow: auto;
 
 }
+.review-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  .offer-image-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
 .offer-image{
     width: 450px;
     height: 250px;
@@ -205,7 +211,8 @@ offer title */
 .navigation-card-container {
     display: flex;
     width: 100%;
-    overflow: hidden; /* Prevent content from overflowing the container */
+    height: 100vh;
+    box-shadow: 0px 0px 10px #00000015;
 }
 
 .menu-heading {
@@ -213,12 +220,12 @@ offer title */
 }
 
 .navigation {
-    width: 25%;
+    width: 15%;
     border: 1px solid gainsboro;
     display: flex;
     flex-direction: column; 
     border-radius: 10px;
-    overflow-y: auto; 
+    overflow-x: scroll;
 }
 
 .menu {
@@ -241,17 +248,27 @@ offer title */
 .nav p {
     padding: 10px 15px;
     font-weight: bold;
+    cursor: pointer;
+}
+.nav p:hover {
+   background-color: #0A0f25;
+   color: white;
 }
 
 .cards-container-four {
-    flex: 1; 
-    margin-left: 50px;
-    overflow-y: scroll; 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 5%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    overflow-y: scroll;
 }
+.cards-container-four::-webkit-scrollbar {
+    display: none;
+  }
+  .navigation::-webkit-scrollbar {
+    display: none;
+  }
 
 
 
@@ -302,6 +319,33 @@ offer title */
     font-size: 1.5rem;
     font-weight: bold;
 }
+.review-header-btn{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+.btn-left, .btn-right  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    background-color: #13B251; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    
+}
+.btn-left:hover,
+.btn-right:hover {
+  background-color: #28df6e; /* Darker background color on hover */
+}
+
+.client-btn-left:active,
+.client-btn-right:active {
+  background-color: #20d264; /* Even darker background color on active */
+  transform: scale(0.98); /* Slightly scale down the button on click */
+}
 /* 
 .review-container */
 
@@ -315,6 +359,13 @@ offer title */
 }
 .review-card{
     width: 400px;
+    box-shadow: 0px 0px 10px #00000015;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;   
+}
+.review-card:hover{
+transform: scale(1.05);
 }
 .review-img{
     width: 400px;
@@ -346,3 +397,16 @@ offer title */
 .review{
     margin-top: -15px;
 }
+
+
+
+/* responsive */
+
+@media (max-width: 1256px){
+    .card-container-three{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2vw;
+    }
+}
+

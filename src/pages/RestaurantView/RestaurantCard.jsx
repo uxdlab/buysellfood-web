@@ -3,7 +3,7 @@ import './RestaurantCard.css'
 import { BsPlusCircleFill } from "react-icons/bs";
 
 
-const RestaurantCard = ({ name, description, price, image,openPopup }) => {
+const RestaurantCard = ({ name, price, image,openPopup }) => {
 
   return (
 

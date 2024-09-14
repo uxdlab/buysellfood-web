@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import RestaurantCard from './RestaurantCard';
 import rectangle from "../../assets/rectangle.png"
 import map from "../../assets/map.png"
 import "./RestaurantView.css"
 import { assets } from '../../assets/assets';
 import { IoIosRestaurant } from "react-icons/io";
-import { MdApps } from 'react-icons/md';
-import ButtonWithArrows from '../../helper/ButtonWithArrows';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineElectricBike } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import AddFoodPopup from './AddFoodPopup';
@@ -20,12 +19,71 @@ const RestaurantView = () => {
   
   const [isVisible,setisVisible] = useState(false)
 
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+  };
+
   const toggleHandle = () =>{
     setisVisible(!isVisible)
   }
 
+  const reviews = [
+    {
+      id: 1,
+      reviewImg: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc",
+      userImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s",
+      name: "St Glx",
+      location: "South Dublin",
+      date: "24th September, 2024",
+      review: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.",
+    },
+    {
+      id: 2,
+      reviewImg: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc",
+      userImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s",
+      name: "Jane Doe",
+      location: "New York",
+      date: "15th August, 2024",
+      review: "This is another sample review text. The product was great, and the service was exceptional.",
+    },
+    {
+      id: 3,
+      reviewImg: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc",
+      userImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s",
+      name: "St Glx",
+      location: "South Dublin",
+      date: "24th September, 2024",
+      review: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.",
+    },
+    {
+      id: 4,
+      reviewImg: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc",
+      userImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s",
+      name: "St Glx",
+      location: "South Dublin",
+      date: "24th September, 2024",
+      review: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.",
+    },
+    {
+      id: 5,
+      reviewImg: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc",
+      userImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s",
+      name: "St Glx",
+      location: "South Dublin",
+      date: "24th September, 2024",
+      review: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.",
+    },
+ 
+  ];
 
   const staticFoodList = [
+
     {
       _id: "1",
       name: "Pizza Margherita",
@@ -84,7 +142,7 @@ const RestaurantView = () => {
       category: "Cake",
     },
     {
-      _id: "7",
+      _id: "8",
       name: "Pasta",
       description: "Alfredo Pasta",
       price: 18.99,
@@ -203,6 +261,7 @@ const RestaurantView = () => {
                         </div>
                       </div>
                       <div className="cards-container-four ">
+                     
                       {staticFoodList.map(foodItem => (
                       <RestaurantCard
                         key={foodItem._id}
@@ -213,6 +272,7 @@ const RestaurantView = () => {
                         openPopup={toggleHandle}
                       />
                       ))}
+                    
                       </div>
                   </div>
             </div>
@@ -246,116 +306,52 @@ const RestaurantView = () => {
                       <div className='review-header'>
                         <p>Customer Reviews</p>
                         <div>
-                          <ButtonWithArrows/>
+                        <div className="review-header-btn">        
+                          <div className="btn-left">
+                            <MdKeyboardArrowLeft onClick={scrollLeft} style={{fontSize:'2rem'}}/>
+                          </div>
+                          <div className="btn-right ">
+                             <MdKeyboardArrowRight onClick={scrollRight} style={{fontSize:'2rem'}} />
+                          </div>
+                        </div>
+
                         </div>
                       </div>
 
-                      <div className="review-container">
 
-                        <div className="review-card">
-                            <div className="review-img">
-                            <img style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'20px'}} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
-                            </div>
-                           
+                      <div ref={scrollRef} className="review-container">
+                          {reviews.map((review) => (
+                            <div className="review-card" key={review.id}>
+                              <div className="review-img">
+                                <img 
+                                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} 
+                                  src={review.reviewImg} 
+                                  alt="Review Image" 
+                                />
+                              </div>
 
-                            <div className="review-details">
-                              <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="" />
-                                <div className='name-details'>
-                                  <p style={{color:'black',marginBottom:'-3px'}}>St Glx</p>
-                                  <p>South Dublin</p>
+                              <div className="review-details">
+                                <img 
+                                  style={{ width: '50px', height: '50px', borderRadius: '50%' }} 
+                                  src={review.userImg} 
+                                  alt="User Image" 
+                                />
+                                <div className="name-details">
+                                  <p style={{ color: 'black', marginBottom: '-3px' }}>{review.name}</p>
+                                  <p>{review.location}</p>
                                 </div>
                                 <div>
                                   star ratings
                                 </div>
-                                
+                              </div>
+
+                              <p className="date">{review.date}</p>
+                              <p className="date review">{review.review}</p>
                             </div>
-
-                            <p className='date'>24th September,2024</p>
-                            <p className=' date review'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                               Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad
-                               fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.</p>
-
+                          ))}
                         </div>
 
-                        <div className="review-card">
-                            <div className="review-img">
-                            <img style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'20px'}} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
-                            </div>
-                           
-
-                            <div className="review-details">
-                              <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="" />
-                                <div className='name-details'>
-                                  <p style={{color:'black',marginBottom:'-3px'}}>St Glx</p>
-                                  <p>South Dublin</p>
-                                </div>
-                                <div>
-                                  star ratings
-                                </div>
-                                
-                            </div>
-
-                            <p className='date'>24th September,2024</p>
-                            <p className=' date review'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                               Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad
-                               fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.</p>
-
-                        </div>
-
-
-
-                        <div className="review-card">
-                            <div className="review-img">
-                            <img style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'20px'}} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
-                            </div>
-                           
-
-                            <div className="review-details">
-                              <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="" />
-                                <div className='name-details'>
-                                  <p style={{color:'black',marginBottom:'-3px'}}>St Glx</p>
-                                  <p>South Dublin</p>
-                                </div>
-                                <div>
-                                  star ratings
-                                </div>
-                                
-                            </div>
-
-                            <p className='date'>24th September,2024</p>
-                            <p className=' date review'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                               Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad
-                               fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.</p>
-
-                        </div>
-                        
-
-                        <div className="review-card">
-                            <div className="review-img">
-                            <img style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'20px'}} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc" alt="" />
-                            </div>
-                           
-
-                            <div className="review-details">
-                              <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="" />
-                                <div className='name-details'>
-                                  <p style={{color:'black',marginBottom:'-3px'}}>St Glx</p>
-                                  <p>South Dublin</p>
-                                </div>
-                                <div>
-                                  star ratings
-                                </div>
-                                
-                            </div>
-
-                            <p className='date'>24th September,2024</p>
-                            <p className=' date review'>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                               Non animi cum, facilis rem praesentium, in, eius fugiat officiis ad
-                               fugit reprehenderit dolore eveniet ex architecto similique quos iste cupiditate quasi.</p>
-
-                        </div>
-
-                      </div>
+                   
 
                 </div>
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ListCard from './ListCard';
 import { assets } from '../../assets/assets';
 import './RestaurantListing.css'
@@ -7,18 +7,37 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const RestaurantListing = () => {
 
-
   const clients = [
-  {
-    name: 'John Cena',
-    role: 'CEO & Co-Founder',
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore praesentium saepe ipsam. Consequuntur dolorem quidem,
-      excepturi quis cupiditate nam in sapiente fuga dignissimos qui aspernatur debitis veritatis tempora. Repellat, ratione! Illo aliquam,
-      iusto quam animi corrupti, repellendus repudiandae commodi, modi qui cumque id cupiditate ut quidem quibusdam facere libero voluptatem!`,
-    imageUrl: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/corporate-user-icon.png',
-  },
-  // Add more client objects here if needed
-];
+    {
+      name: 'John Cena',
+      title: 'CEO & Co-Founder',
+      image: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/corporate-user-icon.png',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore praesentium saepe ipsam...'
+    },
+    {
+      name: 'Jane Doe',
+      title: 'CTO',
+      image: 'https://uxwing.com/wp-content/uploads/2020/12/female-avatar.png',
+      description: 'Quis cupiditate nam in sapiente fuga dignissimos qui aspernatur debitis veritatis...'
+    },
+    {
+      name: 'Mike Ross',
+      title: 'Head of Marketing',
+      image: 'https://uxwing.com/wp-content/uploads/2020/12/male-avatar.png',
+      description: 'Illo aliquam, iusto quam animi corrupti, repellendus repudiandae commodi, modi qui...'
+    }
+  ];
+
+  const [currentClient, setCurrentClient] = useState(0);
+
+  const handleNext = () => {
+    setCurrentClient((prevClient) => (prevClient + 1) % clients.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentClient((prevClient) => (prevClient - 1 + clients.length) % clients.length);
+  };
+
 
   const staticFoodList = [
     {
@@ -120,7 +139,7 @@ const RestaurantListing = () => {
             <h2 style={{textAlign:'center',fontWeight:'bold',marginTop:'20px'}}>Our Happy Client Says</h2>
             <div className='client'>
 
-                <div className="client-first">
+                {/* <div className="client-first">
                     <div className='client-profile'>
                       <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/corporate-user-icon.png" alt="image" />
                       <div className='client-name-container'>
@@ -139,7 +158,32 @@ const RestaurantListing = () => {
                       <div className='client-btn-right' style={{right:'-20px'}}>
                           <MdKeyboardArrowRight style={{fontSize:'2rem'}}/>
                       </div>
-                </div>
+                </div> */}
+  <div className="client-first">
+      <div className="client-profile">
+        <img
+          style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+          src={clients[currentClient].image}
+          alt="client"
+        />
+        <div className="client-name-container">
+          <p>{clients[currentClient].name}</p>
+          <p style={{ color: 'gray' }}>{clients[currentClient].title}</p>
+        </div>
+      </div>
+      <div className="client-description">
+        {clients[currentClient].description}
+      </div>
+
+      <div className="client-btn-left" style={{ left: '-20px' }} onClick={handlePrev}>
+        <MdKeyboardArrowLeft style={{ fontSize: '2rem' }} />
+      </div>
+      <div className="client-btn-right" style={{ right: '-20px' }} onClick={handleNext}>
+        <MdKeyboardArrowRight style={{ fontSize: '2rem' }} />
+      </div>
+    </div>
+
+
 
                 <div className="client-second">
                     <img style={{borderRadius:"20px"}} src={staticFoodList[0].image} alt="" />
