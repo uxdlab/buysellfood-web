@@ -13,7 +13,7 @@ const RestaurantCard = ({ name, description, price, image,openPopup }) => {
                 <p className='second'>North Indian, Biryani,</p>
                 <div style={{fontWeight:'bold'}}>{price}</div>
             </div>
-            <div style={{width:'150px',height:'150px',position:'relative'}}>
+            <div className='cart-details-img' style={{width:'150px',height:'150px',position:'relative'}}>
               <img src={image} style={{width:'100%',height:"100%",borderRadius:'20px'}} alt="" />
               <div className='add-btn'>
                 <BsPlusCircleFill  onClick={openPopup}/>

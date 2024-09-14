@@ -38,12 +38,7 @@
     height: 100%;
     padding: 30px;
 }
-.leftside{
-    background-color: green;
-}
-.right-side{
- 
-}
+
 .leftside #name{
     font-size: 3.5vw;
     color: white;
@@ -200,7 +195,7 @@ offer title */
 }
 .card-container-three {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
 }
 
