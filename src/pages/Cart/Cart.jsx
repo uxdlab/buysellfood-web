@@ -1,234 +1,263 @@
-import React, { useState } from 'react';
-import './Cart.css';
-import { useNavigate } from 'react-router-dom';
-import AddressSlider from '../../components/AddressSlider/AddressSlider';
+import React, { useState } from 'react'
+import './Cart.css'
+import { TbBasketHeart } from "react-icons/tb";
+import { MdDeleteForever } from 'react-icons/md';
+import { FaCircleArrowDown, FaCircleArrowRight } from 'react-icons/fa6';
+import AfterPaymentPopup from '../../components/AfterPaymentPopup/AfterPaymentPopup';
+
 
 const Cart = () => {
 
+  const [isPopupVisible,setisPopupVisible] = useState(false)  
 
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleSlider = () => {
-    setIsVisible(!isVisible)
-    
-  };
-
-  const [cartItems, setCartItems] = useState({
-    '1': 2,
-    '2': 1,
-  });
-
-  const [food_list] = useState([
-    { id: '1', name: 'Burger', price: 500, imageId: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh' },
-    { id: '2', name: 'Pizza', price: 800, imageId: 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/enj3srsnhbltbom2ovvh' },
-  ]);
-
-  const [selectedItem] = useState([
-    { card: { info: food_list[0] }, price: 500, _id: '1' },
-    { card: { info: food_list[1] }, price: 800, _id: '2' },
-  ]);
-
-  const getTotalCartAmount = () => {
-    return Object.keys(cartItems).reduce((total, itemId) => {
-      const item = selectedItem.find(item => item._id === itemId);
-      return total + (item.price * cartItems[itemId]);
-    }, 0);
-  };
-
-  const removeItem = (item) => {
-    setCartItems(prevItems => {
-      const newItems = { ...prevItems };
-      delete newItems[item._id];
-      return newItems;
-    });
-  };
-
-  const navigate = useNavigate();
+  const togglePaymentPopup = (e) =>{
+      
+    setisPopupVisible(!isPopupVisible);
+  }
 
   return (
     <div className="cart">
-      <div className="cart-items">
-        <div className="cart-items-title">
-          <p>Image</p>
-          <p>Title</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-          <p>Remove</p>
-        </div>
-        <br />
-        <hr />
-        {selectedItem.map((item, index) => (
-          <div key={index}>
-            <div className="cart-items-row cart-items-item">
-              <img
-                src={item.card.info.imageId}
-                alt="item"
-              />
-              <p>{item.card.info.name}</p>
-              <p>₹{Math.floor(item.card.info.price / 100)}</p>
-              <p>{cartItems[item._id]}</p>
-              <p>${(item.price * cartItems[item._id]).toFixed(2)}</p>
-              <p
-                onClick={() => removeItem(item)}
-                className="cross remove-button"
-              >
-                x
-              </p>
+      <div className="cart-container">
+          
+          <div className="cart-container-left">
+
+            <div className="product-container">    
+           
+                 <div className="cart-container-left-box">
+                    <div className="left-box-container">
+                      <p>Pizza Delicious</p>
+                      <p style={{ color: 'gray', fontSize: 'small',marginTop:'-15px' }}>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias?
+                      </p>
+                    </div>
+                    <div className="right-box-container">
+                      <img
+                        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc"
+                        alt="Pizza"
+                      />
+                    </div>
+                  </div>
+
+              <div className="btn-containers">
+                  <div className='buttons' style={{backgroundColor:'black'}}>
+                    <button style={{backgroundColor:'black',color:'white'}}>Small</button>
+                    <button>$513</button>
+                  </div>
+                  <div className='buttons'>
+                    <button style={{backgroundColor:'white'}}>Small</button>
+                    <button className='button-price'>$513</button>
+                  </div>
+                  <div className='buttons'>
+                    <button style={{backgroundColor:'white'}}>Small</button>
+                    <button className='button-price'>$513</button>
+                  </div>
+                  <div className='buttons'>
+                    <button style={{backgroundColor:'white'}}>Small</button>
+                    <button className='button-price'>$513</button>
+                  </div>
+          
+              </div>
             </div>
-            <hr />
-          </div>
-        ))}
+            <div className="product-container">    
+           
+           <div className="cart-container-left-box">
+              <div className="left-box-container">
+                <p>Pizza Delicious</p>
+                <p style={{ color: 'gray', fontSize: 'small',marginTop:'-15px' }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias?
+                </p>
+              </div>
+              <div className="right-box-container">
+                <img
+                  src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc"
+                  alt="Pizza"
+                />
+              </div>
+            </div>
+
+        <div className="btn-containers">
+            <div className='buttons' style={{backgroundColor:'black'}}>
+              <button style={{backgroundColor:'black',color:'white'}}>Small</button>
+              <button>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+    
+        </div>
       </div>
-      <div className="cart-bottom">
-        <div className="cart-total">
-          <h2>Cart Total</h2>
-          <div>
-            <div className="cart-total-details">
-              <p>Subtotal</p>
-              <p>{selectedItem.reduce((total, item) => total + cartItems[item._id], 0)}</p>
+      <div className="product-container">    
+           
+           <div className="cart-container-left-box">
+              <div className="left-box-container">
+                <p>Pizza Delicious</p>
+                <p style={{ color: 'gray', fontSize: 'small',marginTop:'-15px' }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias?
+                </p>
+              </div>
+              <div className="right-box-container">
+                <img
+                  src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc"
+                  alt="Pizza"
+                />
+              </div>
             </div>
-            <hr />
-            <div className="cart-total-details">
-              <p>Delivery Fee</p>
-              <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
+
+        <div className="btn-containers">
+            <div className='buttons' style={{backgroundColor:'black'}}>
+              <button style={{backgroundColor:'black',color:'white'}}>Small</button>
+              <button>$513</button>
             </div>
-            <hr />
-            <div className="cart-total-details">
-              <b>Total</b>
-              <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
             </div>
-            <hr />
-          </div>
-          <button
-            onClick={() => navigate('/order')}
-            style={{ background: 'green' }}
-          >
-            PROCEED TO CHECKOUT
-          </button>
-          <button   onClick={toggleSlider}>Address</button>
-        </div>
-        <div className="cart-promocode">
-          <p>If you have a promo code, Enter it here</p>
-          <div className="cart-promocode-input">
-            <input type="text" placeholder="promo code" />
-            <button>Submit</button>
-          </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+    
         </div>
       </div>
+      <div className="product-container">    
+           
+           <div className="cart-container-left-box">
+              <div className="left-box-container">
+                <p>Pizza Delicious</p>
+                <p style={{ color: 'gray', fontSize: 'small',marginTop:'-15px' }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias?
+                </p>
+              </div>
+              <div className="right-box-container">
+                <img
+                  src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc"
+                  alt="Pizza"
+                />
+              </div>
+            </div>
 
-          <div>
-           <AddressSlider isVisible={isVisible} onClose={toggleSlider} />
+        <div className="btn-containers">
+            <div className='buttons' style={{backgroundColor:'black'}}>
+              <button style={{backgroundColor:'black',color:'white'}}>Small</button>
+              <button>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+            <div className='buttons'>
+              <button style={{backgroundColor:'white'}}>Small</button>
+              <button className='button-price'>$513</button>
+            </div>
+    
+        </div>
+      </div>
+        
           </div>
 
-    </div>
-  );
-};
 
-export default Cart;
+        
+
+          <div className="cart-container-right">
+              <div className="cart-container-right-first"><TbBasketHeart style={{fontSize:'3rem'}}/> My Basket</div>
+            
+              <div className="cart-container-right-second">
+                  <div className="cart-container-right-second-one">
+                      <p>1x</p>
+                  </div>
+                  <div className="cart-container-right-second-two">
+                      <p className="second-two-price">$542</p>
+                      <p className="second-two-name">pizza</p>
+                      <p className="second-two-dishes">delicious food with cheese</p>
+                  </div>
+                  <div className="cart-container-right-second-third"><MdDeleteForever />
+            
+               </div>
+              </div>
+              <div className="cart-container-right-second">
+                  <div className="cart-container-right-second-one">
+                      <p>1x</p>
+                  </div>
+                  <div className="cart-container-right-second-two">
+                      <p className="second-two-price">$542</p>
+                      <p className="second-two-name">pizza</p>
+                      <p className="second-two-dishes">delicious food with cheese</p>
+                  </div>
+                  <div className="cart-container-right-second-third"><MdDeleteForever />
+            
+               </div>
+              </div>
+              <div className="cart-container-right-second">
+                  <div className="cart-container-right-second-one">
+                      <p>1x</p>
+                  </div>
+                  <div className="cart-container-right-second-two">
+                      <p className="second-two-price">$542</p>
+                      <p className="second-two-name">pizza</p>
+                      <p className="second-two-dishes">delicious food with cheese</p>
+                  </div>
+                  <div className="cart-container-right-second-third"><MdDeleteForever />
+            
+               </div>
+              </div>  <div className="cart-container-right-second">
+                  <div className="cart-container-right-second-one">
+                      <p>1x</p>
+                  </div>
+                  <div className="cart-container-right-second-two">
+                      <p className="second-two-price">$542</p>
+                      <p className="second-two-name">pizza</p>
+                      <p className="second-two-dishes">delicious food with cheese</p>
+                  </div>
+                  <div className="cart-container-right-second-third"><MdDeleteForever />
+            
+               </div>
+              </div>
 
 
+            {/* //price calculated details */}
+              <div className="cart-price-details">
+                  <div className="sub-total"><p className="sub-total-lable">Sub Total:</p><p className="sub-total-amount">$5431</p></div>
+                  <div className="sub-total"><p className="sub-total-lable">Discounts:</p><p className="sub-total-amount">$5431</p></div>
+                  <div className="sub-total"><p className="sub-total-lable">Delivery Fee:</p><p className="sub-total-amount">$5431</p></div>
+            </div>
 
 
+              <div className="total-to-pay-container">
+                  <div className="total-pay-btn"><p className="total-pay-lable">Total to pay</p><p className="total-pay-amount">$514</p></div>
+                  <div className="choose-your-free-item">Choose your free item:<FaCircleArrowDown style={{fontSize:'1.2rem',fill:'gray'}}/></div>
+                  <div className="apply-coopon-code-here choose-your-free-item">Apply coopon code here<FaCircleArrowRight style={{fontSize:'1.2rem',fill:'green'}}/></div>
+              </div>
+
+    
+           <div  onClick={togglePaymentPopup} className="make-payment"><FaCircleArrowRight style={{fontSize:'1.2rem',fill:'white'}}/>Make Payment</div>
+            
 
 
+         </div>
+          
+</div>
+      
+            { isPopupVisible && <AfterPaymentPopup onClose={togglePaymentPopup}/>}  
+</div>
+  )
 
+}
 
-
-
-
-
-
-
-
-
-
-// import { useContext } from "react";
-// import "./Cart.css";
-// import { StoreContext } from "../../context/StoreContext";
-// import { useNavigate } from "react-router-dom";
-
-// const Cart = () => {
-//   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
-//     useContext(StoreContext);
-
-//   const navigate = useNavigate();
-
-//   return (
-//     <div className="cart">
-//       <div className="cart-items">
-//         <div className="cart-items-title">
-//           <p>Image</p>
-//           <p>Title</p>
-//           <p>Price</p>
-//           <p>Quantity</p>
-//           <p>Total</p>
-//           <p>Remove</p>
-//         </div>
-//         <br />
-//         <hr />
-//         {food_list.map((item, index) => {
-//           if (cartItems[item._id] > 0) {
-//             return (
-//               <div key={index}>
-//                 <div className="cart-items-row cart-items-item">
-//                   <img src={url + "/images/" + item.image} alt={item.name} />
-//                   <p>{item.name}</p>
-//                   <p>${item.price.toFixed(2)}</p>
-//                   <p>{cartItems[item._id]}</p>
-//                   <p>${(item.price * cartItems[item._id]).toFixed(2)}</p>
-//                   <p
-//                     onClick={() => removeFromCart(item._id)}
-//                     className="cross remove-button"
-//                   >
-//                     x
-//                   </p>
-//                 </div>
-//                 <hr />
-//               </div>
-//             );
-//           }
-//         })}
-//       </div>
-//       <div className="cart-bottom">
-//         <div className="cart-total">
-//           <h2>Cart Total</h2>
-//           <div>
-//             <div className="cart-total-details">
-//               <p>Subtotal</p>
-//               <p>${getTotalCartAmount()}</p>
-//             </div>
-//             <hr />
-//             <div className="cart-total-details">
-//               <p>Delivery Fee</p>
-//               <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
-//             </div>
-//             <hr />
-//             <div className="cart-total-details">
-//               <b>Total</b>
-//               <b>
-//                 ${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}
-//               </b>
-//             </div>
-//             <hr />
-//           </div>
-//           <button
-//             onClick={() => navigate("/order")}
-//             style={{ background: "green" }}
-//           >
-//             PROCEED TO CHECKOUT
-//           </button>
-//         </div>
-//         <div className="cart-promocode">
-//           <p>If you have a promo code, Enter it here</p>
-//           <div className="cart-promocode-input">
-//             <input type="text" placeholder="promo code" />
-//             <button>Submit</button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Cart;
+export default Cart

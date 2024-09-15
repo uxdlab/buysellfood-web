@@ -280,7 +280,7 @@ const RestaurantView = () => {
 
 
               <div className="box-five-container">
-                  <div className="map">
+                  <div  style={{width:'100%',height:'616px'}} className="map">
                     <img className='map-img' src={map} alt="" />
                       
                       <div className="place-absolute">
