@@ -139,49 +139,30 @@ const RestaurantListing = () => {
             <h2 style={{textAlign:'center',fontWeight:'bold',marginTop:'20px'}}>Our Happy Client Says</h2>
             <div className='client'>
 
-                {/* <div className="client-first">
-                    <div className='client-profile'>
-                      <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/corporate-user-icon.png" alt="image" />
-                      <div className='client-name-container'>
-                          <p>john cina</p>
-                          <p style={{color:'gray'}}>ceo & Co founder</p>
-                      </div>
-                    </div>
-                    <div className='client-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore praesentium saepe ipsam. Consequuntur dolorem quidem,
-                         excepturi quis cupiditate nam in sapiente fuga dignissimos qui aspernatur debitis veritatis tempora. Repellat, ratione! Illo aliquam,
-                         iusto quam animi corrupti, repellendus repudiandae commodi, modi qui cumque id cupiditate ut quidem quibusdam facere libero voluptatem!
-                      </div>
+                                
+                    <div className="client-first">
+                        <div className="client-profile">
+                          <img
+                            style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                            src={clients[currentClient].image}
+                            alt="client"
+                          />
+                          <div className="client-name-container">
+                            <p>{clients[currentClient].name}</p>
+                            <p style={{ color: 'gray' }}>{clients[currentClient].title}</p>
+                          </div>
+                        </div>
+                        <div className="client-description">
+                          {clients[currentClient].description}
+                        </div>
 
-                      <div  className='client-btn-left'style={{left:'-20px'}}>
-                          <MdKeyboardArrowLeft style={{fontSize:'2rem'}}/>
+                        <div className="client-btn-left" style={{ left: '-20px' }} onClick={handlePrev}>
+                          <MdKeyboardArrowLeft style={{ fontSize: '2rem' }} />
+                        </div>
+                        <div className="client-btn-right" style={{ right: '-20px' }} onClick={handleNext}>
+                          <MdKeyboardArrowRight style={{ fontSize: '2rem' }} />
+                        </div>
                       </div>
-                      <div className='client-btn-right' style={{right:'-20px'}}>
-                          <MdKeyboardArrowRight style={{fontSize:'2rem'}}/>
-                      </div>
-                </div> */}
-  <div className="client-first">
-      <div className="client-profile">
-        <img
-          style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-          src={clients[currentClient].image}
-          alt="client"
-        />
-        <div className="client-name-container">
-          <p>{clients[currentClient].name}</p>
-          <p style={{ color: 'gray' }}>{clients[currentClient].title}</p>
-        </div>
-      </div>
-      <div className="client-description">
-        {clients[currentClient].description}
-      </div>
-
-      <div className="client-btn-left" style={{ left: '-20px' }} onClick={handlePrev}>
-        <MdKeyboardArrowLeft style={{ fontSize: '2rem' }} />
-      </div>
-      <div className="client-btn-right" style={{ right: '-20px' }} onClick={handleNext}>
-        <MdKeyboardArrowRight style={{ fontSize: '2rem' }} />
-      </div>
-    </div>
 
 
 

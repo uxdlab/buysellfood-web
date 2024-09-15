@@ -1,6 +1,7 @@
 import React from 'react';
 import './AddFoodPopup.css';
 import { IoHeartCircleOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 
 const AddFoodPopup = ({closePopup}) => {
@@ -12,9 +13,7 @@ const AddFoodPopup = ({closePopup}) => {
         <div className="firstbox">
           <div className="left">
             <p>Pizza Delicious</p>
-            <p style={{ color: 'gray', fontSize: 'small' }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias?
-            </p>
+            <p style={{ color: 'gray', fontSize: 'small' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias? </p>
             <button>Add Note</button>
           </div>
           <div className="right">
@@ -96,7 +95,7 @@ const AddFoodPopup = ({closePopup}) => {
                 </div>
                 <div className="customize-right">
                     <button onClick={closePopup} style={{marginRight:'10px'}}>Close</button>
-                    <button>Add item to Cart</button>
+                    <Link to="/cart"><button>Add item to Cart</button></Link>
                 </div>
             </div>
         </div>
