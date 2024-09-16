@@ -143,13 +143,13 @@ const RestaurantListing = () => {
                     <div className="client-first">
                         <div className="client-profile">
                           <img
-                            style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                            style={{ width: '74px', height: '74px', borderRadius: '50%' }}
                             src={clients[currentClient].image}
                             alt="client"
                           />
                           <div className="client-name-container">
-                            <p>{clients[currentClient].name}</p>
-                            <p style={{ color: 'gray' }}>{clients[currentClient].title}</p>
+                            <h5>{clients[currentClient].name}</h5>
+                            <p>{clients[currentClient].title}</p>
                           </div>
                         </div>
                         <div className="client-description">
@@ -157,10 +157,10 @@ const RestaurantListing = () => {
                         </div>
 
                         <div className="client-btn-left" style={{ left: '-20px' }} onClick={handlePrev}>
-                          <MdKeyboardArrowLeft style={{ fontSize: '2rem' }} />
+                          <MdKeyboardArrowLeft style={{ fontSize: '2rem',color:'white' }} />
                         </div>
                         <div className="client-btn-right" style={{ right: '-20px' }} onClick={handleNext}>
-                          <MdKeyboardArrowRight style={{ fontSize: '2rem' }} />
+                          <MdKeyboardArrowRight style={{ fontSize: '2rem',color:'white' }} />
                         </div>
                       </div>
 
