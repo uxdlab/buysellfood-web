@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AddFoodPopup.css';
 import { IoHeartCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
@@ -6,16 +6,62 @@ import redcircle from '../../assets/redcircle.png'
 import greencircle from '../../assets/greencircle.png'
 
 const AddFoodPopup = ({closePopup}) => {
+
+  const [isVisibleCustomizeItem,setisVisibleCustomizeItem] = useState(false)
+
+  const [isVisibleAddNote,setisVisibleAddNote] = useState(false)
+  const [isVisibleCancel,setisVisibleCancel] = useState(true)
+  const [isVisibleNote,setisVisibleNote] =useState(false);
+
+  const toggleAddbtn = () =>{
+    setisVisibleAddNote(!isVisibleAddNote)
+    setisVisibleCancel(!isVisibleCancel)
+  }
+
+  const addnoteHandler = () =>{
+    setisVisibleNote(!isVisibleNote)
+    setisVisibleAddNote(!isVisibleAddNote)
+
+  }
+
   return (
     <div className="add-food-popup">
       <div className="food-popup">
-
 
         <div className="firstbox">
           <div className="left">
             <p>Pizza Delicious</p>
             <p style={{ color: 'gray',fontSize:'14px',fontWeight:'400 ' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias? </p>
-            <button>Add Note</button>
+                
+               
+              {
+                isVisibleNote && 
+                  <div>
+                      <button onClick={addnoteHandler}>edit</button>
+                      <div>this is my para</div>
+                </div>                 
+              }
+
+
+                { isVisibleAddNote &&
+                 <div className="write-note">
+                <textarea id="w3review" name="w3review" rows="4" cols="50">
+                   At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                </textarea>
+                
+                  <div>
+                  <button onClick={addnoteHandler}>Add Note</button>
+                  <button onClick={toggleAddbtn}>cancel</button>
+                </div>
+
+                </div> }
+              <div className="add-note-edit-btn">
+                  {isVisibleCancel && <button onClick={toggleAddbtn}>Add Note</button>}
+                  
+  
+
+              </div>
+             
           </div>
           <div className="right">
             <img
@@ -24,6 +70,7 @@ const AddFoodPopup = ({closePopup}) => {
             />
           </div>
         </div>
+
         <div className="btn-container">
             <div className='buttons' style={{backgroundColor:'black'}}>
               <button style={{backgroundColor:'black',color:'white'}}>Small</button>
@@ -90,10 +137,19 @@ const AddFoodPopup = ({closePopup}) => {
         </div>
 
         <div className="thirdbox">
+        { isVisibleCustomizeItem &&
+                   <div className="customize-items">
+                    <p>first customize item</p>
+                    <p>second-custoize item</p>
+                  </div>
+                  
+}
             <div className="customize-container">
+                  
+
                 <div className="customize-left">
                     <p className='one'>$513</p>
-                    <p className='two'>View Customize Items</p>
+                    <p onClick={() => setisVisibleCustomizeItem(!isVisibleCustomizeItem)} className='two'>View Customize Items</p>
                 </div>
                 <div className="customize-right">
                     <button onClick={closePopup} style={{marginRight:'10px'}}>Close</button>
@@ -105,6 +161,7 @@ const AddFoodPopup = ({closePopup}) => {
       
     </div>
   );
+
 };
 
 export default AddFoodPopup;

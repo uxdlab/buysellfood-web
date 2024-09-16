@@ -38,6 +38,9 @@
     height: 100%;
     padding: 30px;
 }
+.leftside{
+    width: 50%;
+}
 
 .leftside #name{
     font-size: 3.5vw;
@@ -66,9 +69,12 @@
     font-size: 1.5vw;
     font-weight: bold;   
 }
+.rightside{
+    width: 40%;
+}
 .restaurant-img {
     border-radius: 20px;
-    background-color: aqua;
+    max-width: 460px;
     width: 100%;
     height: 291px;
     position: relative;
@@ -479,3 +485,16 @@ transform: scale(1.05);
     }
 }
 
+@media (max-width: 900px) {
+    .rightside{
+        width: 70%;
+        margin-right: -20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .rightside{
+        width: 50%;
+        margin-right: -20px;
+    }
+}
