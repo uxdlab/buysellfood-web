@@ -2,7 +2,8 @@ import React from 'react';
 import './AddFoodPopup.css';
 import { IoHeartCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
-
+import redcircle from '../../assets/redcircle.png'
+import greencircle from '../../assets/greencircle.png'
 
 const AddFoodPopup = ({closePopup}) => {
   return (
@@ -13,7 +14,7 @@ const AddFoodPopup = ({closePopup}) => {
         <div className="firstbox">
           <div className="left">
             <p>Pizza Delicious</p>
-            <p style={{ color: 'gray', fontSize: 'small' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias? </p>
+            <p style={{ color: 'gray',fontSize:'14px',fontWeight:'400 ' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias? </p>
             <button>Add Note</button>
           </div>
           <div className="right">
@@ -51,32 +52,33 @@ const AddFoodPopup = ({closePopup}) => {
                 <p>Say Cheese!</p>
             <div className='lable-box'>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Double Cheese Slice</label>
-                    <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
+                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Double Cheese Slice</label>
+                    <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Truple Cheese Slice</label>
-                    <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
+                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Truple Cheese Slice</label>
+                    <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Loaded Cheese Slice</label>
-                    <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
+                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Loaded Cheese Slice</label>
+                    <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
             </div>   
 
             <p>Extra Chicken Piece!</p>
             <div className='lable-box'>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Double Cheese Slice</label>
-                    <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
+                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}>
+                      <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Double Cheese Slice</label>
+                    <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Truple Cheese Slice</label>
-                    <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
+                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Truple Cheese Slice</label>
+                    <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{color:'black'}}><IoHeartCircleOutline style={{marginRight:'5px'}}/>Loaded Cheese Slice</label>
-                    <p>$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
+                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Loaded Cheese Slice</label>
+                    <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
             </div>                
 
@@ -90,8 +92,8 @@ const AddFoodPopup = ({closePopup}) => {
         <div className="thirdbox">
             <div className="customize-container">
                 <div className="customize-left">
-                    <p>$513</p>
-                    <p style={{color:'#13B251'}}>View Customize Items</p>
+                    <p className='one'>$513</p>
+                    <p className='two'>View Customize Items</p>
                 </div>
                 <div className="customize-right">
                     <button onClick={closePopup} style={{marginRight:'10px'}}>Close</button>

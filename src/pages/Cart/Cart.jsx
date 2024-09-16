@@ -26,7 +26,7 @@ const Cart = () => {
                  <div className="cart-container-left-box">
                     <div className="left-box-container">
                       <p>Pizza Delicious</p>
-                      <p style={{ color: 'gray', fontSize: 'small',marginTop:'-15px' }}>
+                      <p style={{fontSize: '14px',fontWeight:'400',marginTop:'-5px' }}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias?
                       </p>
                     </div>
@@ -58,6 +58,7 @@ const Cart = () => {
           
               </div>
             </div>
+
             <div className="product-container">    
            
            <div className="cart-container-left-box">
@@ -94,7 +95,8 @@ const Cart = () => {
             </div>
     
         </div>
-      </div>
+          </div>
+
       <div className="product-container">    
            
            <div className="cart-container-left-box">

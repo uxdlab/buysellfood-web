@@ -308,10 +308,10 @@ const RestaurantView = () => {
                         <div>
                         <div className="review-header-btn">        
                           <div className="btn-left">
-                            <MdKeyboardArrowLeft onClick={scrollLeft} style={{fontSize:'2rem'}}/>
+                            <MdKeyboardArrowLeft onClick={scrollLeft} style={{fontSize:'2rem',color:'white'}}/>
                           </div>
                           <div className="btn-right ">
-                             <MdKeyboardArrowRight onClick={scrollRight} style={{fontSize:'2rem'}} />
+                             <MdKeyboardArrowRight onClick={scrollRight} style={{fontSize:'2rem',color:'white'}} />
                           </div>
                         </div>
 

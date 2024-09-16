@@ -92,7 +92,7 @@ client details */
 .client-profile{
     display: flex;
     align-items: start;
-    margin-top: -40px;
+    margin-top: -10px;
 }
 
 .client-name-container h5{
@@ -140,7 +140,6 @@ client details */
   transform: scale(0.98); /* Slightly scale down the button on click */
 }
 .client-second{
-    padding: 50px;
     width: 50%
     
 }

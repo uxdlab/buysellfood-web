@@ -17,9 +17,9 @@
     background-color: white;
     color: black;
     border-radius: 20px;
+    max-width: 810px;
     width: 80%;
     height: 90vh;
-    padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;  
 }
@@ -40,7 +40,7 @@
 .food-popup .firstbox {
     display: flex;
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 10px 20px;
 
 }
 
@@ -62,6 +62,7 @@
     border: none;
     border-radius: 5px;
     margin-left: 10px;
+    font-weight: 600;
 }
 
 .btn-container {
@@ -72,6 +73,7 @@
     align-items: center;
     justify-content: start;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .buttons {
@@ -81,7 +83,7 @@
     display: flex;
     align-items: center;
     border-radius: 5px;
-    border: 1px solid gainsboro;
+    border: 1px solid #E4E4E4;
 }
 
 .buttons button {
@@ -90,6 +92,7 @@
     border: none;
     font-weight: bold;
     font-size: small;
+    border-radius: 4px;
 }
 
 .button-price {
@@ -109,13 +112,16 @@
 }
 
 .secondbox h2 {
-    font-size: large;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    text-align: left;
+    
     text-align: center;
 }
 
 .lable-box {
-    background-color: rgb(248, 248, 237);
+    background-color: #79B93C1A;
     padding: 10px;
     border-radius: 10px;
 }
@@ -132,12 +138,11 @@ label {
     justify-content: center;
     align-items: center;
     font-size: small;
-    font-weight: bold;
     gap: 5px;
 }
 
 .lable-container p {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .lable p input {
@@ -148,23 +153,28 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    box-shadow: 0 -1px 1px rgba(217, 213, 213, 0.2); /* Horizontal offset, vertical offset, blur radius, color */
-    margin-top: 5px;
+    padding: 10px 20px;
+    box-shadow: 2px 4px 30px 0px #00000033;
+    margin-top: 30px;
+}
+.customize-left .one{
+    font-size: 24px;
+    font-weight: 700;
+    
+}
+.customize-left .two{
+    font-size: 20px;
+    font-weight: 600;
+    color: #13B251
 }
 
-.customize-left p {
-    margin: 0px;
-    font-weight: bold;
-    font-size: small;
-}
 
 .customize-right button {
-    padding: 6px 20px;
+    padding: 10px 20px;
     outline: none;
     border: none;
     background-color: #13B251;
     color: white;
-    border-radius: 10px;
-    font-weight: 500;
+    border-radius: 16px;
+    font-weight: 700;
 }

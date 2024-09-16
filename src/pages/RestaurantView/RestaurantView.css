@@ -73,18 +73,7 @@
     height: 291px;
     position: relative;
 }
-.restaurant-img::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;    
-    height: 100%;
-    background: black;
-    opacity: 45%; /* Blue color with 50% opacity */
-    border-radius: 20px;
-    pointer-events: none; /* Allow clicks to pass through the overlay */
-}
+
 
 
 .open-timing{
@@ -127,7 +116,7 @@ offer title */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
+    margin: 20px 0px;
     gap: 10%;
 }
 .offer-title p{
@@ -138,19 +127,77 @@ offer title */
     outline: none;
     padding: 10px;
     border-radius: 30px;
-    border: 2px solid gray;
-    width: 300px;
+    border: 2px solid #03081F;
+    width: 344px;
 }
 .offer-title input::placeholder{
     padding-left: 10px;
 }
+.offer-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10%;
+}
+
+.offer-title p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.offer-title input {
+    outline: none;
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid #03081F;
+    width: 344px;
+}
+
+.offer-title input::placeholder {
+    padding-left: 10px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (tablets, 600px and up) */
+@media (max-width: 768px) {
+    .offer-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .offer-title p {
+        font-size: 1.2rem;
+    }
+
+    .offer-title input {
+        width: 100%;
+    }
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media (max-width: 480px) {
+    .offer-title p {
+        font-size: 1rem;
+    }
+
+    .offer-title input {
+        padding: 8px;
+        border-radius: 20px;
+    }
+}
+
+
+
 
 
 /* offer image */
 .offer-image-container{
     display: flex;
     justify-content: space-between;
-    gap: 5%;
+    gap: 6%;
     padding-top: 10px;
     overflow-x: scroll;
     overflow: auto;
@@ -163,8 +210,8 @@ offer title */
     display: none; /* For Chrome, Safari, and Opera */
   }
 .offer-image{
-    width: 450px;
-    height: 250px;
+    width: 425px;
+    height: 280px;
     border-radius: 20px;
 }
 .offer-image img{
@@ -179,8 +226,12 @@ offer title */
 /* box-three-container */
 
 .box-three-container h2{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48.76px;
+    text-align: left;
     color: #13B251;
-    padding: 20px 0px;
+    margin: 20px 0px;
 }
 
 .view-more-container{
@@ -188,21 +239,28 @@ offer title */
     justify-content: center;
     align-items: center;
     padding: 20px;
+    margin: 20px 0px;
 }
 
 .view-more-container button{
     padding: 10px 25px;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 700;
     border-radius: 8px;
     background-color: black;
     color: white;
     border: none;
 }
+.view-more-container button:hover{
+    background-color: rgb(26, 26, 26);
+}
+.view-more-container button:active{
+    background-color: rgb(12, 11, 11);
+}
 .card-container-three {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+    gap: 16px;
 }
 
 
@@ -212,21 +270,25 @@ offer title */
     display: flex;
     width: 100%;
     height: 100vh;
-    box-shadow: 0px 0px 10px #00000015;
-    margin-bottom: 50px;
+    margin: 50px 0px;
 }
 
 .menu-heading {
-    padding: 10px 0px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48.76px;
+
+    
 }
 
 .navigation {
     width: 15%;
-    border: 1px solid gainsboro;
+    border: 1px solid #BCBCBC;
     display: flex;
     flex-direction: column; 
     border-radius: 10px;
     overflow-x: scroll;
+    background-color:#FBFBFB;
 }
 
 .menu {
@@ -259,9 +321,9 @@ offer title */
 .cards-container-four {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
     gap: 30px;
-    padding: 20px;
+    padding: 0px 20px ;
     overflow-y: scroll;
 }
 .cards-container-four::-webkit-scrollbar {
@@ -305,7 +367,7 @@ offer title */
     color: white;
 }
 .place-info #second{
-    color: green;
+    color: #13B251;
 }
 
 .place-info #third{
