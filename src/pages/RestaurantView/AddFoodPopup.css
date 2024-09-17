@@ -21,7 +21,7 @@
     width: 80%;
     height: 90vh;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .food-popup::-webkit-scrollbar{
