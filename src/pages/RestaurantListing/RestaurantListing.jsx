@@ -167,7 +167,9 @@ const RestaurantListing = () => {
 
 
                 <div className="client-second">
-                    <img style={{borderRadius:"20px"}} src={staticFoodList[0].image} alt="" />
+                    <div className="food-img">
+                    <img  src={staticFoodList[0].image} alt="" />
+                    </div>
                 </div>
             </div>
           </div>

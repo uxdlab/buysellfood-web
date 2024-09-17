@@ -18,7 +18,7 @@ const AfterPaymentPopup = ({onClose}) => {
                 </div>
 
                 <div className="payment-popup-right">
-                        <p style={{color:'#13B251',fontSize:'1.5vw',fontWeight:'bold'}}>Thank you for your order</p>
+                        <p style={{color:'#13B251',fontSize:'32px',fontWeight:'600'}}>Thank you for your order</p>
                         <div className="orderid"><span>order#123456343</span><span>date: 15.09.2024</span></div>
                         <hr />
                         <div className="payment-popup-right-second-column">
@@ -44,7 +44,7 @@ const AfterPaymentPopup = ({onClose}) => {
                         <hr />
                         
                         <div className="payment-popup-right-forth">
-                            <p className="forth-payment-total-lable">Total Amount</p>
+                            <p className="forth-payment-total-lable third-payment-lable">Total Amount</p>
                             <p className="forth-payment-total-price">$16</p>
                         </div>
 

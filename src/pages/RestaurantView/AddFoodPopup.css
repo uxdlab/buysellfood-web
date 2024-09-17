@@ -45,16 +45,51 @@
 }
 
 .firstbox .left {
-    width: 40%;
+    width: 50%;
 }
 
+.addnote-container{
+    padding: 0px 20px;
+    margin-top: -20px;
+}
+.write-note{
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+textarea{
+    width: 100%;
+    height: 100px;
+    outline: none;
+    border: 1px solid #BCBCBC;  
+    border-radius: 8px;
+}
+
+.addnote-btn-container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0px;
+}
+.edit-container{
+    width: 100%;
+    display: flex;   
+    justify-content: space-between;
+}
+.para{
+    width: 70%;
+    font-weight: 400;
+    font-size: 14px;
+    color: gray;
+}
 .left p {
     margin: 10px;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.left button {
+.add-note-edit-btn button {
     padding: 5px 15px;
     outline: none;
     background-color: #13B251;
@@ -116,7 +151,6 @@
     font-weight: 600;
     line-height: 25px;
     text-align: left;
-    
     text-align: center;
 }
 
@@ -131,6 +165,10 @@
     justify-content: space-between;
     align-items: center;
     color: black;
+}
+.lable p{
+    font-weight: 400;
+    font-size: small;
 }
 
 label {
@@ -160,6 +198,8 @@ label {
     box-shadow: 2px 4px 30px 0px #00000033;
     padding: 10px 20px;
     margin-top: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 .customize-items{
     display: flex;
@@ -182,6 +222,11 @@ label {
     font-weight: 600;
     color: #13B251;
     cursor: pointer;
+   
+}
+
+.customize-right #close{
+    margin-right: 10px;
 }
 
 
@@ -191,6 +236,144 @@ label {
     border: none;
     background-color: #13B251;
     color: white;
-    border-radius: 16px;
+    border-radius: 8px;
     font-weight: 700;
+}
+
+@media (max-width:800px) {
+    .customize-right button {
+        padding: 5px 10px;
+        outline: none;
+        border: none;
+        background-color: #13B251;
+        color: white;
+        border-radius: 5px;
+        font-weight: 700;
+    }
+    .customize-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .customize-left .one{
+        font-size: 3vw;
+        font-weight: 600;
+        
+    }
+    .customize-left .two{
+        font-size: 3vw;
+        font-weight: 600;
+        color: #13B251;
+        cursor: pointer;
+    }
+    .customize-right{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+    .customize-left{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .customize-items{
+        display: flex;
+    }
+    .customize-items p{
+        font: large;
+        font-weight: 500;
+    }
+
+
+/* firstbox */
+
+.firstbox .left {
+    width: 50%;
+}
+
+.write-note{
+    width: 100%;
+    margin-left: 10px;
+    
+}
+textarea{
+    width: 100%;
+    height: 100px;
+    outline: none;
+    border: 1px solid #BCBCBC;  
+    border-radius: 8px;
+}
+.addnote-btn-container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    margin-top: 0px;
+}
+.edit-container{
+    width: 100%;
+    display: flex;   
+    justify-content: space-between;
+}
+.para{
+    width: 70%;
+    font-weight: 400;
+    font-size: 14px;
+    color: gray;
+}
+.left p {
+    margin: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.left button {
+    padding: 5px 15px;
+    outline: none;
+    background-color: #13B251;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.btn-container {
+    padding: 5px 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.buttons {
+    width: 150px;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #E4E4E4;
+}
+
+.buttons button {
+    outline: none;
+    padding: 5px 15px;
+    border: none;
+    font-weight: bold;
+    font-size: small;
+    border-radius: 4px;
+}
+
+.button-price {
+    background-color: #13B251;
+    color: white;
+}
+
+
 }

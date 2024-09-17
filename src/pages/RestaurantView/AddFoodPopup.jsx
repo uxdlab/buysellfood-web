@@ -12,16 +12,18 @@ const AddFoodPopup = ({closePopup}) => {
   const [isVisibleAddNote,setisVisibleAddNote] = useState(false)
   const [isVisibleCancel,setisVisibleCancel] = useState(true)
   const [isVisibleNote,setisVisibleNote] =useState(false);
+  const [isVisibleBtnContainer,setisVisibleBtnContainer] = useState(true)
 
   const toggleAddbtn = () =>{
     setisVisibleAddNote(!isVisibleAddNote)
     setisVisibleCancel(!isVisibleCancel)
+    setisVisibleBtnContainer(!isVisibleBtnContainer)
   }
 
   const addnoteHandler = () =>{
     setisVisibleNote(!isVisibleNote)
     setisVisibleAddNote(!isVisibleAddNote)
-
+    setisVisibleBtnContainer(!isVisibleBtnContainer)
   }
 
   return (
@@ -33,36 +35,9 @@ const AddFoodPopup = ({closePopup}) => {
             <p>Pizza Delicious</p>
             <p style={{ color: 'gray',fontSize:'14px',fontWeight:'400 ' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, molestias? </p>
                 
-               
-              {
-                isVisibleNote && 
-                  <div>
-                      <button onClick={addnoteHandler}>edit</button>
-                      <div>this is my para</div>
-                </div>                 
-              }
-
-
-                { isVisibleAddNote &&
-                 <div className="write-note">
-                <textarea id="w3review" name="w3review" rows="4" cols="50">
-                   At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
-                </textarea>
-                
-                  <div>
-                  <button onClick={addnoteHandler}>Add Note</button>
-                  <button onClick={toggleAddbtn}>cancel</button>
-                </div>
-
-                </div> }
-              <div className="add-note-edit-btn">
-                  {isVisibleCancel && <button onClick={toggleAddbtn}>Add Note</button>}
-                  
-  
-
-              </div>
-             
+                    
           </div>
+
           <div className="right">
             <img
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ofjn39gnpkzhkllfishc"
@@ -71,6 +46,40 @@ const AddFoodPopup = ({closePopup}) => {
           </div>
         </div>
 
+        <div className="addnote-container">
+              {
+                isVisibleNote && 
+                  <div className='edit-container add-note-edit-btn'>
+                      <div><button onClick={addnoteHandler}>edit</button></div>
+                      <div className='para'>this is Lorem ipsum dolor, fsfasfsadfassit </div>
+                </div>                 
+              }
+
+
+                { isVisibleAddNote &&
+                 <div className="write-note">
+                  <textarea placeholder='write note'>  </textarea> <div>
+                    <div className="addnote-btn-container add-note-edit-btn">
+                  <button onClick={addnoteHandler}>Add Note</button>
+                  <button onClick={toggleAddbtn}>cancel</button>
+                  </div>
+                </div>
+                </div>
+                 }
+
+              <div className="add-note-edit-btn">
+                  {isVisibleCancel && <button onClick={toggleAddbtn}>Add Note</button>}
+              </div>
+     
+
+        </div>
+
+             
+                  
+  
+      
+
+                  {isVisibleBtnContainer &&
         <div className="btn-container">
             <div className='buttons' style={{backgroundColor:'black'}}>
               <button style={{backgroundColor:'black',color:'white'}}>Small</button>
@@ -89,7 +98,7 @@ const AddFoodPopup = ({closePopup}) => {
               <button className='button-price'>$513</button>
             </div>
      
-        </div>
+        </div> }
 
         <div className="secondbox">
           <h2>Customize as per your taste</h2>
@@ -139,8 +148,8 @@ const AddFoodPopup = ({closePopup}) => {
         <div className="thirdbox">
         { isVisibleCustomizeItem &&
                    <div className="customize-items">
-                    <p>first customize item</p>
-                    <p>second-custoize item</p>
+                    <p>first item,</p>
+                    <p>second item</p>
                   </div>
                   
 }
@@ -152,7 +161,7 @@ const AddFoodPopup = ({closePopup}) => {
                     <p onClick={() => setisVisibleCustomizeItem(!isVisibleCustomizeItem)} className='two'>View Customize Items</p>
                 </div>
                 <div className="customize-right">
-                    <button onClick={closePopup} style={{marginRight:'10px'}}>Close</button>
+                    <button id='close' onClick={closePopup}>Close</button>
                     <Link to="/cart"><button>Add item to Cart</button></Link>
                 </div>
             </div>

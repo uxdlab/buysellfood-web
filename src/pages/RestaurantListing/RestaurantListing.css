@@ -31,15 +31,11 @@
     text-align: left;
     color: #575757;
 }
-
-
-
-
-    .card-containerlist{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
-        gap: 48px;
-    }
+.card-containerlist{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+    gap: 48px;
+}
 
 
    
@@ -53,9 +49,12 @@ client details */
     display: flex;
     gap: 40px;
     margin: 40px 0px;
+    justify-content: space-between;
+    align-items: center;
 }
 .client-first{
-    width: 750px;
+    max-width: 750px;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +63,7 @@ client details */
     border-radius: 20px;
     position: relative;
     box-shadow: 0px 0px 50px 0px #0000001A;
-    
+    height: 445px;
 }
 
 .client-profile{
@@ -118,14 +117,23 @@ client details */
   transform: scale(0.98); /* Slightly scale down the button on click */
 }
 .client-second{
-    width: 50%
-    
+    display:"flex";
+    justify-content: space-between;
+    align-items: center;
 }
-.client-second img{
+.food-img{
+    width: 517px;
+    height: 313px;
+    border-radius: 20px;
+    background-color: #13B251;
+}
+.food-img img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 20px;
 }
+
 
 
 @media (max-width: 1235px){
@@ -146,9 +154,36 @@ client details */
     .heading-container p{
         font-size: 1.5vw;
     }
+    .food-img{
+    width: 100%;
+    height: 313px;
+    border-radius: 20px;
+    background-color: #13B251;
+    }
+    .food-img img{
+        border-radius: 20px;
+    }
 
     }
 
+    @media (max-width:800px) {
+        .client-first,.client-second{
+            width: 100%;
+        }
+        .client{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .client-second{
+            display:"flex";
+            justify-content: end;
+            align-items: center;
+        }
+    }
 
 
 @media (max-width: 600px) {
@@ -168,13 +203,5 @@ client details */
     .heading-container p{
         font-size: small;
     }
-.client-first,.client-second{
-        width: 100%;
-    }
-    .client{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
+
 }
