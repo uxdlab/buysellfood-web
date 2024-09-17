@@ -483,6 +483,11 @@ transform: scale(1.05);
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 2vw;
     }
+    .cards-container-four{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2vw;
+    }
 }
 
 @media (max-width: 900px) {
@@ -497,4 +502,22 @@ transform: scale(1.05);
         width: 50%;
         margin-right: -20px;
     }
+}
+
+
+@media (max-width: 1021px) {
+   .navigation-card-container{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .navigation{
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+   }
+   .nav{
+    display: flex;
+    
+   }
 }
