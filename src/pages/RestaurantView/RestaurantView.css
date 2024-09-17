@@ -1,4 +1,6 @@
-
+.restaurantview-container{
+    overflow: hidden;
+}
 .banner {
     position: relative;
     width: 100%;
@@ -385,7 +387,7 @@ offer title */
 }
 
 
-/* .box five container */
+/* .box six container */
 .review-header{
     display: flex;
     justify-content: space-between;
@@ -501,6 +503,15 @@ transform: scale(1.05);
     .rightside{
         width: 50%;
         margin-right: -20px;
+    }
+    .place-absolute{
+        position: absolute;
+        width: 400px;
+        background-color: #0A0f25;
+        top: 100px;
+        left: 0px;
+        border-radius: 20px;
+        padding: 50px;    
     }
 }
 

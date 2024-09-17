@@ -108,15 +108,15 @@ const AddFoodPopup = ({closePopup}) => {
                 <p>Say Cheese!</p>
             <div className='lable-box'>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Double Cheese Slice</label>
+                    <label htmlFor="vehicle1"> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Double Cheese Slice</label>
                     <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Truple Cheese Slice</label>
+                    <label htmlFor="vehicle1" > <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Truple Cheese Slice</label>
                     <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Loaded Cheese Slice</label>
+                    <label htmlFor="vehicle1"> <img src={greencircle} alt=""  style={{marginRight:'10px'}}/>Loaded Cheese Slice</label>
                     <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
             </div>   
@@ -124,16 +124,16 @@ const AddFoodPopup = ({closePopup}) => {
             <p>Extra Chicken Piece!</p>
             <div className='lable-box'>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}>
+                    <label htmlFor="vehicle1">
                       <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Double Cheese Slice</label>
                     <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Truple Cheese Slice</label>
+                    <label htmlFor="vehicle1"> <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Truple Cheese Slice</label>
                     <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
                 <div className="lable">
-                    <label htmlFor="vehicle1" style={{fontSize:'16px',fontWeight:'400',color:'black'}}> <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Loaded Cheese Slice</label>
+                    <label htmlFor="vehicle1"> <img src={redcircle} alt=""  style={{marginRight:'10px'}}/>Loaded Cheese Slice</label>
                     <p>+$515<input type="checkbox" id="vehicle1" name="vehicle" value="Bike" /></p>
                 </div>
             </div>                

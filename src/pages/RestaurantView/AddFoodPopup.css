@@ -175,7 +175,9 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: small;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
     gap: 5px;
 }
 
@@ -374,6 +376,20 @@ textarea{
     background-color: #13B251;
     color: white;
 }
+.lable-container p {
+    font-weight: 600;
+    margin-top: 5px;
+}
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    gap: 3px;
+}
+
 
 
 }
