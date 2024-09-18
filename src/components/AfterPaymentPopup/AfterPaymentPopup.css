@@ -196,6 +196,9 @@ text-align: left;
         display: flex;
         flex-direction: column;
     }
+    .payment-popup::-webkit-scrollbar{
+        display: none;
+    }
     
   
 
