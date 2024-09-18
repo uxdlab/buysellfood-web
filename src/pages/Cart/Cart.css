@@ -326,3 +326,9 @@
     }
 
 }
+
+@media (max-width:600px){
+    .cart-container-left::-webkit-scrollbar{
+        display:  none;
+    }
+}
