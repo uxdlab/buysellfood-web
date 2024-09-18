@@ -141,61 +141,8 @@ offer title */
 .offer-title input::placeholder{
     padding-left: 10px;
 }
-.offer-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-    gap: 10%;
-}
 
-.offer-title p {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
 
-.offer-title input {
-    outline: none;
-    padding: 10px;
-    border-radius: 30px;
-    border: 2px solid #03081F;
-    width: 344px;
-}
-
-.offer-title input::placeholder {
-    padding-left: 10px;
-}
-
-/* Media Queries for Responsiveness */
-
-/* Small devices (tablets, 600px and up) */
-@media (max-width: 768px) {
-    .offer-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .offer-title p {
-        font-size: 1.2rem;
-    }
-
-    .offer-title input {
-        width: 100%;
-    }
-}
-
-/* Extra small devices (phones, less than 600px) */
-@media (max-width: 480px) {
-    .offer-title p {
-        font-size: 1rem;
-    }
-
-    .offer-title input {
-        padding: 8px;
-        border-radius: 20px;
-    }
-}
 
 
 
@@ -205,10 +152,9 @@ offer title */
 .offer-image-container{
     display: flex;
     justify-content: space-between;
-    gap: 6%;
+    gap: 20px;
     padding-top: 10px;
     overflow-x: scroll;
-    overflow: auto;
 
 }
 .review-container::-webkit-scrollbar {
@@ -218,16 +164,15 @@ offer title */
     display: none; /* For Chrome, Safari, and Opera */
   }
 .offer-image{
-    width: 425px;
+    min-width: 425px;
     height: 280px;
     border-radius: 20px;
 }
 .offer-image img{
-    width: 450px;
+    width: 100%;
     height: 100%;
     border-radius: 20px;
     object-fit: cover;
-
 }
 
 
@@ -531,4 +476,138 @@ transform: scale(1.05);
     display: flex;
     
    }
+.offer-image{
+    min-width: 300px;
+    height: 280px;
+    border-radius: 20px;
+}
+
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (tablets, 600px and up) */
+@media (max-width: 768px) {
+
+
+    .offer-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .offer-title p {
+        font-size: 1.2rem;
+    }
+
+    .offer-title input {
+        width: 100%;
+    }
+    .offer-image-container{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 10px;
+        overflow-x: scroll;
+    }
+    
+    .offer-image{
+        min-width: 150px;
+        height: 100px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width:600px) {
+
+    .absolute-banner{
+        position: absolute;
+        top: 0px;
+        z-index: 1;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: start;
+        align-items: start;
+        gap: 10px;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+    .leftside{
+        width: 100%;
+    }
+    
+    .leftside #name{
+        font-size: 5vw;
+        color: white;
+    }
+    .leftside p{
+        font-size: 4vw;
+        font-weight: bold;
+        color: gray;
+        margin: 0px;
+        margin-left: 20px;
+   }
+    .delivery-btn{
+        padding: 5px 20px;
+        border-radius: 30px;
+        outline: none;
+        font-size: 2vw;
+        background-color: transparent;
+        border: 1px solid gray;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        margin-top: 8px;
+        font-size: 1.5rem;
+        margin-left: 20px;
+    }
+    .delivery-btn span{
+        font-size: 3vw;
+        font-weight: bold;   
+    }
+    .rightside{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .restaurant-img{
+        border-radius: 20px;
+        width: 90%;
+        height: 200px;
+        position: relative;
+    }
+
+    .rating{
+        background-color: white;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 10px;
+        align-items: center;
+        padding:0px  10px;
+    }
+    .rating p{
+        margin: 0px;
+    }
+    
+    
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media (max-width: 480px) {
+    .offer-title p {
+        font-size: 1rem;
+    }
+
+    .offer-title input {
+        padding: 8px;
+        border-radius: 20px;
+    }
 }

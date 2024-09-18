@@ -170,9 +170,9 @@ const RestaurantView = () => {
                         <div className="restaurant-img">
                           <img style={{width:'100%'}} src={staticFoodList[0].image} alt="" />
                           <div className='rating'>
-                            <p style={{fontSize:'3vw'}}>{staticFoodList[0].rating}</p>
+                            <p style={{fontSize:'1.5rem',fontWeight:'700'}}>{staticFoodList[0].rating}</p>
                             <p style={{fontSize:'small'}}>star star</p>
-                            <p style={{fontSize:'small'}}>1.360 views</p>
+                            <p style={{fontSize:'large',fontWeight:'400'}}>1.360 views</p>
                         </div>
                         </div>
                         
