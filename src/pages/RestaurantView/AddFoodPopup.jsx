@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './AddFoodPopup.css';
-import { IoHeartCircleOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import redcircle from '../../assets/redcircle.png'
 import greencircle from '../../assets/greencircle.png'

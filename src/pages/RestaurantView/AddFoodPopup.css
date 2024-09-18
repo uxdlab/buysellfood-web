@@ -10,6 +10,7 @@
     justify-content: center;
     z-index: 1000; /* Ensure it sits above other content */
     display: flex;
+    overflow: hidden;
 }
 
 /* Styles for the popup content */
@@ -22,15 +23,15 @@
     height: 90vh;
     box-sizing: border-box;
     overflow: auto;
+    overflow-x: hidden;
 }
 
 .food-popup::-webkit-scrollbar{
-    width: 20px;
-    
+    width: 20px; 
 }
 .food-popup::-webkit-scrollbar-thumb{
     width: 10px;
-    background-color: #13B251;
+    background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
     border-radius: 10px;
 
 }
@@ -92,7 +93,7 @@ textarea{
 .add-note-edit-btn button {
     padding: 5px 15px;
     outline: none;
-    background-color: #13B251;
+    background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
     color: white;
     border: none;
     border-radius: 5px;
@@ -131,7 +132,10 @@ textarea{
 }
 
 .button-price {
-    background-color: #13B251;
+    
+background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
+
+;
     color: white;
 }
 
@@ -236,7 +240,10 @@ label {
     padding: 10px 20px;
     outline: none;
     border: none;
-    background-color: #13B251;
+    
+background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
+
+;
     color: white;
     border-radius: 8px;
     font-weight: 700;
@@ -247,7 +254,9 @@ label {
         padding: 5px 10px;
         outline: none;
         border: none;
-        background-color: #13B251;
+        background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
+
+;
         color: white;
         border-radius: 5px;
         font-weight: 700;
@@ -334,7 +343,10 @@ textarea{
 .left button {
     padding: 5px 15px;
     outline: none;
-    background-color: #13B251;
+    
+background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
+
+;
     color: white;
     border: none;
     border-radius: 5px;
@@ -373,7 +385,7 @@ textarea{
 }
 
 .button-price {
-    background-color: #13B251;
+    background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
     color: white;
 }
 .lable-container p {
@@ -390,6 +402,11 @@ label {
     gap: 3px;
 }
 
+}
 
 
+@media (max-width:600px) {
+    .food-popup::-webkit-scrollbar{
+        display: none; 
+    }
 }
