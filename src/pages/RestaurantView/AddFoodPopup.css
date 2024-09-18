@@ -184,6 +184,9 @@ label {
     color: black;
     gap: 5px;
 }
+.lable p{
+    margin-top: 15px;
+}
 
 .lable-container p {
     font-weight: 600;
@@ -255,8 +258,6 @@ background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
         outline: none;
         border: none;
         background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
-
-;
         color: white;
         border-radius: 5px;
         font-weight: 700;
@@ -409,4 +410,17 @@ label {
     .food-popup::-webkit-scrollbar{
         display: none; 
     }
+    .food-popup {
+        width: 95%;
+    }
+    .right img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    .left p{
+        margin: 10px 0px;
+    }
+    
+    
 }
