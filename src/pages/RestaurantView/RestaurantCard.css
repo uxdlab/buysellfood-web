@@ -8,23 +8,24 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 210px;
     padding: 20px;
+    background-color:  #FDFDFD;
+    ;
 }
 .card-div:hover{
     transform: scale(1.05);   
 }
 
 .card-details{
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
 }
 .card-details .first{
     font-size: 18px;
     font-weight: 600;
     line-height: 19.75px;
-    text-align: left;
-    
+    text-align: left;    
 }
 .card-details .second{
     font-size: 14px;
@@ -39,7 +40,6 @@
     height: 170px;
     position: relative;
     border-radius: 10px;
-
 }
 .card-details-img img{
     width: 100%;
@@ -59,3 +59,9 @@
     cursor: pointer;
 }
 
+
+@media (max-width:600px) {
+    .card-div{
+       padding: 20px 2px;
+    }
+}

@@ -16,7 +16,7 @@ const RestaurantCard = ({ name, price, image,openPopup }) => {
                 <div style={{fontSize:'600',fontWeight:'bold'}} >{price}</div>
             </div>
             <div className='card-details-img'>
-              <img src={image}alt="" />
+              <img src={image}alt="food image" />
               <div className='add-btn'>
                 <BsPlusCircleFill  onClick={openPopup}/>
               </div>
