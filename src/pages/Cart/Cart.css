@@ -302,7 +302,7 @@
         overflow-y: scroll;
     }
     .cart-container-left::-webkit-scrollbar{
-        width: 20px;
+        width: 12px;
     }
     .cart-container-left::-webkit-scrollbar-thumb{
         background-color: #13B251;

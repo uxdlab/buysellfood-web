@@ -1,7 +1,7 @@
 // Card.js
 import React from 'react';
 import "./ListCard.css"
-import { CiStar } from "react-icons/ci";
+import star from '../../assets/star.png';
 import { IoMdTime } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const ListCard = ({ name, description, price, image }) => (
     <div className="card-content">
       <div className="card-content-one">
         <p>{name}</p>
-        <div>4.4 <CiStar/></div>
+        <div>4.4 <img src={star} alt="star" /></div>
       </div>
         <div className='card-content-two'>
           <p>North Indian, Biryani,</p>

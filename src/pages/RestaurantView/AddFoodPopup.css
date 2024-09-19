@@ -27,10 +27,10 @@
 }
 
 .food-popup::-webkit-scrollbar{
-    width: 20px; 
+    width: 12px; 
 }
 .food-popup::-webkit-scrollbar-thumb{
-    width: 10px;
+    width: 5px;
     background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
     border-radius: 10px;
 

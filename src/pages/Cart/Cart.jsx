@@ -210,7 +210,7 @@ const Cart = () => {
               <div className="total-to-pay-container">
                   <div className="total-pay-btn"><p className="total-pay-lable">Total to pay</p><p className="total-pay-amount">$514</p></div>
                   <div className="choose-your-free-item">Choose your free item:<FaCircleArrowDown style={{fontSize:'2rem',fill:'gray'}}/></div>
-                  <div className="apply-coopon-code-here choose-your-free-item">Apply coopon code here<FaCircleArrowRight style={{fontSize:'2rem',fill:'green'}}/></div>
+                  <div className="apply-coopon-code-here choose-your-free-item">Apply coopon code here<FaCircleArrowRight style={{fontSize:'2rem',fill:'#13B251'}}/></div>
               </div>
 
     

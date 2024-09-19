@@ -32,8 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    color: green;
-    background-color: #267E3E;
+    color:  #13B251;
+    background-color: #13B251;
     color: white;
     padding: 2px 10px;
     border-radius: 10px;
@@ -55,4 +55,10 @@
     color: #13B251;
     line-height: 17px;
 
+}
+@media (max-width:600px) {
+    .card-content-one p{
+        font-weight: 500;
+        font-size: 4vw;
+    }
 }
