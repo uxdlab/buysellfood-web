@@ -1,6 +1,6 @@
 .footer{
-    color: #d9d9d9;
-    background-color: #323232;
+    color: black;
+    background-color: #E8F8EE33;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,6 +44,16 @@
     margin: 20px 0;
     background-color: grey;
     border: none;
+}
+.footer-content-right h5{
+    font-size: 24px;
+    color:#35497E;
+    font-weight: 600;
+}
+.footer-content-center h5{
+    font-size: 24px;
+    color:#35497E;
+    font-weight: 600;
 }
 
 @media (max-width:1050px){

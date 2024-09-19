@@ -231,8 +231,6 @@ offer title */
     font-size: 40px;
     font-weight: 700;
     line-height: 48.76px;
-
-    
 }
 
 .navigation {
@@ -241,7 +239,7 @@ offer title */
     display: flex;
     flex-direction: column; 
     border-radius: 10px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     background-color:#FBFBFB;
 }
 
@@ -278,7 +276,7 @@ offer title */
     grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
     gap: 30px;
     padding: 0px 20px ;
-    overflow-y: scroll;
+    overflow: auto;
 }
 .cards-container-four::-webkit-scrollbar {
     width: 15px;
