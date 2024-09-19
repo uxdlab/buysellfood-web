@@ -181,6 +181,9 @@ client details */
             justify-content: end;
             align-items: center;
         }
+        .heading-container p{
+            font-size: 2vw;
+     }
     }
 
 

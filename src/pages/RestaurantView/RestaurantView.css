@@ -74,13 +74,17 @@
 .rightside{
     width: 40%;
 }
+.right{
+    padding-top: 10px;
+
+}
 .restaurant-img {
     border-radius: 20px;
     max-width: 460px;
     width: 100%;
     height: 291px;
     position: relative;
-}
+ }
 
 
 
@@ -104,15 +108,24 @@
     left: -40px;
     z-index: 999;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    align-items: center;
     flex-direction: column;
     border-radius: 10px;
-    align-items: center;
     padding:0px  10px;
     height: 125px;
 }
 .rating p{
+    font-size: 2.5rem;
+    font-weight: 600;
     margin: 0px;
+}
+.star {
+    font-size: 20px;
+    color: gray;
+}
+.filled {
+    color: gold;
 }
 
 
@@ -136,7 +149,7 @@ offer title */
     outline: none;
     padding: 10px;
     border-radius: 30px;
-    border: 2px solid #03081F;
+    border: 1px solid #03081F;
     width: 344px;
 }
 .offer-title input::placeholder{
@@ -234,7 +247,7 @@ offer title */
 }
 
 .navigation {
-    width: 15%;
+    width: 30%;
     border: 1px solid #BCBCBC;
     display: flex;
     flex-direction: column; 
@@ -379,7 +392,8 @@ offer title */
 }
 .review-card{
     width: 400px;
-    box-shadow: 0px 0px 10px #00000015;
+    border: 1px solid #BCBCBC;
+    box-shadow: 0px 4px 30px 0px #00000026;
     border-radius: 20px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;   
@@ -391,12 +405,14 @@ transform: scale(1.05);
     width: 400px;
     border-radius: 20px;
     height: 220px;
+    object-fit: cover;
 }
 .review-details{
     display: flex;
     align-items: center;
     padding-top: 5px;
     margin-bottom: 10px;
+    padding: 10px;
 }
 .name-details{
     padding: 2px 10px;
@@ -410,19 +426,26 @@ transform: scale(1.05);
     color: orange;
 }
 
+.review-star{
+    margin-left: 10px;
+}
+
 .date{
     font-size: small;
     color: gray;
+    padding: 10px 10px;
+    margin-top: -20px;
 }
 .review{
     margin-top: -15px;
+    padding: 0 10px;
 }
 
 
 
 /* responsive */
 
-@media (max-width: 1256px){
+@media (max-width: 1300px){
     .card-container-three{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -477,6 +500,7 @@ transform: scale(1.05);
         border-radius: 20px;
         padding: 50px;    
     }
+   
 }
 
 /* Media Queries for Responsiveness */
@@ -577,16 +601,17 @@ transform: scale(1.05);
         z-index: 999;
         display: flex;
         justify-content: start;
-        align-items: start;
+        align-items: center;
         flex-direction: column;
         border-radius: 10px;
         padding:0px  5px;
-        height: 100px;
+       
     }
     .rating p{
         margin: 0px;
     }
-    
+  
+   
     
 }
 

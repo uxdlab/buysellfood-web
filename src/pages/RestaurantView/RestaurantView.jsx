@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import RestaurantCard from './RestaurantCard';
 import rectangle from "../../assets/rectangle.png"
 import map from "../../assets/map.png"
+import starorange from "../../assets/starorange.png"
+import watch from "../../assets/watch.png"
 import "./RestaurantView.css"
 import { assets } from '../../assets/assets';
 import { IoIosRestaurant } from "react-icons/io";
@@ -170,8 +172,14 @@ const RestaurantView = () => {
                         <div className="restaurant-img">
                           <img style={{width:'100%'}} src={staticFoodList[0].image} alt="" />
                           <div className='rating'>
-                            <p style={{fontSize:'1.5rem',fontWeight:'700',textAlign:'center'}}>{staticFoodList[0].rating}</p>
-                            <p style={{fontSize:'small'}}>star star</p>
+                            <p>{staticFoodList[0].rating}</p>
+                            <div class="star-rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
                             <p style={{fontSize:'large',fontWeight:'400'}}>1.360 views</p>
                         </div>
                         </div>
@@ -260,8 +268,8 @@ const RestaurantView = () => {
                           <p>Sauces</p>
                         </div>
                       </div>
-                      <div className="cards-container-four ">
                      
+                   <div className="cards-container-four "> 
                       {staticFoodList.map(foodItem => (
                       <RestaurantCard
                         key={foodItem._id}
@@ -328,7 +336,7 @@ const RestaurantView = () => {
                                   src={review.reviewImg} 
                                   alt="Review Image" 
                                 />
-                              </div>
+                          </div>
 
                               <div className="review-details">
                                 <img 
@@ -340,8 +348,8 @@ const RestaurantView = () => {
                                   <p style={{ color: 'black', marginBottom: '-3px' }}>{review.name}</p>
                                   <p>{review.location}</p>
                                 </div>
-                                <div>
-                                  star ratings
+                                <div className='review-star'>
+                                    <img src={starorange} alt="stars" /> <img src={watch} alt="watch" />
                                 </div>
                               </div>
 
