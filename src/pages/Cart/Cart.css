@@ -1,47 +1,49 @@
-.cart-container{
+.cart-container {
     display: flex;
     justify-content: space-between;
     gap: 45px;
 }
-.cart-container-left{
+
+.cart-container-left {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
 }
-.product-container{
+
+.product-container {
     box-shadow: 0px 4px 30px 0px #00000026;
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 5px;
     padding: 20px;
     width: 810px;
     height: 397px;
 }
-.cart-container-left-box{
-    display: flex;
 
+.cart-container-left-box {
+    display: flex;
 }
+
 .left-box-container p {
     font-size: 24px;
     font-weight: 600;
     line-height: 19.75px;
     text-align: left;
     width: 56%;
-    
 }
-.right-box-container{
+
+.right-box-container {
     width: 150px;
     height: 150px;
     border-radius: 50%;
 }
-.right-box-container img{
+
+.right-box-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
-
 
 .btn-containers {
     display: flex;
@@ -49,12 +51,11 @@
     justify-content: start;
     gap: 20px;
     width: 80%;
-
 }
 
 .buttons {
     width: 150px;
-    padding: 5px;   
+    padding: 5px;
     background-color: white;
     display: flex;
     align-items: center;
@@ -75,16 +76,10 @@
     color: white;
 }
 
-
-/* cart-container-right */
-
-
-
-.cart-container-right{
+.cart-container-right {
     width: 458px;
     background-color: #F9F9F9;
     border: 1px solid #0000001C;
-
 }
 
 .cart-container-right-first {
@@ -101,13 +96,13 @@
     height: 117px;
 }
 
-.cart-container-right-second{
+.cart-container-right-second {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
-.cart-container-right-second-one{
+
+.cart-container-right-second-one {
     background-color: orange;
     width: 48px;
     height: 48px;
@@ -118,89 +113,93 @@
     font-size: 1.2rem;
     padding-top: 10px;
 }
-.cart-container-right-second-two{
-    height: 121px;
+
+.cart-container-right-second-two {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.cart-container-right-second-one p{
+
+.cart-container-right-second-one p {
     font-size: 24px;
     font-weight: 700;
     line-height: 36px;
     text-align: left;
-   margin-top: 5px;
+    margin-top: 5px;
 }
-.cart-container-right-second{
+
+.cart-container-right-second {
     border-bottom: 1px solid #00000033;
     padding: 15px;
 }
-.cart-container-right-second-two p{
+
+.cart-container-right-second-two p {
     margin: 3px;
 }
-.second-two-price{
+
+.second-two-price {
     font-size: 20px;
     font-weight: 600;
     line-height: 25px;
     text-align: left;
     color: #13B251;
 }
-.second-two-name{
+
+.second-two-name {
     font-size: 16px;
     font-weight: 600;
     line-height: 19.5px;
     text-align: left;
     color: #03081F;
 }
-.second-two-dishes{
+
+.second-two-dishes {
     font-size: 15px;
     font-weight: 400;
     line-height: 18px;
     text-align: left;
-    
 }
-.cart-container-right-second-third{
+
+.cart-container-right-second-third {
     font-size: 2rem;
     color: red;
 }
 
-
-/* subtotalsection */
-.cart-price-details{
+.cart-price-details {
     padding: 15px 20px;
     border-bottom: 1px solid #00000033;
 }
-.sub-total{
+
+.sub-total {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.sub-total-lable{
+
+.sub-total-lable {
     font-size: 20px;
     font-weight: 600;
     line-height: 24.38px;
     text-align: left;
 }
-.sub-total-amount{
+
+.sub-total-amount {
     font-size: 24px;
     font-weight: 400;
     line-height: 25px;
     text-align: left;
     color: #212121;
-    
 }
 
-
-/* total to pay container */
-
-.total-to-pay-container{
+.total-to-pay-container {
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     border-bottom: 1px solid #00000033;
 }
-.total-pay-btn{
+
+.total-pay-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -210,7 +209,8 @@
     padding: 5px 20px;
     height: 70px;
 }
-.total-pay-lable{
+
+.total-pay-lable {
     font-size: 20px;
     font-weight: 600;
     line-height: 24.38px;
@@ -218,7 +218,8 @@
     margin-top: 15px;
     padding-left: 10px;
 }
-.total-pay-amount{
+
+.total-pay-amount {
     font-size: 36px;
     font-weight: 600;
     line-height: 25px;
@@ -226,7 +227,7 @@
     margin-top: 15px;
 }
 
-.choose-your-free-item{
+.choose-your-free-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -236,13 +237,9 @@
     height: 52px;
 }
 
-
-
-/* make payment */
-
-.make-payment{  
+.make-payment {
     display: flex;
-    justify-content:start;
+    justify-content: start;
     gap: 20px;
     align-items: center;
     margin: 20px 20px;
@@ -257,78 +254,137 @@
     font-weight: 600;
     line-height: 29.26px;
     text-align: left;
-
 }
 
-
-@media (max-width:1300px) {
-    .product-container{
+@media (max-width: 1300px) {
+    .product-container {
         box-shadow: 0px 4px 30px 0px #00000026;
         display: flex;
         flex-direction: column;
         gap: 48px;
         padding: 20px;
         width: 100%;
-        height: 397px;
+        height: auto; /* Adjust for responsiveness */
     }
-    .cart-container-left-box{
+
+    .cart-container-left-box {
         display: flex;
         justify-content: space-between;
     }
-    .left-box-container{
+
+    .left-box-container {
         width: 70%;
     }
-    .left-box-container P{
+
+    .left-box-container p {
         font-size: 2vw;
+        font-family: Arial, sans-serif; /* Change font family for small screens */
     }
-    .cart-container-right-second-two{
+
+    .cart-container-right-second-two {
         margin-left: 10%;
     }
 }
 
-@media (max-width:950px) {
-   
-    .product-container{
+@media (max-width: 950px) {
+    .product-container {
         box-shadow: 5px 10px 30px 10px #00000026;
-        height: auto;
+        height: auto; /* Make height auto for flexibility */
     }
-    .cart-container{
+
+    .cart-container {
         display: flex;
         flex-direction: column-reverse;
     }
-    .cart-container-left{
+
+    .cart-container-left {
         height: 100vh;
-        overflow:auto;
+        overflow: auto;
         overflow-y: scroll;
     }
-    .cart-container-left::-webkit-scrollbar{
+
+    .cart-container-left::-webkit-scrollbar {
         width: 12px;
     }
-    .cart-container-left::-webkit-scrollbar-thumb{
+
+    .cart-container-left::-webkit-scrollbar-thumb {
         background-color: #13B251;
         border-radius: 20px;
     }
-    .cart-container-right{
+
+    .cart-container-right {
         width: 100%;
     }
-    .left-box-container{
+
+    .left-box-container {
         width: 100%;
     }
-    .left-box-container P{
+
+    .left-box-container p {
         font-size: 4vw;
+        font-family: Arial, sans-serif; /* Change font family for small screens */
     }
-    .btn-containers{
+
+    .btn-containers {
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
-        gap:  10px;
+        gap: 10px;
         width: 100%;
     }
-
 }
 
-@media (max-width:600px){
-    .cart-container-left::-webkit-scrollbar{
-        display:  none;
+@media (max-width: 600px) {
+    .cart-container-left::-webkit-scrollbar {
+        display: none;
+    }
+
+    .btn-containers {
+        width: 90%; /* More room for buttons */
+    }
+
+    .buttons {
+        width: 100%; /* Full width buttons */
+        padding: 10px; /* Increased padding for easier touch */
+    }
+
+    .total-pay-amount {
+        font-size: 28px; /* Slightly smaller for better fit */
+    }
+
+    .total-pay-btn {
+        flex-direction: column; /* Stack content for smaller screens */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    .total-pay-lable {
+        font-size: 16px; /* Smaller font size for label */
+        font-family: Arial, sans-serif; /* Change font family */
+    }
+
+    .total-pay-amount {
+        font-size: 24px; /* Smaller font size for amount */
+        font-family: Arial, sans-serif; /* Change font family */
+    }
+
+    .make-payment {
+        font-size: 20px; /* Adjust size for button */
+        font-family: Arial, sans-serif; /* Change font family */
+    }
+
+    .cart-container-right-first {
+        font-size: 24px; /* Smaller font size for section title */
+        font-family: Arial, sans-serif; /* Change font family */
+    }
+
+    .cart-container-right-second-two p {
+        font-size: 14px; /* Smaller font size for details */
+        font-family: Arial, sans-serif; /* Change font family */
+    }
+
+    .second-two-name,
+    .second-two-price,
+    .second-two-dishes {
+        font-family: Arial, sans-serif; /* Change font family */
     }
 }
