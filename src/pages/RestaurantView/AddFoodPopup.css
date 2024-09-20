@@ -427,3 +427,12 @@ label {
     
     
 }
+@media (max-width:410px) {
+        .btn-container{
+            display: flex;
+            width: 100%;
+            padding: 0px;
+            margin-left: 10px;
+    }
+
+}
