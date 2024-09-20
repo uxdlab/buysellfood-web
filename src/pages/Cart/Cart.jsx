@@ -158,6 +158,7 @@ const Cart = () => {
             
                </div>
               </div>
+
               <div className="cart-container-right-second">
                   <div className="cart-container-right-second-one">
                       <p>1x</p>
@@ -184,7 +185,8 @@ const Cart = () => {
                   <div className="cart-container-right-second-third"><MdDeleteForever />
             
                </div>
-              </div>  <div className="cart-container-right-second">
+              </div> 
+   <div className="cart-container-right-second">
                   <div className="cart-container-right-second-one">
                       <p>1x</p>
                   </div>
