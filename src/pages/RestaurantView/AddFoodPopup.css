@@ -424,6 +424,10 @@ label {
    .left p{
         margin: 10px 0px;
     }
+    .write-note{
+        padding-right: 20px;
+    }
+
     
     
 }
@@ -433,6 +437,9 @@ label {
             width: 100%;
             padding: 0px;
             margin-left: 10px;
+            margin-bottom: 5px;
     }
-
+    .add-note-edit-btn{
+        margin-left: -8px;
+    }
 }
