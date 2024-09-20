@@ -289,7 +289,7 @@ offer title */
     grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
     gap: 30px;
     padding: 0px 20px ;
-    overflow: auto;
+    overflow-y: scroll;
 }
 .cards-container-four::-webkit-scrollbar {
     width: 15px;
@@ -299,11 +299,94 @@ offer title */
     border-radius: 10px;
     background-color: gainsboro;
 }
-  .navigation::-webkit-scrollbar {
+.navigation::-webkit-scrollbar{
+display: none;
+}
+
+.nav-category{
     display: none;
-  }
+}
 
 
+@media (max-width: 1080px) {
+    .navigation{
+        display: none;
+    }
+    .navigation-card-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-category {
+        display: flex;
+        align-items: center;
+        padding: 35px 0 20px;
+        border-radius: 10px;
+        gap: 20px;
+        overflow-y: hidden;
+        overflow-x: auto; /* Ensure horizontal scrolling if needed */
+        background-color: #f8f9fa; /* Light background for contrast */
+        border-bottom: 1px solid #e0e0e0; /* Subtle border for separation */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    }
+    
+    /* Hide scrollbar by default */
+    .nav-category::-webkit-scrollbar {
+        width: 0; /* Hide scrollbar */
+        height: 0; /* Hide scrollbar */
+    }
+    
+    /* Show scrollbar on hover */
+    .nav-category:hover::-webkit-scrollbar {
+        width: 12px; /* Thinner scrollbar */
+        height: 12px; /* For vertical scrolling, adjust height */
+    }
+    
+    /* Style for scrollbar thumb */
+    .nav-category:hover::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: gainsboro; /* Scrollbar thumb color */
+    }
+    
+    /* Style for items */
+    .nav-category p {
+        padding: 10px 15px; /* Padding for better appearance */
+        flex: 0 0 auto; /* Prevent items from growing/shrinking */
+        white-space: nowrap; /* Prevent text wrapping */
+        border-radius: 5px; /* Rounded corners */
+        color: #03081F; /* Text color */
+        transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Smooth transitions */
+        cursor: pointer;
+        font-weight: 500; /* Slightly bolder text */
+    }
+    
+    /* Hover effects */
+    .nav-category p:hover {
+        background-color: #0B0f25; /* Darker background on hover */
+        color: white; /* White text on hover */
+        transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+    
+    /* Active effects */
+    .nav-category p:active {
+        background-color: #1a1e34; /* Darker background on active */
+        color: white; /* White text on active */
+        transform: scale(0.95); /* Slightly shrink on active */
+    }
+     
+    
+    
+  
+    
+    
+
+    .offer-image{
+        min-width: 300px;
+        height: 280px;
+        border-radius: 20px;
+    }
+
+}
 
 /* box-five container */
 
@@ -462,28 +545,6 @@ transform: scale(1.05);
 
 
 
-@media (max-width: 1021px) {
-   .navigation-card-container{
-        display: flex;
-        flex-direction: column;
-
-    }
-    .navigation{
-    display: flex;
-    width: 100%;
-    margin-bottom: 20px;
-   }
-   .nav{
-    display: flex;
-    
-   }
-.offer-image{
-    min-width: 300px;
-    height: 280px;
-    border-radius: 20px;
-}
-
-}
 
 
 @media (max-width: 900px) {
@@ -532,6 +593,10 @@ transform: scale(1.05);
 @media (max-width:600px) {
     .cards-container-four::-webkit-scrollbar {
         display: none;
+    }
+  
+    .nav-category::-webkit-scrollbar {
+       display: none;
     }
     .absolute-banner{
         position: absolute;

@@ -268,6 +268,21 @@ const RestaurantView = () => {
                           <p>Sauces</p>
                         </div>
                       </div>
+
+                      {/* for mobile */}
+                        <div className='nav-category'>
+                          <p style={{backgroundColor:'#0B0f25',color:'white'}}><IoIosRestaurant/>Menu</p>
+                          <p >Burger</p>
+                          <p>Garlic</p>
+                          <p>Pizza</p>
+                          <p>Kebabas</p>
+                          <p>Salads</p>
+                          <p>Cold Drinks</p>
+                          <p>Happy Meal</p>
+                          <p>Desserts</p>
+                          <p>Hot Drinks</p>
+                          <p>Sauces</p>
+                        </div>
                      
                    <div className="cards-container-four "> 
                       {staticFoodList.map(foodItem => (
