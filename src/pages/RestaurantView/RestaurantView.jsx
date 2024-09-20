@@ -343,36 +343,38 @@ const RestaurantView = () => {
 
 
                       <div ref={scrollRef} className="review-container">
-                          {reviews.map((review) => (
-                            <div className="review-card" key={review.id}>
-                              <div className="review-img">
-                                <img 
-                                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }} 
-                                  src={review.reviewImg} 
-                                  alt="Review Image" 
-                                />
-                          </div>
+    {reviews.map((review) => (
+        <div className="review-card" key={review.id}>
+            <div className="review-img">
+                <img 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px 20px 0 0' }} 
+                    src={review.reviewImg} 
+                    alt="Review Image" 
+                />
+            </div>
 
-                              <div className="review-details">
-                                <img 
-                                  style={{ width: '50px', height: '50px', borderRadius: '50%' }} 
-                                  src={review.userImg} 
-                                  alt="User Image" 
-                                />
-                                <div className="name-details">
-                                  <p style={{ color: 'black', marginBottom: '-3px' }}>{review.name}</p>
-                                  <p>{review.location}</p>
-                                </div>
-                                <div className='review-star'>
-                                    <img src={starorange} alt="stars" /> <img src={watch} alt="watch" />
-                                </div>
-                              </div>
+            <div className="review-details">
+                <img 
+                    style={{ width: '50px', height: '50px', borderRadius: '50%' }} 
+                    src={review.userImg} 
+                    alt="User Image" 
+                />
+                <div className="name-details">
+                    <p style={{ color: 'black', marginBottom: '-3px' }}>{review.name}</p>
+                    <p>{review.location}</p>
+                </div>
+                <div className='review-star'>
+                    <img src={starorange} alt="stars" /> 
+                    <img src={watch} alt="watch" />
+                </div>
+            </div>
 
-                              <p className="date">{review.date}</p>
-                              <p className="date review">{review.review}</p>
-                            </div>
-                          ))}
-                        </div>
+            <p className="date">{review.date}</p>
+            <p className="review">{review.review}</p>
+        </div>
+    ))}
+</div>
+
 
                    
 

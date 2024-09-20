@@ -465,63 +465,85 @@ display: none;
 /* 
 .review-container */
 
-.review-container{
+.review-container {
     display: flex;
-    justify-content: space-between;
-    gap: 5%;
-    padding-top: 10px;
-    overflow-x: scroll;
-    overflow: auto;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 36px; /* Increased gap for better spacing */
+    padding: 10px; /* Added padding around container */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Optional: Snap scrolling */
 }
-.review-card{
-    width: 400px;
+
+.review-card {
+    flex: 0 0 auto; /* Prevent flex item from shrinking */
+    width: 30%; /* Use percentage for responsiveness */
+    max-width: 480px; /* Limit width for larger screens */
+    min-width: 300px;
     border: 1px solid #BCBCBC;
     box-shadow: 0px 4px 30px 0px #00000026;
     border-radius: 20px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;   
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start; /* Optional: Snap position */
 }
-.review-card:hover{
-transform: scale(1.05);
+
+.review-card:hover {
+    transform: scale(1.05);
 }
-.review-img{
-    width: 400px;
-    border-radius: 20px;
-    height: 220px;
-    object-fit: cover;
+
+.review-img {
+    width: 100%; /* Make the image responsive */
+    border-radius: 20px 20px 0 0; /* Rounded corners only at the top */
+    height: 220px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure images cover the area */
 }
-.review-details{
+
+.review-details {
     display: flex;
     align-items: center;
-    padding-top: 5px;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
     padding: 10px;
 }
-.name-details{
+
+.name-details {
     padding: 2px 10px;
     border-left: 2px solid orange;
     margin-left: 5px;
 }
-.name-details p{
-    margin: 0px;
+
+.name-details p {
+    margin: 0;
     font-size: small;
     font-weight: bold;
     color: orange;
 }
 
-.review-star{
+.review-star {
     margin-left: 10px;
 }
 
-.date{
+.date {
     font-size: small;
     color: gray;
-    padding: 10px 10px;
-    margin-top: -20px;
+    padding: 10px;
 }
-.review{
+
+.review {
     margin-top: -15px;
     padding: 0 10px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .review-card {
+        width: 45%; /* Adjust width for smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .review-card {
+        width: 90%; /* Take up more space on very small devices */
+    }
 }
 
 
@@ -675,6 +697,8 @@ transform: scale(1.05);
     .rating p{
         margin: 0px;
     }
+
+   
   
    
     
