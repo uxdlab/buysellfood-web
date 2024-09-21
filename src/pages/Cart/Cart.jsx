@@ -8,12 +8,25 @@ import AfterPaymentPopup from '../../components/AfterPaymentPopup/AfterPaymentPo
 
 const Cart = () => {
 
+  const [activeButton, setActiveButton] = useState("btn1");
+
   const [isPopupVisible,setisPopupVisible] = useState(false)  
 
   const togglePaymentPopup = (e) =>{
       
     setisPopupVisible(!isPopupVisible);
   }
+
+  const buttons = [
+    { id: "btn1", label: "Small", price: "$513" },
+    { id: "btn2", label: "Medium", price: "$613" },
+    { id: "btn3", label: "Large", price: "$713" },
+    { id: "btn4", label: "Extra Large", price: "$813" },
+  ];
+
+  const handleButtonClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
 
   return (
     <div className="cart">
@@ -39,22 +52,33 @@ const Cart = () => {
                   </div>
 
               <div className="btn-containers">
-                  <div className='buttons' style={{backgroundColor:'black'}}>
-                    <button style={{backgroundColor:'black',color:'white'}}>Small</button>
-                    <button>$513</button>
-                  </div>
-                  <div className='buttons'>
-                    <button style={{backgroundColor:'white'}}>Small</button>
-                    <button className='button-price'>$513</button>
-                  </div>
-                  <div className='buttons'>
-                    <button style={{backgroundColor:'white'}}>Small</button>
-                    <button className='button-price'>$513</button>
-                  </div>
-                  <div className='buttons'>
-                    <button style={{backgroundColor:'white'}}>Small</button>
-                    <button className='button-price'>$513</button>
-                  </div>
+              {buttons.map((button) => (
+              <div
+                className="buttons"
+                style={{
+                  backgroundColor:
+                    activeButton == button.id ? "black" : "white",
+                }}
+                key={button.id}
+              >
+                <button
+                  style={{
+                    backgroundColor:
+                      activeButton === button.id ? "black" : "white",
+                    color: activeButton === button.id ? "white" : "black",
+                  }}
+                  onClick={() => handleButtonClick(button.id)}
+                >
+                  {button.label}
+                </button>
+                <button
+                  onClick={() => handleButtonClick(button.id)}
+                  className="button-price"
+                >
+                  {button.price}
+                </button>
+              </div>
+            ))}
           
               </div>
             </div>
@@ -77,22 +101,33 @@ const Cart = () => {
             </div>
 
         <div className="btn-containers">
-            <div className='buttons' style={{backgroundColor:'black'}}>
-              <button style={{backgroundColor:'black',color:'white'}}>Small</button>
-              <button>$513</button>
-            </div>
-            <div className='buttons'>
-              <button style={{backgroundColor:'white'}}>Small</button>
-              <button className='button-price'>$513</button>
-            </div>
-            <div className='buttons'>
-              <button style={{backgroundColor:'white'}}>Small</button>
-              <button className='button-price'>$513</button>
-            </div>
-            <div className='buttons'>
-              <button style={{backgroundColor:'white'}}>Small</button>
-              <button className='button-price'>$513</button>
-            </div>
+        {buttons.map((button) => (
+              <div
+                className="buttons"
+                style={{
+                  backgroundColor:
+                    activeButton == button.id ? "black" : "white",
+                }}
+                key={button.id}
+              >
+                <button
+                  style={{
+                    backgroundColor:
+                      activeButton === button.id ? "black" : "white",
+                    color: activeButton === button.id ? "white" : "black",
+                  }}
+                  onClick={() => handleButtonClick(button.id)}
+                >
+                  {button.label}
+                </button>
+                <button
+                  onClick={() => handleButtonClick(button.id)}
+                  className="button-price"
+                >
+                  {button.price}
+                </button>
+              </div>
+            ))}
     
         </div>
           </div>

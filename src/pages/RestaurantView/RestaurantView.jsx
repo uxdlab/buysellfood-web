@@ -20,6 +20,7 @@ const RestaurantView = () => {
 
   
   const [isVisible,setisVisible] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const scrollRef = useRef(null);
 
@@ -153,7 +154,14 @@ const RestaurantView = () => {
     },
   ];
 
+  const categories = ['All', 'Burger', 'Garlic', 'Pizza', 'Kebabas', 'Salad', 'Cold Drinks', 'Pasta', 'Desserts', 'Hot Drinks', 'Sauces'];
 
+  const filterFoodItems = () => {
+    if (selectedCategory === 'All') {
+      return staticFoodList;
+    }
+    return staticFoodList.filter(item => item.category === selectedCategory);
+  };
 
 
   return (
@@ -256,36 +264,39 @@ const RestaurantView = () => {
                             <p>Menu</p>
                           </div>
                         <div className='nav'>
-                          <p style={{backgroundColor:'#0B0f25',color:'white'}}>Burger</p>
-                          <p>Garlic</p>
-                          <p>Pizza</p>
-                          <p>Kebabas</p>
-                          <p>Salads</p>
-                          <p>Cold Drinks</p>
-                          <p>Happy Meal</p>
-                          <p>Desserts</p>
-                          <p>Hot Drinks</p>
-                          <p>Sauces</p>
+                           {categories.map(category => (
+                                  <p
+                                    key={category}
+                                    style={{
+                                      backgroundColor: selectedCategory === category ? '#0B0f25' : '',
+                                      color: selectedCategory === category ? 'white' : ''
+                                    }}
+                                    onClick={() => setSelectedCategory(category)}
+                                  >
+                                    {category}
+                                  </p>
+                                ))}
                         </div>
                       </div>
 
                       {/* for mobile */}
                         <div className='nav-category'>
-                          <p style={{backgroundColor:'#0B0f25',color:'white'}}><IoIosRestaurant/>Menu</p>
-                          <p >Burger</p>
-                          <p>Garlic</p>
-                          <p>Pizza</p>
-                          <p>Kebabas</p>
-                          <p>Salads</p>
-                          <p>Cold Drinks</p>
-                          <p>Happy Meal</p>
-                          <p>Desserts</p>
-                          <p>Hot Drinks</p>
-                          <p>Sauces</p>
-                        </div>
+                             {categories.map(category => (
+                                  <p
+                                    key={category}
+                                    style={{
+                                      backgroundColor: selectedCategory === category ? '#0B0f25' : '',
+                                      color: selectedCategory === category ? 'white' : ''
+                                    }}
+                                    onClick={() => setSelectedCategory(category)}
+                                  >
+                                    {category}
+                                  </p>
+                                ))}
+                                 </div>
                      
                    <div className="cards-container-four "> 
-                      {staticFoodList.map(foodItem => (
+                      {filterFoodItems().map(foodItem => (
                       <RestaurantCard
                         key={foodItem._id}
                         name={foodItem.name}
