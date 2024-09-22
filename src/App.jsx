@@ -11,7 +11,6 @@ import MyOrders from "./pages/MyOrders/MyOrders"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RestaurantView from "./pages/RestaurantView/RestaurantView"
-import AddressSlider from "./components/AddressSlider/AddressSlider"
 import RestaurantListing from "./pages/RestaurantListing/RestaurantListing"
 
 const App = () => {
@@ -31,7 +30,7 @@ const App = () => {
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/restaurantview" element={<RestaurantView/>} />
           <Route path="/restaurantlist" element={<RestaurantListing/>}/>
-          <Route path="/address" element={<AddressSlider/>}/>
+  
 
         </Routes>
       </div>
