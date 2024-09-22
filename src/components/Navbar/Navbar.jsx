@@ -60,12 +60,7 @@ const Navbar = ({ setShowLogin }) => {
         <Link to={"/cart"} style={{cursor:'pointer'}}>
         <div className="navbar-search-icon"> 
             <img src={assets.basket_icon} className="basket-image"  alt="" />
-            {selectedItem.length === 0 ? (
-              <div className="cart-empty-div">
-              <h2>Cart Empty</h2>
-              <p>Good food is always cooking! Go ahead, order some yummy items from the menu.</p>
-            </div>
-            ) : (
+            {selectedItem.length === 0 ? ("") : (
               <div className="cart-number-wrapper">
               <div id="cart-number">
                 <p style={{ fontSize: "1.5rem", color: "white" }}>

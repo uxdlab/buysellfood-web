@@ -73,6 +73,7 @@
   border: 1px solid #BCBCBC;
   border-radius: 5px;
   font-size: 1rem;
+  outline: none;
 }
 
 .Login-signup-form button {
