@@ -1,70 +1,134 @@
-.main-navigation-container {
-  padding: 10px 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar{
+  position: relative;
 }
-.first-nav-items{
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo img{
-  max-width: 220px;
-}
-.nav-address{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.second-nav-items{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.navigation-nav{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding-top: 15px;
-
-
-}
-.register{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px 20px;
-  margin-left: 60px;
-  color: #35497E;
-cursor: pointer;
-}
-
-.nav-search-container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  padding: 5px;
-  background-color: white;
-  box-shadow: 0px 0px 14.22px 0px #00000026;
-
-}
-.search-box{
-  width: 50%;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-.search-box input{
+.navbar-container {
   width: 100%;
-  border: none;
-  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px ;
 }
-.bag{
-  width: 30%;
-  text-align: end;
-  border-left: 1px solid gainsboro;
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-mobile {
+  width: 25px;
+  margin-right: 10px;
+}
+.nav-logo-desktop {
+  width: 200px;
+}
+
+.nav-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+}
+
+.location-name {
+  font-weight: 600;
+  color: black;
+  text-decoration: underline;
+}
+
+.location-address {
+  color: gray;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+/* Center navigation links */
+.navbar-center {
+  display: flex;
+  align-items: center;
+
+}
+
+.nav-link {
+  margin-right: 20px;
+  color: #35497E;
+  font-weight: 500;
+  text-decoration: none;
   cursor: pointer;
 }
+
+.nav-link:hover {
+  color: #1F2B50;
+}
+
+.nav-register {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.register-icon {
+  font-size: 1.5rem;
+  color: #35497E;
+  margin-right: 5px;
+}
+
+/* Right icons and menu */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styling */
+@media (max-width: 800px) {
+  .nav-menu {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+   .navbar-center{
+      display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .location-name{
+    font-size: small;
+  }
+  .location-address{
+    font-size: smaller;
+  }
+  .nav-logo-mobile{
+    margin-right: 4px;
+  }
+}
+
