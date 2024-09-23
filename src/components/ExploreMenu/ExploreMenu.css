@@ -8,6 +8,14 @@
     color: #262626;
     font-weight: 500;
 }
+.type-of-food{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.type-of-food h2{
+    font-weight: 700;
+}
 
 .explore-menu-text{
     max-width: 60%;

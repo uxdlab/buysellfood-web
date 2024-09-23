@@ -7,6 +7,7 @@ import AppDownload from "../../components/AppDownload/AppDownload";
 import { Restaurants } from "../Restaurants/Restaurants";
 import Chooseus from "../Chooseus/Chooseus";
 import Stepper from "../Stepper/Stepper";
+import ClientReviews from "../ClientReviews/ClientReviews";
 
 const Home = () => {
   const [category, setCategory] = useState("All");
@@ -20,6 +21,7 @@ const Home = () => {
       <Restaurants />
       <Chooseus />
       <Stepper />
+      <ClientReviews/>
     </div>
   );
 };

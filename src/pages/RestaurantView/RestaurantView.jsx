@@ -21,6 +21,8 @@ const RestaurantView = () => {
   
   const [isVisible,setisVisible] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isReadMore, setIsReadMore] = useState(false);
+  const toggleReadMore = () => setIsReadMore(!isReadMore);
 
   const scrollRef = useRef(null);
 
@@ -381,7 +383,7 @@ const RestaurantView = () => {
             </div>
 
             <p className="date">{review.date}</p>
-            <p className="review">{review.review}</p>
+            <p className="review"> {isReadMore ? review.review  : `${review.review.substring(0, 50)}...`} <span style={{color:'orange'}} onClick={toggleReadMore}> {isReadMore ? 'Show Less' : 'Read More'}</span></p>
         </div>
     ))}
 </div>
