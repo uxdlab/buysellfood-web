@@ -99,10 +99,10 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  text-align: start;
-  z-index: 999;
+  z-index: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-weight: 600;
+  padding-top: 100px;
 }
 .closemenu{
   position: absolute;
@@ -110,6 +110,20 @@
   right: 10px;
   font-size: 2rem;
   cursor:pointer;
+}
+.mobile-menu p{
+  cursor: pointer;
+  text-align: center;
+}
+.mobile-menu p:hover{
+  color: #1F2B50;
+  transform: scale(1.05); 
+  transition: all 0.3s ease-in-out;
+}
+.mobile-menu p:active {
+  color: white;
+  transform: scale(1.05); 
+ 
 }
 
 /* Responsive styling */

@@ -63,12 +63,10 @@ const Navbar = ({ setShowLogin }) => {
       {/* Mobile Menu Slider */}
       {isMobileOpen && (
         <div className="mobile-menu">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/services" className="nav-link">Our Services</Link>
-          <div className="nav-register" onClick={() => setShowLogin(true)}>
-            <AiOutlineUserAdd className="register-icon" />
-            <span>Register</span>
-          </div>
+          <p>Home</p>
+          <p>Services</p>
+          <p onClick={() => setShowLogin(true)}>Register<AiOutlineUserAdd className="register-icon" /></p>
+        
           <IoMdClose onClick={toggleMenu} className="closemenu"/>
         </div>
 
