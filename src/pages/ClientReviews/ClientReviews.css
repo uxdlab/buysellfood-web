@@ -110,3 +110,17 @@
     }
 
 }
+ @media (max-width:600px) {
+    .client-btn-left, .client-btn-right  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px; 
+        height: 30px; 
+        border-radius: 50%;
+        background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
+        box-shadow: 0px 0px 25px 0px #83A5FF40;
+        cursor: pointer;
+        position: absolute;
+    }
+ }

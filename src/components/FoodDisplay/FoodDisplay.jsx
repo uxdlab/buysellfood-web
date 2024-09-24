@@ -2,6 +2,8 @@ import { useContext } from "react";
 import "./FoodDisplay.css";
 import FoodItem from "../FoodItem/FoodItem";
 import { assets } from "../../assets/assets";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
+
 
 const FoodDisplay = ({ category }) => {
   
@@ -74,7 +76,7 @@ const FoodDisplay = ({ category }) => {
 
   return (
     <div className="food-display" id="food-display">
-      <h2>Top dishes near you</h2>
+      <h2>Most Popular Items</h2>
       <div className="food-display-list">
         {staticFoodList.map((item, index) => {
           if (category === "All" || category === item.category) {
@@ -91,6 +93,11 @@ const FoodDisplay = ({ category }) => {
           }
         })}
       </div>
+              <div className="btn-more-card">
+              <button  id="btn">See More Product <BsFillArrowRightCircleFill className="insidebtn"  />
+              </button>
+            </div>
+           
     </div>
   );
 };

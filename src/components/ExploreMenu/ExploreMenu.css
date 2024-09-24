@@ -30,6 +30,7 @@
     text-align: center;
     margin: 20px 0px;
     overflow-x: scroll;
+    padding-top: 15px;
 }
 
 .explore-menu-list::-webkit-scrollbar{
@@ -46,19 +47,15 @@
 
 .explore-menu-list-item p{
     margin-top: 10px;
-    color: #747474;
+    color: #424242;
     font-size: max(1.4vw, 16px);
     cursor: pointer;
+    font-weight: 600;
 }
 
-.explore-menu hr{
-    margin: 10px 0px;
-    height: 2px;
-    background-color: #e2e2e2;
-}
 
 .explore-menu-list-item .active{
-    border: 4px solid tomato;
+    border: 4px solid #13B251;
     padding: 2px;
 }
 
@@ -67,4 +64,11 @@
         max-width: 100%;
         font-size: 14px;
     }
+}
+
+@media (max-width: 600px){
+    .type-of-food h2{
+        font-size: 1.3rem;
+;
+}
 }

@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { assets } from "../../assets/assets";
+import Vector from '../../assets/Vector.png';
 import "./FoodItem.css";
 import { StoreContext } from "../../context/StoreContext";
 import { Link } from "react-router-dom";
+import { IoMdTime } from "react-icons/io";
 
 const FoodItem = ({ id, name, price, description, image }) => {
   const { cartItems, addToCart, removeFromCart, url } =
@@ -11,19 +13,20 @@ const FoodItem = ({ id, name, price, description, image }) => {
   const quantity = cartItems && cartItems[id] ? cartItems[id] : 0;
 
   return (
-    <Link to="/restaurantlist" style={{textDecoration:"none",color:'black'}}> <div className="food-item">
-      <div className="food-item-img-container">
-        <img className="food-item-image" src={image} alt="" />
+    <Link to="/restaurantlist" style={{textDecoration:'none'}}><div className="food-item" style={{border:'none',}} >
+    <img src={image} alt={name} className="food-item-image" />
+    <div className="food-item-details">
+      <div className="food-item-name-rating">
+        <p className="name">{name}</p>
+        <div className="star"> <img style={{width:'12px'}}  src={Vector} alt="star" />4.4</div>
       </div>
-
-      <div className="food-item-info">
-        <div className="food-item-name-rating">
-          <p>{name}</p>
+        <div className='food-item-add-price'>
+          <button>Add To Cart</button>
+          <p>$515</p>
         </div>
-        <p className="food-item-desc">{description}</p>
-        <p className="food-item-price">${price}</p>
-      </div>
-    </div></Link>
+     
+    </div>
+  </div></Link>
   );
 };
 

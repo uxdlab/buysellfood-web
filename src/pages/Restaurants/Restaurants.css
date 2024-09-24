@@ -2,7 +2,8 @@
   margin-top: 30px;
 }
 .rest-display h2 {
-  font-weight: 600;
+  font-weight: 700;
+  text-align: center;
 }
 
 .restaurant-card {
@@ -24,4 +25,12 @@
 .restaurant-rating {
   font-size: 1rem;
   color: #f39c12;
+}
+
+
+@media (max-width:600px) {
+  .rest-display h2 {
+    font-size: 1.5rem;
+  }
+  
 }

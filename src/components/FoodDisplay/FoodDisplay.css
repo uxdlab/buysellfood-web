@@ -3,8 +3,9 @@
 }
 
 .food-display h2{
-    font-size: max(2vw, 24px);
-    font-weight: 600;
+    font-size: max(2vw, 2rem);
+    font-weight: 700;
+    text-align: center;
 }
 
 .food-display-list{
@@ -13,4 +14,39 @@
     margin-top: 30px;
     gap: 30px;
     row-gap: 50px;
+}
+.btn-more-card{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+ #btn{
+    padding: 6px 0px;
+    padding-left: 25px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #20CA62 0%, #13B351 100%);
+    color: white;
+    font-weight: bold;
+    font-size: small;
+}
+.insidebtn{
+    font-size: 2rem;
+    margin: 0px 5px;
+}
+
+@media (max-width:600px){
+    .insidebtn{
+        font-size: 1.2rem;
+    }
+    #btn{
+        font-size: smaller;
+        padding-left: 15px;
+    }
+    .food-display h2{
+        font-size: 1.3rem;
+    }
 }

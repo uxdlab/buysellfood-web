@@ -619,6 +619,9 @@ display: none;
 }
 
 @media (max-width:600px) {
+    .review-header-btn{
+        display: none;
+    }
     .cards-container-four{
         padding: 0px;
     }
