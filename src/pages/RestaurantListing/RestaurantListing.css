@@ -43,7 +43,7 @@ client details */
 
 
 
-@media (max-width: 1300px){
+@media (max-width: 1350px){
     .card-containerlist{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

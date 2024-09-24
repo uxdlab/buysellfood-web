@@ -3,7 +3,7 @@ import './Navbar.css';
 import { FiShoppingBag } from "react-icons/fi";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { RiMenu3Fill } from "react-icons/ri";
-
+import { IoMdClose } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import byandselllogo from '../../assets/byandselllogo.png';
@@ -53,7 +53,7 @@ const Navbar = ({ setShowLogin }) => {
         </div>
 
         <div className="navbar-right">
-          <div className="nav-icon">
+          <div onClick={() => navigate('/cart')} className="nav-icon">
             <FiShoppingBag />
           </div>
           <RiMenu3Fill onClick={toggleMenu} className='nav-menu' />
@@ -69,7 +69,9 @@ const Navbar = ({ setShowLogin }) => {
             <AiOutlineUserAdd className="register-icon" />
             <span>Register</span>
           </div>
+          <IoMdClose onClick={toggleMenu} className="closemenu"/>
         </div>
+
       )}
     </div>
   );

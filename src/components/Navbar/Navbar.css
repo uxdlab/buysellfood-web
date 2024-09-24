@@ -90,17 +90,26 @@
   cursor: pointer;
 }
 .mobile-menu {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 30%;
+  height: 100vh;
   background-color: #fff;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: start;
   z-index: 999;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+.closemenu{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  cursor:pointer;
 }
 
 /* Responsive styling */
@@ -119,6 +128,12 @@
   }
 }
 
+@media (max-width:600px) {
+    .mobile-menu{
+      width: 50%;
+  }
+}
+
 
 @media (max-width: 400px) {
   .location-name{
@@ -130,5 +145,8 @@
   .nav-logo-mobile{
     margin-right: 4px;
   }
+  .mobile-menu{
+    width: 70%;
+}
 }
 
