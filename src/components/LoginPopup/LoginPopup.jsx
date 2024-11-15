@@ -2,118 +2,96 @@ import React, { useState } from 'react';
 import './LoginPopup.css';
 import food from "../../assets/food_1.png";
 import { IoMdClose } from "react-icons/io";
+import { SignupForm } from './SignupForm';
+import { LoginForm } from './LoginForm';
+import { handleSignIn, handleSignUp } from '../../services/firebase/auth';
+import { FIREBASE_ERRORS } from '../../utils/constants';
+import { addDataWithId } from '../../services/firebase/setData';
+import { getDocData } from '../../services/firebase/getData';
 
 const LoginPopup = ({ setShowLogin }) => {
-  const [isLogin, setisLogin] = useState('login');
-  const [isVisibleOtp, setisVisibleOtp] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    otp: ''
-  });
 
-  const toggleForm = () => {
-    setisLogin(isLogin === 'login' ? 'signup' : 'login');
-  };
+  const FORM_TYPES = {
+    login: 'Login',
+    signUp: 'Sign Up',
+    restaurantType: 'Restaurant Sign Up'
+  }
 
-  const toggleOtp = () => {
-    setisVisibleOtp(true);
-  };
+  const [formType, setFormType] = useState(FORM_TYPES.login)
+  function toggleForm() {
+    setFormType(formType === FORM_TYPES.login ? FORM_TYPES.signUp : FORM_TYPES.login)
+  }
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  async function signUp(data, role) {
 
+    try {
+      let { email, password } = data
+      let res = await handleSignUp(email, password)
+      delete data.password
+      const userData = { ...data, role }
+      console.log(userData)
+      await addDataWithId("users", res?.uid, userData)
+      console.log("User created created")
+
+    } catch (error) {
+      console.log(error)
+      if (error.message === FIREBASE_ERRORS.userAlreadyExists) {
+        alert("User already exists")
+      }
+    }
+
+
+  }
+  async function login(data) {
+    console.log(data)
+    const { email, password } = data;
+    try {
+      let res = await handleSignIn(email, password)
+      let response = await getDocData("users", res.user.uid)
+      localStorage.setItem("userData", JSON.stringify(response))
+      
+
+    } catch (error) {
+
+      if (error.message === FIREBASE_ERRORS.invalidCredential) {
+        alert("Invalid Credencials")
+      }
+      console.log(error.message)
+    }
+  }
   return (
-    
-    
 
     <div className="login-popup-container">
-        {!isVisibleOtp ?(  <div className="login-popup">
-        <div className="form-type">
+      <div className="login-popup">
+        <div className="form-type pt-5">
           <div className="leftside">
-            <p id="login">{isLogin === 'login' ? 'Login' : 'Sign Up'}</p>
+            <p id="login">{formType}</p>
             <p>
-              {isLogin === 'login' ? 'Or,' : 'Already have an account,'}
+              {formType === FORM_TYPES.login ? 'Or, ' : 'Already have an account,'}
               <span style={{ color: '#13B251', cursor: 'pointer' }} onClick={toggleForm}>
-                {isLogin === 'login' ? 'Create a new Account' : 'Login'}
+                {formType === FORM_TYPES.login ? 'Create a new Account' : 'Login'}
               </span>
             </p>
+            {(formType !== FORM_TYPES.restaurantType && formType !== FORM_TYPES.login) && <p style={{ color: '#13B251', cursor: 'pointer' }} onClick={() => {
+              setFormType(FORM_TYPES.restaurantType)
+            }
+            }>Register Restaurant</p>}
           </div>
           <img src={food} alt="food img" />
         </div>
-
         <div className="Login-signup-form">
-          {isLogin === 'signup' && (
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter Name"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-          )}
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleInputChange}
-          />
-          {isLogin === 'signup' && (
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-          )}
-          <button onClick={toggleOtp}>{isLogin === 'login' ? 'Send OTP' : 'Continue'}</button>
+
+          {/* form for sign up  */}
+          {formType === FORM_TYPES.signUp && <SignupForm signUpFor={"user"} onSubmit={signUp} />}
+          {formType === FORM_TYPES.restaurantType && <SignupForm signUpFor={"restaurant"} onSubmit={signUp} />}
+          {/* form for login  */}
+          {formType === FORM_TYPES.login && <LoginForm onSubmit={login} />}
         </div>
         <p>
-          By clicking on {isLogin === 'login' ? 'Login' : 'Sign Up'}, I accept the Terms & Conditions & Privacy Policy
+          By clicking on {formType === 'login' ? 'Login' : 'Sign Up'}, I accept the Terms & Conditions & Privacy Policy
         </p>
-
         <IoMdClose className='closeform' onClick={() => setShowLogin(false)} />
-      </div>):(      <div className="login-popup">
-          <div className="form-type">
-            <div className="leftside">
-              <p id="login">Enter OTP</p>
-              <p>We have sent an OTP to your phone number</p>
-            </div>
-            <img src={food} alt="food img" />
-          </div>
-
-          <div className="Login-signup-form">
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="otp"
-              placeholder="Enter One Time Password"
-              value={formData.otp}
-              onChange={handleInputChange}
-            />
-            <button>Verify OTP</button>
-          </div>
-          <p>Resend OTP in 8 Seconds <span>Resend</span></p>
-
-          <IoMdClose className='closeform' onClick={() => setShowLogin(false)} />
-        </div>
-  )}
-
-
-  
+      </div>
     </div>
   );
 };

@@ -92,7 +92,7 @@ const RestaurantView = () => {
     {
       _id: "1",
       name: "Pizza Margherita",
-      description: "Classic delight with 100% real mozzarella cheese",
+      description: "classNameic delight with 100% real mozzarella cheese",
       price: 12.99,
       image: assets.img1,
       category: "Pizza",
@@ -183,12 +183,12 @@ const RestaurantView = () => {
                           <img style={{width:'100%'}} src={staticFoodList[0].image} alt="" />
                           <div className='rating'>
                             <p>{staticFoodList[0].rating}</p>
-                            <div class="star-rating">
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star">★</span>
+                            <div className="star-rating">
+                                <span className="star filled">★</span>
+                                <span className="star filled">★</span>
+                                <span className="star filled">★</span>
+                                <span className="star filled">★</span>
+                                <span className="star">★</span>
                             </div>
                             <p style={{fontSize:'large',fontWeight:'400'}}>1.360 views</p>
                         </div>

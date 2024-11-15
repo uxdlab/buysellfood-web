@@ -39,13 +39,14 @@ const Navbar = ({ setShowLogin }) => {
           </Link>
           <div className="nav-location">
             <span className="location-name">Dublin</span>
-            <span className="location-address">Daniel Street 1081/11</span>
+            <span className="location-address">Daniel Street  1081/11</span>
           </div>
         </div>
 
         <div className="navbar-center">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/services" className="nav-link">Our Services</Link>
+          <Link to="/addRestaurant" className="nav-link">Add restaurant</Link>
           <div className="nav-register" onClick={() => setShowLogin(true)}>
             <AiOutlineUserAdd className="register-icon" />
             <span>Register</span>
@@ -65,6 +66,7 @@ const Navbar = ({ setShowLogin }) => {
         <div className="mobile-menu">
           <p>Home</p>
           <p>Services</p>
+        
           <p onClick={() => setShowLogin(true)}>Register<AiOutlineUserAdd className="register-icon" /></p>
         
           <IoMdClose onClick={toggleMenu} className="closemenu"/>

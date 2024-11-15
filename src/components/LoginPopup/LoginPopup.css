@@ -76,7 +76,7 @@
   outline: none;
 }
 
-.Login-signup-form button {
+/* .Login-signup-form button {
   padding: 0.8rem;
   background-color: #28E872;
   color: black;
@@ -86,15 +86,15 @@
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
+} */
 
-.Login-signup-form button:hover {
+/* .Login-signup-form button:hover {
   background-color: #13B251;
 }
 
 .Login-signup-form button:active {
   background-color: #28E872;
-}
+} */
 
 .login-popup p {
   font-size: 0.9rem;

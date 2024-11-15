@@ -15,9 +15,9 @@ import RestaurantListing from "./pages/RestaurantListing/RestaurantListing"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
-
+  // addRestaurant
   return (
-    <>
+    <>  
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <> </>}
       <div className="app">
         <ToastContainer />
@@ -30,8 +30,6 @@ const App = () => {
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/restaurantview" element={<RestaurantView/>} />
           <Route path="/restaurantlist" element={<RestaurantListing/>}/>
-  
-
         </Routes>
       </div>
       <Footer />
