@@ -33,18 +33,33 @@ a {
   }
 }
 
-
-.btn_primary {
-  background-color: #20CA62;
+.btn {
   border: none;
   padding: 18px 65px;
   font-family: Montserrat;
   font-size: 16.28px;
   font-weight: 700;
-  color: #FFFFFF;
   border-radius: 7.23px;
+}
+
+.btn_primary {
+  background-color: #20CA62 !important;
+  color: #FFFFFF !important;
 }
 
 .btn_primary:hover {
   background-color: #0da346;
+}
+.btn_secondary{
+  color: black !important;
+  border-color: black !important;
+}
+.pointer {
+  cursor: pointer;
+}
+.error_input{
+  border: 1px solid red !important;
+}
+.form-select{
+  height: 45px !important;
 }

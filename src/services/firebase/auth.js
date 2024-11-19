@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, signOut } from "firebase/auth";
 import app from "./firebase";
 
 
@@ -22,3 +22,6 @@ export const handleSignIn = async (email, password) => {
         throw new Error(error.message);
     }
 };
+export const handleSignOut = async () => {
+    return await signOut(auth)
+}

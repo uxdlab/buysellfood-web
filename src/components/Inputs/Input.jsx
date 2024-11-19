@@ -1,11 +1,13 @@
 import React from 'react'
 
-export const Input = ({ ...props }) => {
+export const Input = ({ error, ...props }) => {
     return (
         <input
             type="text"
-            className='form-control'
             {...props}
+            className={`form-control
+                 ${error && 'error_input'}
+                 `}
         />
     )
 }

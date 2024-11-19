@@ -18,11 +18,11 @@ const FoodItem = ({ id, name, price, description, image }) => {
     <div className="food-item-details">
       <div className="food-item-name-rating">
         <p className="name">{name}</p>
-        <div className="star"> <img style={{width:'12px'}}  src={Vector} alt="star" />4.4</div>
+        {/* <div className="star"> <img style={{width:'12px'}}  src={Vector} alt="star" />4.4</div> */}
       </div>
         <div className='food-item-add-price'>
           <button>Add To Cart</button>
-          <p>$515</p>
+          <p>${price}</p>
         </div>
      
     </div>

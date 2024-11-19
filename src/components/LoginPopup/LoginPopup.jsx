@@ -5,9 +5,11 @@ import { IoMdClose } from "react-icons/io";
 import { SignupForm } from './SignupForm';
 import { LoginForm } from './LoginForm';
 import { handleSignIn, handleSignUp } from '../../services/firebase/auth';
-import { FIREBASE_ERRORS } from '../../utils/constants';
+import { FIREBASE_ERRORS, USER_ROLES } from '../../utils/constants';
 import { addDataWithId } from '../../services/firebase/setData';
 import { getDocData } from '../../services/firebase/getData';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../store/slices/authSlice';
 
 const LoginPopup = ({ setShowLogin }) => {
 
@@ -16,6 +18,7 @@ const LoginPopup = ({ setShowLogin }) => {
     signUp: 'Sign Up',
     restaurantType: 'Restaurant Sign Up'
   }
+  const dispatch = useDispatch()
 
   const [formType, setFormType] = useState(FORM_TYPES.login)
   function toggleForm() {
@@ -47,9 +50,10 @@ const LoginPopup = ({ setShowLogin }) => {
     const { email, password } = data;
     try {
       let res = await handleSignIn(email, password)
+      dispatch(setUser({ email: res.email, uid: res.uid }))
       let response = await getDocData("users", res.user.uid)
       localStorage.setItem("userData", JSON.stringify(response))
-      
+      setShowLogin(false)
 
     } catch (error) {
 
@@ -82,8 +86,8 @@ const LoginPopup = ({ setShowLogin }) => {
         <div className="Login-signup-form">
 
           {/* form for sign up  */}
-          {formType === FORM_TYPES.signUp && <SignupForm signUpFor={"user"} onSubmit={signUp} />}
-          {formType === FORM_TYPES.restaurantType && <SignupForm signUpFor={"restaurant"} onSubmit={signUp} />}
+          {formType === FORM_TYPES.signUp && <SignupForm signUpFor={USER_ROLES.user} onSubmit={signUp} />}
+          {formType === FORM_TYPES.restaurantType && <SignupForm signUpFor={USER_ROLES.restaurant} onSubmit={signUp} />}
           {/* form for login  */}
           {formType === FORM_TYPES.login && <LoginForm onSubmit={login} />}
         </div>

@@ -7,8 +7,22 @@ import { IoMdClose } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import byandselllogo from '../../assets/byandselllogo.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { isRestaurantLoggedIn, isUserLoggedIn } from '../../utils';
+import { clearUser } from '../../store/slices/authSlice';
+import { handleSignOut } from '../../services/firebase/auth';
+import { AccountCircle } from '@mui/icons-material';
+import { useFetchUserData } from '../../hooks/useFetchUserData';
 
 const Navbar = ({ setShowLogin }) => {
+
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  let userData = useFetchUserData()
+
+
+
+  const dispatch = useDispatch()
+
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1080);
@@ -28,14 +42,17 @@ const Navbar = ({ setShowLogin }) => {
   const toggleMenu = () => {
     setIsMobileOpen(!isMobileOpen);
   };
-
+  const logout = async () => {
+    await handleSignOut()
+    dispatch(clearUser());
+  }
   return (
     <div className="navbar">
       <div className="navbar-container">
         <div className="navbar-left">
           <Link to="/">
             <img src={isMobile ? byandselllogo : logo} alt="Logo"
-             className={isMobile ? 'nav-logo-mobile' : 'nav-logo-desktop'} />
+              className={isMobile ? 'nav-logo-mobile' : 'nav-logo-desktop'} />
           </Link>
           <div className="nav-location">
             <span className="location-name">Dublin</span>
@@ -46,30 +63,51 @@ const Navbar = ({ setShowLogin }) => {
         <div className="navbar-center">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/services" className="nav-link">Our Services</Link>
-          <Link to="/addRestaurant" className="nav-link">Add restaurant</Link>
-          <div className="nav-register" onClick={() => setShowLogin(true)}>
-            <AiOutlineUserAdd className="register-icon" />
-            <span>Register</span>
-          </div>
+
+          {isAuthenticated ?
+            <div className='pointer' onClick={logout}>Logout</div>
+            :
+            <div className="nav-register" onClick={() => setShowLogin(true)}>
+              <AiOutlineUserAdd className="register-icon" />
+              <span>Register</span>
+            </div>
+
+          }
+          {isRestaurantLoggedIn() && <div className='pointer' onClick={() => navigate("addItem")}>&nbsp;&nbsp;&nbsp;&nbsp;Add Item</div>}
+
         </div>
 
-        <div className="navbar-right">
+        <div className="navbar-right d-flex align-items-start">
           <div onClick={() => navigate('/cart')} className="nav-icon">
             <FiShoppingBag />
           </div>
+
+
+
+          <div className='pointer d-flex flex-column align-items-center'>
+            <AccountCircle className='mt-2'/>
+            <div>
+              {userData?.name}
+            </div>
+          </div>
+
+
           <RiMenu3Fill onClick={toggleMenu} className='nav-menu' />
         </div>
+
+
+
       </div>
-      
+
       {/* Mobile Menu Slider */}
       {isMobileOpen && (
         <div className="mobile-menu">
           <p>Home</p>
           <p>Services</p>
-        
-          <p onClick={() => setShowLogin(true)}>Register<AiOutlineUserAdd className="register-icon" /></p>
-        
-          <IoMdClose onClick={toggleMenu} className="closemenu"/>
+
+          {isAuthenticated && <p onClick={() => setShowLogin(true)}>Register<AiOutlineUserAdd className="register-icon" /></p>}
+
+          <IoMdClose onClick={toggleMenu} className="closemenu" />
         </div>
 
       )}

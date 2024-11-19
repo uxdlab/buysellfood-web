@@ -12,6 +12,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RestaurantView from "./pages/RestaurantView/RestaurantView"
 import RestaurantListing from "./pages/RestaurantListing/RestaurantListing"
+import { AddItem } from "./pages/Items/AddItem"
+import { Profile } from "./pages/Profile/Profile"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -29,7 +31,9 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/restaurantview" element={<RestaurantView/>} />
-          <Route path="/restaurantlist" element={<RestaurantListing/>}/>
+          <Route path="/Restaurants" element={<RestaurantListing/>}/>
+          <Route path="/addItem" element={<AddItem/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </div>
       <Footer />

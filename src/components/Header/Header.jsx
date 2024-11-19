@@ -1,170 +1,158 @@
+import { CitySelect, CountrySelect, StateSelect } from "react-country-state-city";
 import "./Header.css";
+import { Controller, useForm } from "react-hook-form";
+import { FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY } from "../../utils/constants";
+import { filterDataWithKeysValue } from "../../services/firebase/getData";
+import { removeEmptyKeys } from "../../utils";
 
 const Header = () => {
+
+
+
+  const { handleSubmit, control, watch, reset, formState: { errors } } = useForm({
+
+    defaultValues: {
+      food_group: null,
+      food_make: null,
+      food_free_from: null,
+      food_variety: null,
+      countryId: '',
+      stateId: '',
+      cityId: '',
+
+    }
+  });
+
+  const countryId = watch("countryId");
+  const stateId = watch("stateId");
+  async function searchData(s) {
+    s = {
+      ...s,
+      countryId: s?.countryId.id,
+      stateId: s?.stateId.id,
+      cityId: s?.cityId.id
+  };
+    let data = removeEmptyKeys(s)
+    console.log(data)
+    try {
+      let res = await filterDataWithKeysValue("items", data)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+
   return (
     <div className="header">
       <div className="header-contents">
         <h2>Buy & Sell Food</h2>
         <h2>In Your City</h2>
-        {/* <p>
-          Choose from a diverse menu featuring a delectable array of dishes
-          crafted with the finest indegredients and culinary expertise. Our
-          mission is to satisfy your cravings and elevate your dining
-          experience, one delicious meal at a time.
-        </p>
-        <button>View Menu</button> */}
+      
         <div className="main">
-          <form action="" className="main-select-box">
+          <form onSubmit={handleSubmit(searchData)} className="main-select-box">
             <div className="upper-box">
               <div className="select-small-div">
                 <label htmlFor="country" style={{ color: "black" }}>
                   Country
                 </label>{" "}
-                <br />
-                <select name="country" id="country">
-                  <option value=""></option>
-                  <option value="Afghanistan">Afghanistan</option>
-                  <option value="Albania">Albania</option>
-                  <option value="Ageria">Ageria</option>
-                  <option value="India">India</option>
-                  <option value="">American Samoa</option>
-                  <option value="">Andorra</option>
-                  <option value="">Angola</option>
-                  <option value="">Anguilla</option>
-                  <option value="">Australia</option>
-                  <option value="">Bahamas The</option>
-                  <option value="">Bahrain</option>
-                  <option value="">Bangladesh</option>
-                  <option value="">Belize</option>
-                  <option value="">Benin</option>
-                  <option value="">Bernuda</option>
-                  <option value="">Bhutan</option>
-                  <option value="">Bolevia</option>
-                  <option value="">Georgia</option>
-                  <option value="">Ghana</option>
-                  <option value="">Iran</option>
-                  <option value="">Iraq</option>
-                  <option value="">Ireland</option>
-                  <option value="">Israel</option>
-                  <option value="">Italy</option>
-                  <option value="">Japan</option>
-                  <option value="">United State</option>
-                </select>
+
+                <Controller
+                  name="countryId"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field: { value, onChange } }) => (
+                    <CountrySelect
+                      containerClassName={`${errors?.countryId && "error_input rounded"} bg-white rounded`}
+                      style={{ border: "none" }}
+                      value={value}
+                      placeHolder='Select Country'
+                      onChange={(country) => {
+                        onChange(country)
+                      }}
+                    />
+                  )}
+                />
+
               </div>
               <div className="select-small-div">
                 <label htmlFor="state" style={{ color: "black" }}>
                   State
                 </label>{" "}
                 <br />
-                <select htmlFor="state" id="state">
-                  <option value=""></option>
-                  <option value="Uttar Pradesh">Connacht</option>
-                  <option value="Haryana">Country Carlow</option>
-                  <option value="Haryana">Country Cavan</option>
-                  <option value="Haryana">Country Clare</option>
-                  <option value="Haryana">Country Cork</option>
-                  <option value="Haryana">Country Donegal</option>
-                  <option value="Haryana">Country Dublin</option>
-                  <option value="Haryana">Country Galway</option>
-                  <option value="Haryana">Country Kerry</option>
-                  <option value="Haryana">Country Kildare</option>
-                  <option value="Haryana">Country Laois</option>
-                  <option value="Haryana">Country Limerick</option>
-                  <option value="Haryana">Country Longford</option>
-                  <option value="Haryana">Country Louth</option>
-                  <option value="Haryana">Country Mayo</option>
-                  <option value="Haryana">Country Meath</option>
-                  <option value="Haryana">Country Monaghan</option>
-                  <option value="Haryana">Country Offaly</option>
-                  <option value="Haryana">Country Roscommon</option>
-                  <option value="Haryana">Country Sligo</option>
-                  <option value="Haryana">Country Tipperary</option>
-                  <option value="Haryana">Country Waterford</option>
-                  <option value="Haryana">Country Westmeath</option>
-                  <option value="Haryana">Country Wexford</option>
-                  <option value="Haryana">Country Wicklow</option>
-                  <option value="Haryana"> Leinster</option>
-                  <option value="Haryana"> Munster</option>
-                  <option value="Haryana"> ulster</option>
-                </select>
+                <Controller
+                  name="stateId"
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field: { value, onChange } }) => (
+                    <StateSelect
+                      containerClassName={`${errors?.stateId && "error_input rounded"} bg-white rounded`}
+                      style={{ border: "none" }}
+                      countryid={countryId?.id}
+                      value={value}
+                      placeHolder='Select State'
+                      onChange={(state) => onChange(state)}
+                    />
+                  )}
+                />
               </div>
               <div className="select-small-div">
                 <label htmlFor="city" style={{ color: "black" }}>
                   City
                 </label>{" "}
                 <br />
-                <select name="city" id="city">
-                  <option value=""></option>
-                  <option value="Athenry">Athenry</option>
-                  <option value="Ballaghaderreen">Ballaghaderreen</option>
-                  <option value="Ballina">Ballina</option>
-                  <option value="Ballinasloe">Ballinasloe</option>
-                  <option value="Ballinrobe">Ballinrobe</option>
-                  <option value="Ballisodare">Ballisodare</option>
-                  <option value="Ballyharnis">Ballyharnis</option>
-                  <option value="Ballymote">Ballymote</option>
-                  <option value="Bearna">Bearna</option>
-                  <option value="Belmullet">Belmullet</option>
-                  <option value="Boyle">Boyle</option>
-                  <option value="Carrick on Shannon">Carrick on Shannon</option>
-                  <option value="Castlebor">Castlebor</option>
-                  <option value="Claregalway">Claregalway</option>
-                  <option value="Claremorris">Claremorris</option>
-                  <option value="Clifden">Clifden</option>
-                  <option value="Collooney">Collooney</option>
-                  <option value="">Country Galway</option>
-                  <option value="">Country Leitrim</option>
-                  <option value="">Gross Molina</option>
-                  <option value="">Foxford</option>
-                  <option value="">Gaillimh</option>
-                  <option value="">Galway City</option>
-                  <option value="">Gost</option>
-                  <option value="">Inishcrone</option>
-                  <option value="">Kiltamagh</option>
-                  <option value="">Kinlough</option>
-                  <option value="">Loughrea</option>
-                  <option value="">Manorhamilton</option>
-                  <option value="">Mayo Country</option>
-                  <option value="">Moycullan</option>
-                  <option value="">Oranmore</option>
-                  <option value="">Oughterard</option>
-                  <option value="">Portumna</option>
-                  <option value="">Roscommon</option>
-                  <option value="">Sligo</option>
-                  <option value="">Strandhill</option>
-                  <option value="">Swinford</option>
-                  <option value="">Tobercurry</option>
-                  <option value="">Tuam</option>
-                  <option value="">Westport</option>
-                </select>
+                <Controller
+                  name="cityId"
+                  control={control}
+                  render={({ field: { value, onChange } }) => (
+                    <CitySelect
+                      containerClassName={`${errors?.cityId && "error_input "} bg-white rounded`}
+                      style={{ border: "none" }}
+                      countryid={countryId?.id}
+                      stateid={stateId?.id}
+                      placeHolder='Select City'
+                      value={value || null}
+                      onChange={(city) => onChange(city)}
+                    />
+                  )}
+                />
               </div>
               <div className="select-small-div">
                 <label htmlFor="food-group" style={{ color: "black" }}>
                   Food Group
                 </label>{" "}
                 <br />
-                <select name="food-group" id="food-group">
-                  <option value=""></option>
-                  <option value="Vegan">Vegan</option>
-                  <option value="Vegetarian">Vegetarian</option>
-                  <option value="Vegetarian and Non-Vegetarian">
-                    Vegetarian and Non-Vegetarian
-                  </option>
-                  <option value="Non-Vegetarian">Non-Vegetarian</option>
-                </select>
+                <Controller
+                  name="food_group"
+                  control={control}
+                  defaultValue={null}
+                  render={({ field }) => {
+                    return (
+                      <select {...field} className={`form-select ${!!errors?.food_group && "error_input"}`}>
+                        <option value={null}>Select Food Group</option>
+                        {FOOD_GROUP.map(e => <option value={e}>{e}</option>)}
+                      </select>
+                    )
+                  }} />
               </div>
               <div className="select-small-div">
                 <label htmlFor="country" style={{ color: "black" }}>
                   Food Make
                 </label>{" "}
                 <br />
-                <select name="country" id="country">
-                  <option value=""></option>
-                  <option value="Ready to  Eat Food">Ready to Eat Food</option>
-                  <option value="Fresh Chilled Food">Fresh Chilled Food</option>
-                  <option value="Fresh Raw Food">Fresh Raw Food</option>
-                  <option value="Frozen Food">Frozen Food</option>
-                </select>
+                <Controller
+                  name="food_make"
+                  control={control}
+                  defaultValue={null}
+                  render={({ field }) => {
+                    return (
+                      <select  {...field} className={`form-select ${!!errors?.food_make && "error_input"}`}>
+                        <option value={null}>Select Food Make</option>
+                        {FOOD_MAKE.map(e => <option value={e}>{e}</option>)}
+                      </select>
+                    )
+                  }} />
               </div>
 
               <div className="select-big-div">
@@ -172,18 +160,18 @@ const Header = () => {
                   Food Free From
                 </label>{" "}
                 <br />
-                <select name="food-free" id="food-free">
-                  <option value=""></option>
-                  <option value="Gluten ,Wheat">Gluten ,Wheat</option>
-                  <option value="Nuts">Nuts</option>
-                  <option value="Dairy Milk">Dairy Milk</option>
-                  <option value="Egg">Egg</option>
-                  <option value="Additives">Additives</option>
-                  <option value="Monosodium Glugamate">
-                    Monosodium Glugamate
-                  </option>
-                  <option value="Colouring">Colouring</option>
-                </select>
+                <Controller
+                  name="food_free_from"
+                  control={control}
+                  defaultValue={null}
+                  render={({ field }) => {
+                    return (
+                      <select {...field} className={`form-select ${!!errors?.food_free_from && "error_input"}`}>
+                        <option value={null}>Select Food Free From</option>
+                        {FOOD_FREE_FROM.map(e => <option value={e}>{e}</option>)}
+                      </select>
+                    )
+                  }} />
               </div>
 
               <div className="select-big-div">
@@ -191,33 +179,18 @@ const Header = () => {
                   Food Variety
                 </label>{" "}
                 <br />
-                <select name="food_variety" id="food-variety">
-                  <option value=""></option>
-                  <option value="Pizza">Pizza</option>
-                  <option value="Burger">Burger</option>
-                  <option value="Kebab">Kebab</option>
-                  <option value="Roll">Roll</option>
-                  <option value="Snacks">Snacks</option>
-                  <option value="Noodle">Noodle</option>
-                  <option value="Chowmein">Chowmein</option>
-                  <option value="Biriyani">Biriyani</option>
-                  <option value="Tikka">Tikka</option>
-                  <option value="Fish and Chips">Fish and Chips</option>
-                  <option value="Rousted Chicken">Rousted Chicken</option>
-                  <option value="Rice">Rice</option>
-                  <option value="Curry">Curry</option>
-                  <option value="Soup">Soup</option>
-                  <option value="Masala">Masala</option>
-                  <option value="Cake">Cake</option>
-                  <option value="Salad">Salad</option>
-                  <option value="Pickles">Pickles</option>
-                  <option value="Souce">Souce</option>
-                  <option value="Sandwich">Sandwich</option>
-                  <option value="Subway">Subway</option>
-                  <option value="Steak Meat">Steak Meat</option>
-                  <option value="Fried Chicken">Fried Chicken</option>
-                  <option value="Bread">Bread</option>
-                </select>
+                <Controller
+                  name="food_variety"
+                  control={control}
+                  defaultValue={null}
+                  render={({ field }) => {
+                    return (
+                      <select {...field} className={`form-select ${!!errors?.food_variety && "error_input"}`}>
+                        <option value={null}>Select Food Variety</option>
+                        {FOOD_VARIETY.map(e => <option value={e}>{e}</option>)}
+                      </select>
+                    )
+                  }} />
               </div>
               <div className="select-big-div">
                 <label htmlFor="country" style={{ color: "black" }}>

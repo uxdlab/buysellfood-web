@@ -1,12 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./FoodDisplay.css";
 import FoodItem from "../FoodItem/FoodItem";
 import { assets } from "../../assets/assets";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { getCollectionData } from "../../services/firebase/getData";
+import { loader } from "../../utils";
 
 
 const FoodDisplay = ({ category }) => {
-  
+
+
+  const [allItems, setAllItems] = useState([])
+
   const staticFoodList = [
     {
       _id: "1",
@@ -74,30 +79,47 @@ const FoodDisplay = ({ category }) => {
     },
   ];
 
+  useEffect(() => {
+    getAllItems()
+  }, [])
+
+  async function getAllItems() {
+    try {
+      loader.start()
+      let res = await getCollectionData("items");
+      console.log(res)
+      setAllItems(res)
+    } catch (error) {
+      console.log(error)
+    }
+    finally{
+      loader.stop()
+    }
+  }
+
   return (
     <div className="food-display" id="food-display">
       <h2>Most Popular Items</h2>
       <div className="food-display-list">
-        {staticFoodList.map((item, index) => {
-          if (category === "All" || category === item.category) {
-            return (
-              <FoodItem
-                key={index}
-                id={item._id}
-                name={item.name}
-                description={item.description}
-                price={item.price}
-                image={item.image}
-              />
-            );
-          }
+        {allItems?.map((item, index) => {
+          return (
+            <FoodItem
+              key={index}
+              id={item._id}
+              name={item.name}
+              description={item.description}
+              price={item.price}
+              image={item.image?.fileUrl}
+            />
+          );
+
         })}
       </div>
-              <div className="btn-more-card">
-              <button  id="btn">See More Product <BsFillArrowRightCircleFill className="insidebtn"  />
-              </button>
-            </div>
-           
+      <div className="btn-more-card">
+        <button id="btn">See More Product <BsFillArrowRightCircleFill className="insidebtn" />
+        </button>
+      </div>
+
     </div>
   );
 };
