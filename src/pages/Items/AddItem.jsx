@@ -5,7 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { Input } from '../../components/Inputs/Input';
 import { Button } from '../../components/Buttons/Button';
 import { DragAndDropInput } from '../../components/Inputs/DragAndDropInput';
-import { FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY, IMAGE_EXTENSION_TYPES } from '../../utils/constants';
+import { CALORIES_COUNT_RANGE, FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY, IMAGE_EXTENSION_TYPES } from '../../utils/constants';
 import { uploadDoc } from '../../services/apis/api';
 import { addData } from '../../services/firebase/setData';
 import { useSelector } from 'react-redux';
@@ -23,7 +23,7 @@ export const AddItem = () => {
         return userData?.user?.uid || null
     }
 
-    const { handleSubmit, control, watch, reset, formState: { errors } } = useForm({
+    const { handleSubmit, control, watch, reset, setValue, formState: { errors } } = useForm({
         defaultValues: {
             name: '',
             price: '',
@@ -32,10 +32,12 @@ export const AddItem = () => {
             food_make: null,
             food_free_from: null,
             food_variety: null,
+            calorie_count_range: null,
             countryId: '',
             stateId: '',
             cityId: '',
             image: [],
+
 
         }
     });
@@ -45,8 +47,8 @@ export const AddItem = () => {
 
     async function addItem(dd) {
         try {
-          
-            
+
+
             loader.start()
             let file = dd?.image?.[0]?.file;
             let docData = await uploadDoc([file]);
@@ -201,6 +203,22 @@ export const AddItem = () => {
                                 )
                             }} />
                     </div>
+                    <div className="col-4 mt-3">
+                        <h6>Calorie Count Range</h6>
+                        <Controller
+                            name="calorie_count_range"
+                            control={control}
+                            defaultValue={null}
+                            rules={{ required: true }}
+                            render={({ field }) => {
+                                return (
+                                    <select {...field} className={`form-select ${!!errors?.food_variety && "error_input"}`}>
+                                        <option value={null}>Calorie Count Range</option>
+                                        {CALORIES_COUNT_RANGE.map(e => <option value={e}>{e}</option>)}
+                                    </select>
+                                )
+                            }} />
+                    </div>
 
 
                     <div className="col-12 mt-3">
@@ -245,7 +263,7 @@ export const AddItem = () => {
                             rules={{ required: true }}
                             control={control}
                             render={({ field: { value, onChange } }) => (
-                               
+
                                 <select className={`${errors?.countryId && "error_input rounded"} form-select`} value={value} onChange={(e) => {
                                     onChange(e.target.value);
                                 }}>

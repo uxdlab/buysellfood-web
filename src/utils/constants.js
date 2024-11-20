@@ -18,6 +18,9 @@ export const FOOD_VARIETY = ["Pizza", "Burger", "Kebab", "Roll", "Snacks", "Nood
     "Pickles", "Souce", "Sandwich", "Subway", "Steak Meat", "Fried Chicked",
     "Bread"
 ];
+export const CALORIES_COUNT_RANGE = [1200, 1450, 1600, 1850, 2300, 2400, 2787, 2767, 1969]
+export const PRICE_RANGE = ["50-1000", "1000-2000", "2000-5000", "Above 5000"];
+
 export const VIDEO_EXTENSION_TYPES = [
     'video/mp4',
     'video/x-m4v',
@@ -31,6 +34,6 @@ export const VIDEO_EXTENSION_TYPES = [
     'video/ogg',
     'video/mpeg',
 ]
-export const IMAGE_EXTENSION_TYPES=[
- 'jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg', 'tif', 'tiff', 'ico'
+export const IMAGE_EXTENSION_TYPES = [
+    'jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg', 'tif', 'tiff', 'ico'
 ]

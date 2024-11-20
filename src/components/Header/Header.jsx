@@ -1,7 +1,7 @@
 
 import "./Header.css";
 import { Controller, useForm } from "react-hook-form";
-import { FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY } from "../../utils/constants";
+import { CALORIES_COUNT_RANGE, FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY } from "../../utils/constants";
 import { filterDataWithKeysValue } from "../../services/firebase/getData";
 import { loader, removeEmptyKeys } from "../../utils";
 import { useEffect, useState } from "react";
@@ -23,6 +23,7 @@ const Header = () => {
       food_group: "",
       food_make: "",
       food_free_from: "",
+      calorie_count_range: "",
       food_variety: "",
       countryId: '',
       stateId: '',
@@ -241,7 +242,7 @@ const Header = () => {
                   </label>{" "}
                   <br />
                   <select name="price_range" className="form-select">
-                    <option value=""> Price Range</option>
+                    <option value="">Price Range</option>
                     <option value="50-1000">50-1000</option>
                     <option value="1000-2000">1000-2000</option>
                     <option value="2000-5000">2000-5000</option>
@@ -253,18 +254,18 @@ const Header = () => {
                     Calorie Count Range
                   </label>{" "}
                   <br />
-                  <select name="calorie_count_range" id="calorie-count-range" className="form-select">
-                    <option value="calorie_count_range">Calorie Count Range</option>
-                    <option value="1200">1200</option>
-                    <option value="1450">1450</option>
-                    <option value="1600">1600</option>
-                    <option value="1850">1850</option>
-                    <option value="2300">2300</option>
-                    <option value="2400">2400</option>
-                    <option value="2787">2787</option>
-                    <option value="2767">2767</option>
-                    <option value="1969">1969</option>
-                  </select>
+                  <Controller
+                    name="calorie_count_range"
+                    control={control}
+                    defaultValue={null}
+                    render={({ field: { value, onChange } }) => {
+                      return (
+                        <select value={value} onChange={onChange} className={`form-select ${!!errors?.calorie_count_range && "error_input"}`}>
+                          <option value={""}>Select Calorie Count Range</option>
+                          {CALORIES_COUNT_RANGE.map(e => <option value={e}>{e}</option>)}
+                        </select>
+                      )
+                    }} />
                 </div>
               </div>
 
