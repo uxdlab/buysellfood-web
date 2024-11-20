@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CitySelect, CountrySelect, StateSelect } from 'react-country-state-city';
 import "react-country-state-city/dist/react-country-state-city.css";
 import { Controller, useForm } from 'react-hook-form';
@@ -10,9 +10,14 @@ import { uploadDoc } from '../../services/apis/api';
 import { addData } from '../../services/firebase/setData';
 import { useSelector } from 'react-redux';
 import { loader } from '../../utils';
+import { City, Country, State } from 'country-state-city';
 export const AddItem = () => {
 
     const userData = useSelector((state) => state.auth)
+
+    const [allCountries, setAllCountries] = useState([])
+    const [allStates, setAllStates] = useState([])
+    const [allCities, setAllCities] = useState([])
 
     const getUserId = () => {
         return userData?.user?.uid || null
@@ -40,6 +45,8 @@ export const AddItem = () => {
 
     async function addItem(dd) {
         try {
+          
+            
             loader.start()
             let file = dd?.image?.[0]?.file;
             let docData = await uploadDoc([file]);
@@ -47,10 +54,7 @@ export const AddItem = () => {
 
             let data = {
                 ...dd,
-                restaurantId: getUserId(),
-                countryId: dd.countryId.id,
-                stateId: dd.stateId.id,
-                cityId: dd.cityId.id, image
+                restaurantId: getUserId(), image
             };
             console.log(data)
             await addData("items", data)
@@ -65,6 +69,28 @@ export const AddItem = () => {
 
 
     };
+
+    useEffect(() => {
+        let d = Country.getAllCountries()
+        setAllCountries(d)
+    }, [])
+
+    useEffect(() => {
+        if (countryId) {
+            setValue("stateId", "")
+            setValue("cityId", "")
+            let states = State.getStatesOfCountry(countryId)
+            setAllStates(states)
+        }
+    }, [countryId]);
+
+    useEffect(() => {
+        if (stateId) {
+            setValue("cityId", "")
+            let cities = City.getCitiesOfState(countryId, stateId)
+            setAllCities(cities)
+        }
+    }, [stateId])
 
     return (
         <div>
@@ -183,13 +209,11 @@ export const AddItem = () => {
                             name="description"
                             control={control}
                             defaultValue={null}
-
                             render={({ field }) => {
                                 return (
                                     <textarea {...field} className="form-control" placeholder='Description'></textarea>
                                 )
                             }} />
-
                     </div>
 
                     <div className="col-12 mt-3">
@@ -221,15 +245,15 @@ export const AddItem = () => {
                             rules={{ required: true }}
                             control={control}
                             render={({ field: { value, onChange } }) => (
-                                <CountrySelect
-                                    containerClassName={`${errors?.countryId && "error_input rounded"}`}
-                                    style={{ border: "none" }}
-                                    value={value}
-                                    placeHolder='Select Country'
-                                    onChange={(country) => {
-                                        onChange(country)
-                                    }}
-                                />
+                               
+                                <select className={`${errors?.countryId && "error_input rounded"} form-select`} value={value} onChange={(e) => {
+                                    onChange(e.target.value);
+                                }}>
+                                    <option value={""}>Select Country</option>
+                                    {allCountries.map(e => <option value={e.isoCode}>{e.name}</option>)}
+                                </select>
+
+
                             )}
                         />
                     </div>
@@ -240,14 +264,10 @@ export const AddItem = () => {
                             control={control}
                             rules={{ required: true }}
                             render={({ field: { value, onChange } }) => (
-                                <StateSelect
-                                    containerClassName={`${errors?.stateId && "error_input rounded"}`}
-                                    style={{ border: "none" }}
-                                    countryid={countryId.id}
-                                    value={value}
-                                    placeHolder='Select State'
-                                    onChange={(state) => onChange(state)}
-                                />
+                                <select className={`${errors?.countryId && "error_input rounded"} form-select`} value={value} onChange={onChange}>
+                                    <option value={""}>Select State</option>
+                                    {allStates.map(e => <option value={e.isoCode}>{e.name}</option>)}
+                                </select>
                             )}
                         />
                     </div>
@@ -258,15 +278,10 @@ export const AddItem = () => {
                             control={control}
                             rules={{ required: true }}
                             render={({ field: { value, onChange } }) => (
-                                <CitySelect
-                                    containerClassName={`${errors?.cityId && "error_input rounded"}`}
-                                    style={{ border: "none" }}
-                                    countryid={countryId.id}
-                                    stateid={stateId.id}
-                                    placeHolder='Select City'
-                                    value={value || null}
-                                    onChange={(city) => onChange(city)}
-                                />
+                                <select className={`${errors?.countryId && "error_input rounded"} form-select`} value={value} onChange={onChange}>
+                                    <option value={""}>Select State</option>
+                                    {allCities.map(e => <option value={e.isoCode}>{e.name}</option>)}
+                                </select>
                             )}
                         />
                     </div>

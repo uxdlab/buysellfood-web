@@ -1,41 +1,46 @@
-import { CitySelect, CountrySelect, StateSelect } from "react-country-state-city";
+
 import "./Header.css";
 import { Controller, useForm } from "react-hook-form";
 import { FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY } from "../../utils/constants";
 import { filterDataWithKeysValue } from "../../services/firebase/getData";
 import { loader, removeEmptyKeys } from "../../utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FoodItem from "../FoodItem/FoodItem";
 import { Button } from "../Buttons/Button";
+import { City, Country, State } from "country-state-city";
+
 
 const Header = () => {
+
+  const [allCountries, setAllCountries] = useState([])
+  const [allStates, setAllStates] = useState([])
+  const [allCities, setAllCities] = useState([])
 
   const [searchItemsData, setSearchItemsData] = useState([])
 
   const { handleSubmit, control, watch, reset, setValue, formState: { errors } } = useForm({
-
     defaultValues: {
-      food_group:"" ,
+      food_group: "",
       food_make: "",
       food_free_from: "",
       food_variety: "",
       countryId: '',
       stateId: '',
       cityId: '',
-     
     }
   });
 
   const countryId = watch("countryId");
   const stateId = watch("stateId");
 
+  const formValues = watch();
+
+  const isFormEmpty = Object.values(formValues).every(
+    (value) => value === "" || value === null || value === undefined
+  );
+
   async function searchData(s) {
-    s = {
-      ...s,
-      countryId: s?.countryId.id,
-      stateId: s?.stateId.id,
-      cityId: s?.cityId.id
-    };
+
     let data = removeEmptyKeys(s)
     console.log(data)
     try {
@@ -61,8 +66,8 @@ const Header = () => {
       food_variety: "",
       countryId: "",
       stateId: "",
-      test:"",
-      cityId:"" ,
+      test: "",
+      cityId: "",
     });
 
 
@@ -71,6 +76,29 @@ const Header = () => {
     setValue("stateId", "");
     setValue("cityId", "");
   }
+
+  useEffect(() => {
+    let d = Country.getAllCountries()
+    setAllCountries(d)
+  }, [])
+
+  useEffect(() => {
+    if (countryId) {
+      setValue("stateId", "")
+      setValue("cityId", "")
+      let states = State.getStatesOfCountry(countryId)
+
+      setAllStates(states)
+    }
+  }, [countryId]);
+
+  useEffect(() => {
+    if (stateId) {
+      setValue("cityId", "")
+      let cities = City.getCitiesOfState(countryId, stateId)
+      setAllCities(cities)
+    }
+  }, [stateId])
 
 
   return (
@@ -91,18 +119,15 @@ const Header = () => {
                     name="countryId"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <CountrySelect
-                        containerClassName={`${errors?.countryId && "error_input rounded"} bg-white rounded`}
-                        style={{ border: "none" }}
-                        value={value || null}
-                        placeHolder='Select Country'
-                        onChange={(country) => {
-                          onChange(country)
-                        }}
-                      />
+                      <select className="form-select" value={value} onChange={(e) => {
+                        onChange(e.target.value);
+                      }}>
+                        <option value={""}>Select Country</option>
+                        {allCountries.map(e => <option value={e.isoCode}>{e.name}</option>)}
+                      </select>
                     )}
                   />
-              
+
                 </div>
                 <div className="select-small-div">
                   <label htmlFor="state" style={{ color: "black" }}>
@@ -113,14 +138,10 @@ const Header = () => {
                     name="stateId"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <StateSelect
-                        containerClassName={`${errors?.stateId && "error_input rounded"} bg-white rounded`}
-                        style={{ border: "none" }}
-                        countryid={countryId?.id || null}
-                        value={value}
-                        placeHolder='Select State'
-                        onChange={(state) => onChange(state)}
-                      />
+                      <select className="form-select" value={value} onChange={onChange}>
+                        <option value={""}>Select State</option>
+                        {allStates.map(e => <option value={e.isoCode}>{e.name}</option>)}
+                      </select>
                     )}
                   />
                 </div>
@@ -133,15 +154,10 @@ const Header = () => {
                     name="cityId"
                     control={control}
                     render={({ field: { value, onChange } }) => (
-                      <CitySelect
-                        containerClassName={`${errors?.cityId && "error_input "} bg-white rounded`}
-                        style={{ border: "none" }}
-                        countryid={countryId?.id || null}
-                        stateid={stateId?.id || null}
-                        placeHolder='Select City'
-                        value={value || null}
-                        onChange={(city) => onChange(city)}
-                      />
+                      <select className="form-select" value={value} onChange={onChange}>
+                        <option value={""}>Select State</option>
+                        {allCities.map(e => <option value={e.isoCode}>{e.name}</option>)}
+                      </select>
                     )}
                   />
                 </div>
@@ -224,8 +240,8 @@ const Header = () => {
                     Price Range
                   </label>{" "}
                   <br />
-                  <select name="price_range" id="price-range">
-                    <option value=""></option>
+                  <select name="price_range" className="form-select">
+                    <option value=""> Price Range</option>
                     <option value="50-1000">50-1000</option>
                     <option value="1000-2000">1000-2000</option>
                     <option value="2000-5000">2000-5000</option>
@@ -237,8 +253,8 @@ const Header = () => {
                     Calorie Count Range
                   </label>{" "}
                   <br />
-                  <select name="calorie_count_range" id="calorie-count-range">
-                    <option value="calorie_count_range"></option>
+                  <select name="calorie_count_range" id="calorie-count-range" className="form-select">
+                    <option value="calorie_count_range">Calorie Count Range</option>
                     <option value="1200">1200</option>
                     <option value="1450">1450</option>
                     <option value="1600">1600</option>
@@ -255,11 +271,11 @@ const Header = () => {
               <div className="d-flex gap-3 align-items-center justify-content-center">
 
 
-                <Button type="button" onClick={resetSearch} secondary title="Clear Filter" />
+                {!isFormEmpty && <Button type="button" onClick={resetSearch} secondary title="Clear Filter" />}
 
 
 
-                <button className="search-btn">Search</button>
+                <button disabled={isFormEmpty} className="search-btn">Search</button>
 
               </div>
             </form>
