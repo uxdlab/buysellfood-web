@@ -13,20 +13,24 @@ const FoodItem = ({ id, name, price, description, image }) => {
   const quantity = cartItems && cartItems[id] ? cartItems[id] : 0;
 
   return (
-    <Link to="/restaurantlist" style={{textDecoration:'none'}}><div className="food-item" style={{border:'none',}} >
-    <img src={image} alt={name} className="food-item-image" />
-    <div className="food-item-details">
-      <div className="food-item-name-rating">
-        <p className="name">{name}</p>
-        {/* <div className="star"> <img style={{width:'12px'}}  src={Vector} alt="star" />4.4</div> */}
-      </div>
+    // 
+    <div className="food-item" style={{ border: 'none', }} >
+      <img src={image} alt={name} className="food-item-image" />
+      <div className="food-item-details">
+        <div className="food-item-name-rating">
+          <p className="name">{name}</p>
+          {/* <div className="star"> <img style={{width:'12px'}}  src={Vector} alt="star" />4.4</div> */}
+        </div>
         <div className='food-item-add-price'>
-          <button>Add To Cart</button>
+          <Link to="/cart" style={{ textDecoration: 'none' }}>
+            <button>Add To Cart</button>
+          </Link>
           <p>${price}</p>
         </div>
-     
+
+      </div>
     </div>
-  </div></Link>
+
   );
 };
 

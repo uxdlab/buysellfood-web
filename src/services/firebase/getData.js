@@ -30,6 +30,19 @@ export const getCollectionData = async (collectionName) => {
 
     }
 };
+
+export const fetchMatchingData = async (collectionName, key, operation, value) => {
+    const collectionRef = collection(db, collectionName);
+    const q = query(collectionRef, where(key, operation, value));
+    const querySnapshot = await getDocs(q);
+    const results = [];
+    querySnapshot.forEach((doc) => {
+        results.push({ _id: doc.id, ...doc.data() });
+    });
+    return results
+}
+
+
 export const filterDataWithKeysValue = async (collectionName, keyValuePairObj) => {
     try {
         const collectionRef = collection(db, collectionName);

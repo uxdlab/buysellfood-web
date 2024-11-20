@@ -151,7 +151,7 @@ label {
   font-size: 20px;
   padding: 10px 100px;
   border-radius: 8px;
-  margin-top: 40px;
+
   border: none;
   background-color: green;
   color: white;
@@ -209,7 +209,7 @@ label {
     font-size: 18px;
     padding: 8px 60px;
     border-radius: 8px;
-    margin-top: 30px;
+    
     border: none;
   }
 }
@@ -266,7 +266,6 @@ label {
     font-size: 18px;
     padding: 8px 60px;
     border-radius: 8px;
-    margin-top: 30px;
     border: none;
   }
 }

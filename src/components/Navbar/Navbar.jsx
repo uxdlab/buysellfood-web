@@ -42,10 +42,12 @@ const Navbar = ({ setShowLogin }) => {
   const toggleMenu = () => {
     setIsMobileOpen(!isMobileOpen);
   };
+
   const logout = async () => {
     await handleSignOut()
     dispatch(clearUser());
-  }
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-container">
@@ -83,30 +85,24 @@ const Navbar = ({ setShowLogin }) => {
           </div>
 
 
-
-          <div className='pointer d-flex flex-column align-items-center'>
-            <AccountCircle className='mt-2'/>
-            <div>
-              {userData?.name}
+          <Link to={"/profile"} className='unstyled'>
+            <div className='pointer d-flex flex-column align-items-center'>
+              <AccountCircle className='mt-2' />
+              <div>
+                {userData?.name}
+              </div>
             </div>
-          </div>
-
-
+          </Link>
           <RiMenu3Fill onClick={toggleMenu} className='nav-menu' />
         </div>
 
-
-
       </div>
-
       {/* Mobile Menu Slider */}
       {isMobileOpen && (
         <div className="mobile-menu">
           <p>Home</p>
           <p>Services</p>
-
           {isAuthenticated && <p onClick={() => setShowLogin(true)}>Register<AiOutlineUserAdd className="register-icon" /></p>}
-
           <IoMdClose onClick={toggleMenu} className="closemenu" />
         </div>
 

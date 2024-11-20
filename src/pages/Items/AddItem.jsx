@@ -193,7 +193,7 @@ export const AddItem = () => {
                     </div>
 
                     <div className="col-12 mt-3">
-                        <h6>Image</h6>
+                        <h6>Product Image</h6>
                         <Controller
                             name="image"
                             control={control}

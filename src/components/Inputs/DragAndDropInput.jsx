@@ -54,7 +54,7 @@ export const DragAndDropInput = ({
 
     return (
         <>
-            <label>{label}</label>
+          
             <div>
                 <div {...getRootProps({ className: 'dropzone' })}>
                     <input {...getInputProps()} />

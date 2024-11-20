@@ -12,9 +12,9 @@ export const loader = {
 
 export function removeEmptyKeys(obj) {
     return Object.fromEntries(
-      Object.entries(obj).filter(([_, value]) => value != null && value !== "")
+        Object.entries(obj).filter(([_, value]) => value != null && value !== "")
     );
-  }
+}
 
 export const isUserLoggedIn = () => {
     const s = useSelector((state) => state.auth.userData)
@@ -28,4 +28,9 @@ export const isRestaurantLoggedIn = () => {
 export const getUserId = () => {
     const s = useSelector((state) => state.auth)
     return s?.user?.uid || null
+}
+
+export const getUserData = () => {
+    const s = useSelector((state) => state.auth?.userData)
+    return s
 }
