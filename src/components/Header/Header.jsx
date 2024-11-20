@@ -64,18 +64,14 @@ const Header = () => {
       food_group: "",
       food_make: "",
       food_free_from: "",
+      calorie_count_range: "",
       food_variety: "",
-      countryId: "",
-      stateId: "",
-      test: "",
-      cityId: "",
+      countryId: '',
+      stateId: '',
+      cityId: '',
     });
+    searchData({})
 
-
-    // If third-party components don't re-render, manually trigger state updates
-    setValue("countryId", "");
-    setValue("stateId", "");
-    setValue("cityId", "");
   }
 
   useEffect(() => {
@@ -300,7 +296,7 @@ const Header = () => {
 
         })}
       </div>
-
+<br/>
 
     </>
 
