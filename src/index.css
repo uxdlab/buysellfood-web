@@ -66,3 +66,25 @@ a {
 .form-select{
   height: 45px !important;
 }
+
+
+
+
+/* Style the dropdown */
+.goog-te-gadget {
+  font-size: 14px !important;
+  color: #333 !important;
+}
+
+.goog-te-combo {
+  border: 1px solid #ccc !important;
+  padding: 5px !important;
+  height: 40px;
+  border-radius: 5px !important;
+
+}
+
+.goog-te-gadget{
+  height: 45px;
+  overflow: hidden;
+}

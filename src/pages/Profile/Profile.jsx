@@ -10,14 +10,16 @@ import { uploadDoc } from '../../services/apis/api'
 import { updateDocData } from '../../services/firebase/updateData'
 import { useDispatch } from 'react-redux'
 import { updateUserData } from '../../store/slices/authSlice'
-import { userFetchUserId } from '../../hooks/useFetchUserData'
+import { useUserId } from '../../hooks/useUserId'
+
+
 
 export const Profile = () => {
 
 
     const [deletedFile, setDeletedFile] = useState([])
     let userData = getUserData()
-    let userId = userFetchUserId()
+    let userId = useUserId()
 
     const { control, handleSubmit, watch, setValue, reset } = useForm({
         defaultValues: {

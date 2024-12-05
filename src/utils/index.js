@@ -20,15 +20,22 @@ export const isUserLoggedIn = () => {
     const s = useSelector((state) => state.auth.userData)
     return s?.role === USER_ROLES.user
 }
+export const isLoggedIn = () => {
+    const s = useSelector((state) => state?.auth?.userData)
+    return !!s
+}
 
 export const isRestaurantLoggedIn = () => {
     const s = useSelector((state) => state.auth.userData)
     return s?.role === USER_ROLES.restaurant
 }
+
 export const getUserId = () => {
     const s = useSelector((state) => state.auth)
     return s?.user?.uid || null
 }
+
+
 
 export const getUserData = () => {
     const s = useSelector((state) => state.auth?.userData)

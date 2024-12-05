@@ -14,12 +14,14 @@ import RestaurantView from "./pages/RestaurantView/RestaurantView"
 import RestaurantListing from "./pages/RestaurantListing/RestaurantListing"
 import { AddItem } from "./pages/Items/AddItem"
 import { Profile } from "./pages/Profile/Profile"
+import { AdsListing } from "./pages/AdsListing/AdsListing"
+import { MyAds } from "./pages/MyAds/MyAds"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   // addRestaurant
   return (
-    <>  
+    <>
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <> </>}
       <div className="app">
         <ToastContainer />
@@ -30,10 +32,12 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
-          <Route path="/restaurantview" element={<RestaurantView/>} />
-          <Route path="/Restaurants" element={<RestaurantListing/>}/>
-          <Route path="/addItem" element={<AddItem/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/restaurantview" element={<RestaurantView />} />
+          <Route path="/Restaurants" element={<RestaurantListing />} />
+          <Route path="/addItem" element={<AddItem />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/adsListing" element={<AdsListing />} />
+          <Route path="/myAds" element={<MyAds />} />
         </Routes>
       </div>
       <Footer />

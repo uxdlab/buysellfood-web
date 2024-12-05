@@ -1,4 +1,6 @@
 
+export const CURRENCY_CONVERTER_KEY="b37034a952fa5b9cf619a5a9"
+
 
 export const FIREBASE_ERRORS = {
     userAlreadyExists: "Firebase: Error (auth/email-already-in-use).",

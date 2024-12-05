@@ -9,19 +9,22 @@ import { CALORIES_COUNT_RANGE, FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIE
 import { uploadDoc } from '../../services/apis/api';
 import { addData } from '../../services/firebase/setData';
 import { useSelector } from 'react-redux';
-import { loader } from '../../utils';
+import { getUserId, loader } from '../../utils';
 import { City, Country, State } from 'country-state-city';
+import { useUserId } from '../../hooks/useUserId';
+
+
 export const AddItem = () => {
 
     const userData = useSelector((state) => state.auth)
-
+    const userId = useUserId()
     const [allCountries, setAllCountries] = useState([])
     const [allStates, setAllStates] = useState([])
     const [allCities, setAllCities] = useState([])
 
-    const getUserId = () => {
-        return userData?.user?.uid || null
-    }
+    // const getUserId = () => {
+    //     return userData?.user?.uid || null
+    // }
 
     const { handleSubmit, control, watch, reset, setValue, formState: { errors } } = useForm({
         defaultValues: {
@@ -56,7 +59,7 @@ export const AddItem = () => {
 
             let data = {
                 ...dd,
-                restaurantId: getUserId(), image
+                restaurantId: userId, image
             };
             console.log(data)
             await addData("items", data)

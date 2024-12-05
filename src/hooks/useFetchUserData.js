@@ -8,7 +8,4 @@ export const useFetchUserData = (options, key = '_id') => {
         return userData
     }, [userData]);
 };
-export const userFetchUserId = () => {
-    const user = useSelector((state) => state.auth?.user);
-    return user?.uid || null;
-}
+
