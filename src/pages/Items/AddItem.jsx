@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { CitySelect, CountrySelect, StateSelect } from 'react-country-state-city';
+import React, { useEffect, useState } from 'react';
 import "react-country-state-city/dist/react-country-state-city.css";
 import { Controller, useForm } from 'react-hook-form';
 import { Input } from '../../components/Inputs/Input';
@@ -12,12 +11,14 @@ import { useSelector } from 'react-redux';
 import { getUserId, loader } from '../../utils';
 import { City, Country, State } from 'country-state-city';
 import { useUserId } from '../../hooks/useUserId';
+import { useNavigate } from 'react-router-dom';
 
 
 export const AddItem = () => {
 
     const userData = useSelector((state) => state.auth)
     const userId = useUserId()
+    const navigate = useNavigate()
     const [allCountries, setAllCountries] = useState([])
     const [allStates, setAllStates] = useState([])
     const [allCities, setAllCities] = useState([])
@@ -63,6 +64,7 @@ export const AddItem = () => {
             };
             console.log(data)
             await addData("items", data)
+            navigate("/")
             console.log("Item added added")
         } catch (err) {
             console.log(err)

@@ -10,9 +10,13 @@ import { addDataWithId } from '../../services/firebase/setData';
 import { getDocData } from '../../services/firebase/getData';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../store/slices/authSlice';
+import { loader } from '../../utils';
 
 const LoginPopup = ({ setShowLogin }) => {
-
+  const [error, setError] = useState({
+    error: false,
+    errorMsg: ""
+  })
   const FORM_TYPES = {
     login: 'Login',
     signUp: 'Sign Up',
@@ -29,12 +33,15 @@ const LoginPopup = ({ setShowLogin }) => {
 
     try {
       let { email, password } = data
+      loader.start()
       let res = await handleSignUp(email, password)
       delete data.password
       const userData = { ...data, role }
       console.log(userData)
       await addDataWithId("users", res?.uid, userData)
       console.log("User created created")
+      setFormType(FORM_TYPES.login)
+
 
     } catch (error) {
       console.log(error)
@@ -42,25 +49,39 @@ const LoginPopup = ({ setShowLogin }) => {
         alert("User already exists")
       }
     }
+    finally {
+      loader.stop()
+    }
 
 
   }
   async function login(data) {
     console.log(data)
+    setError({
+      error: false,
+      errorMsg: ""
+    })
     const { email, password } = data;
     try {
+      loader.start()
       let res = await handleSignIn(email, password)
+
       dispatch(setUser({ email: res.email, uid: res.uid }))
       let response = await getDocData("users", res.user.uid)
       localStorage.setItem("userData", JSON.stringify(response))
       setShowLogin(false)
 
     } catch (error) {
-
+      console.log(error)
       if (error.message === FIREBASE_ERRORS.invalidCredential) {
-        alert("Invalid Credencials")
+        setError({
+          error: true,
+          errorMsg: "Invalid Credencial"
+        })
       }
-      console.log(error.message)
+    }
+    finally {
+      loader.stop()
     }
   }
   return (
@@ -76,10 +97,10 @@ const LoginPopup = ({ setShowLogin }) => {
                 {formType === FORM_TYPES.login ? 'Create a new Account' : 'Login'}
               </span>
             </p>
-            {(formType !== FORM_TYPES.restaurantType && formType !== FORM_TYPES.login) && <p style={{ color: '#13B251', cursor: 'pointer' }} onClick={() => {
+            {/* {(formType !== FORM_TYPES.restaurantType && formType !== FORM_TYPES.login) && <p style={{ color: '#13B251', cursor: 'pointer' }} onClick={() => {
               setFormType(FORM_TYPES.restaurantType)
             }
-            }>Register Restaurant</p>}
+            }>Register Restaurant</p>} */}
           </div>
           <img src={food} alt="food img" />
         </div>
@@ -87,9 +108,9 @@ const LoginPopup = ({ setShowLogin }) => {
 
           {/* form for sign up  */}
           {formType === FORM_TYPES.signUp && <SignupForm signUpFor={USER_ROLES.user} onSubmit={signUp} />}
-          {formType === FORM_TYPES.restaurantType && <SignupForm signUpFor={USER_ROLES.restaurant} onSubmit={signUp} />}
+          {/* {formType === FORM_TYPES.restaurantType && <SignupForm signUpFor={USER_ROLES.restaurant} onSubmit={signUp} />} */}
           {/* form for login  */}
-          {formType === FORM_TYPES.login && <LoginForm onSubmit={login} />}
+          {formType === FORM_TYPES.login && <LoginForm error={error} onSubmit={login} />}
         </div>
         <p>
           By clicking on {formType === 'login' ? 'Login' : 'Sign Up'}, I accept the Terms & Conditions & Privacy Policy

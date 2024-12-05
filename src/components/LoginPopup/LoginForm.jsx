@@ -3,7 +3,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { Input } from '../Inputs/Input'
 import { Button } from '../Buttons/Button'
 
-export const LoginForm = ({ onSubmit }) => {
+export const LoginForm = ({ onSubmit, error }) => {
 
 
     const { control, handleSubmit, reset, formState: { errors } } = useForm({
@@ -25,6 +25,7 @@ export const LoginForm = ({ onSubmit }) => {
                     render={({ field: { value, onChange } }) => {
                         return (
                             <Input
+                                error={errors.email}
                                 type="email"
                                 name="email"
                                 placeholder="Enter Email"
@@ -41,6 +42,7 @@ export const LoginForm = ({ onSubmit }) => {
                     render={({ field: { value, onChange } }) => {
                         return (
                             <Input
+                                error={errors.password}
                                 type="password"
                                 name="password"
                                 placeholder="Enter Password"
@@ -49,8 +51,8 @@ export const LoginForm = ({ onSubmit }) => {
                             />
                         )
                     }} />
+                {error.error && <div className='text-danger'>{error.errorMsg}</div>}
                 <br />
-
                 <Button primary fullWidth title={"Login"} type="submit" />
 
             </form>

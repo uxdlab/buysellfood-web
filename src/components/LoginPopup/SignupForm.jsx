@@ -34,6 +34,7 @@ export const SignupForm = ({ signUpFor, onSubmit }) => {
                             return (
                                 <Input
                                     type="text"
+                                    error={errors.name}
                                     name="name"
                                     placeholder="Enter Name"
                                     value={value}
@@ -50,6 +51,7 @@ export const SignupForm = ({ signUpFor, onSubmit }) => {
                             return (
                                 <Input
                                     type="text"
+                                    error={errors.mobile}
                                     name="phone"
                                     placeholder="Phone Number"
                                     value={value}
@@ -67,6 +69,7 @@ export const SignupForm = ({ signUpFor, onSubmit }) => {
                             return (
                                 <Input
                                     type="email"
+                                    error={errors.email}
                                     name="email"
                                     placeholder="Email"
                                     value={value}
@@ -82,7 +85,7 @@ export const SignupForm = ({ signUpFor, onSubmit }) => {
                         render={({ field: { value, onChange } }) => {
                             return (
                                 <Input
-                                    error={true}
+                                    error={errors.password}
                                     name="email"
                                     placeholder="Password"
                                     value={value}

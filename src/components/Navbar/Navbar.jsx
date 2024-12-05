@@ -171,7 +171,7 @@ const Navbar = ({ setShowLogin }) => {
   };
 
   return (
-    <div className="py-4 justify-content-between d-flex">
+    <div className="py-4 justify-content-between align-items-center gap-4 d-flex">
 
       <div>
         <Link to="/">
@@ -180,7 +180,7 @@ const Navbar = ({ setShowLogin }) => {
         </Link>
       </div>
 
-      <div className='d-flex gap-xl-4 align-items-center gap-1 text-nowrap'>
+      <div className='d-flex  align-items-center justify-content-between gap-3 text-nowrap'>
         <div className='pointer' onClick={() => navigate("/adsListing")}>Ads Listing</div>
         {isUserLoggedIn && <div className='pointer' onClick={() => navigate("/myAds")}>My Ads</div>}
         {isUserLoggedIn && <Button onClick={() => navigate("addItem")} primary title={"+ Place An Add"}></Button>}
