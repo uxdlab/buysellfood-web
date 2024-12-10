@@ -1,6 +1,8 @@
 import { assets } from "../../assets/assets";
 import "./Footer.css";
 
+import byandselllogo from '../../assets/logo.png';
+
 const Footer = () => {
   return (
     <div className="footer" id="footer">
@@ -41,14 +43,24 @@ const Footer = () => {
           <h5>GET IN TOUCH</h5>
           <ul style={{ paddingLeft: "0px" }}>
             <li>+91 9876543210</li>
-            <li>contact@Buy&Sell.com</li>
+            <li>contact@buyandsellfood.app</li>
           </ul>
         </div>
       </div>
       <hr />
-      <p className="footer-copyright">
-        Copyright 2024 &copy; Buy&Sell.com - All Right Reserved
-      </p>
+
+      <div className="d-flex justify-content-between w-100">
+
+        <div>
+          <img src={byandselllogo} alt="Logo"
+            className={'nav-logo-desktop'} />
+        </div>
+
+        <div className="footer-copyright d-flex gap-5">
+          Copyright 2024 &copy; powered by buyandsellfood.app. Inc. All Right Reserved
+        </div>
+      </div>
+
     </div>
   );
 };

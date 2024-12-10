@@ -3,42 +3,11 @@ import { fetchMatchingData, getCollectionData } from '../../../services/firebase
 import { getUserId, loader } from '../../../utils'
 import FoodItem from '../../FoodItem/FoodItem'
 
-export const AllProducts = ({ fetchProducts }) => {
+export const AllProducts = ({ allProducts, isDataFetched }) => {
 
-    const isUserSpecific = fetchProducts === "UserSpecific"
-    const [isDataFetched, setIsDataFetched] = useState(false)
-    const [AllProducts, setAllProducts] = useState([])
-    useEffect(() => {
-        fetchData()
-    }, [])
-    let userId = getUserId()
 
-    async function fetchData() {
-        try {
-            setIsDataFetched(false)
-            loader.start()
-            let res;
-            if (isUserSpecific) {
-                res = await fetchMatchingData("items", "restaurantId", "==", userId)
-            }
-            else {
-                res = await getCollectionData("items");
-            }
-            console.log(res)
-            setAllProducts(res)
 
-            console.log(res)
-        } catch (error) {
-
-            console.log(error)
-        }
-        finally {
-            setIsDataFetched(true)
-            loader.stop()
-        }
-    }
-
-    if (isDataFetched && AllProducts.length === 0) {
+    if (isDataFetched && allProducts?.length === 0) {
         return <div className='text-center py-5'>No Items found</div>
     }
 
@@ -46,7 +15,7 @@ export const AllProducts = ({ fetchProducts }) => {
         <div>
             <div className="food-display-list">
 
-                {AllProducts?.map((item, index) => {
+                {allProducts?.map((item, index) => {
                     return (
                         <FoodItem
                             key={index}

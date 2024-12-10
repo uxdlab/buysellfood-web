@@ -3,7 +3,7 @@ import { menu_list } from "../../assets/assets"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useEffect, useRef } from "react";
 
-const ExploreMenu = ({ category, setCategory }) => {
+const   ExploreMenu = ({ category, setCategory }) => {
 
     const scrollRef = useRef(null);
 

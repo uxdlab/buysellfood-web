@@ -8,6 +8,9 @@
   /* Changed from 'Outfit' to 'Montserrat' */
   scroll-behavior: smooth;
 }
+:root{
+  --primary-color:#20CA62
+}
 
 body {
   min-height: 100vh;
@@ -87,4 +90,9 @@ a {
 .goog-te-gadget{
   height: 45px;
   overflow: hidden;
+}
+
+.my_add_active_tab{
+  color: grey;
+  font-weight: 600;
 }

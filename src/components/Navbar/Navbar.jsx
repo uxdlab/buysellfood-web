@@ -134,9 +134,13 @@ import { AccountCircle } from '@mui/icons-material';
 import { useFetchUserData } from '../../hooks/useFetchUserData';
 import { Button } from '../Buttons/Button';
 import CurrencyConverter from '../common/CurrencyConverter';
+import LoginIcon from '@mui/icons-material/Login';
 import TranslateComponent from '../common/LanguageConverter';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import { FORM_TYPES } from '../../utils/constants';
+import Person2Icon from '@mui/icons-material/Person2';
 
-const Navbar = ({ setShowLogin }) => {
+const Navbar = ({ setShowLogin, setFormType }) => {
 
   const { isAuthenticated } = useSelector((state) => state.auth);
   let userData = useFetchUserData()
@@ -148,11 +152,13 @@ const Navbar = ({ setShowLogin }) => {
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1080);
+  const [isTab, setIsTab] = useState(window.innerWidth < 1080);
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1080);
+      setIsTab(window.innerWidth < 1200);
     };
     window.addEventListener('resize', handleResize);
     return () => {
@@ -175,24 +181,63 @@ const Navbar = ({ setShowLogin }) => {
 
       <div>
         <Link to="/">
-          <img src={isMobile ? byandselllogo : logo} alt="Logo"
-            className={isMobile ? 'nav-logo-mobile' : 'nav-logo-desktop'} />
+          <img src={isTab ? byandselllogo : logo} alt="Logo"
+            className={isTab ? 'nav-logo-mobile' : 'nav-logo-desktop'} />
         </Link>
       </div>
 
-      <div className='d-flex  align-items-center justify-content-between gap-3 text-nowrap'>
+      <div className='d-flex  align-items-center justify-content-between gap-4 text-nowrap'>
         <div className='pointer' onClick={() => navigate("/adsListing")}>Ads Listing</div>
-        {isUserLoggedIn && <div className='pointer' onClick={() => navigate("/myAds")}>My Ads</div>}
-        {isUserLoggedIn && <Button onClick={() => navigate("addItem")} primary title={"+ Place An Add"}></Button>}
-        <div>Blog</div>
-        {!isUserLoggedIn && <div className="nav-register" onClick={() => setShowLogin(true)}>
-          <AiOutlineUserAdd className="register-icon" />
-          <span>Register</span>
-        </div>}
+        <div className='pointer' onClick={() => {
+          if (isUserLoggedIn) {
+            navigate("/myAds")
+          }
+          else {
+            setFormType(FORM_TYPES.login)
+            setShowLogin(true)
+          }
+        }}>My Ads</div>
 
-        <TranslateComponent />
+        <Button onClick={() => {
+          if (isUserLoggedIn) {
+            navigate("addItem")
+          }
+          else {
+            setShowLogin(true)
+            setFormType(FORM_TYPES.login)
+          }
+
+        }} primary title={"+ Place An Add"}></Button>
+
+
+        <div>Blog</div>
+
+        {!isUserLoggedIn &&
+          <>
+            <div className='loginBtn' onClick={() => {
+              setShowLogin(true)
+              setFormType(FORM_TYPES.login)
+            }} ><LoginIcon /> Login</div>
+            <div className="loginBtn" onClick={() => {
+              setShowLogin(true)
+              setFormType(FORM_TYPES.signUp)
+            }}>
+              <GroupAddIcon />
+              <span>Register</span>
+            </div>
+          </>
+        }
+
+        {isUserLoggedIn && <div className='loginBtn' onClick={logout}><LoginIcon /> Logout</div>}
+        {isUserLoggedIn && <div className='loginBtn' onClick={() => navigate("/myAds")}><Person2Icon /> My Account</div>}
+
+        <div style={{ width: '120px' }}>
+          <TranslateComponent />
+        </div>
         <CurrencyConverter />
-        {isUserLoggedIn && <Button primary onClick={logout} title={"Logout"}></Button>}
+
+
+
       </div>
 
       {/* Mobile Menu Slider */}

@@ -4,6 +4,7 @@ import { Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, Select, Te
 import currencyCodes from "currency-codes";
 import { convertCurrency } from '../../services/apis/api';
 import { Input } from '../Inputs/Input';
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 
 
 export default function CurrencyConverter() {
@@ -43,7 +44,11 @@ export default function CurrencyConverter() {
     }
     return (
         <div>
-            <Button primary onClick={() => setOpen(true)} title={"Currency Converter"} />
+            <Button primary onClick={() => setOpen(true)}
+            //  title={<CurrencyExchangeIcon/>}
+             title={"Currency Converter"}
+             
+             />
 
             <Dialog
                 fullWidth
@@ -116,7 +121,7 @@ export default function CurrencyConverter() {
                         Converted Amount: {convertedAmount || 0}
                     </Typography>
                 </DialogContent>
-                <DialogActions>
+                <DialogActions sx={{p:3}}>
                     <Button onClick={close} title="Close" secondary>Close</Button>
                     <Button
                         onClick={fetchData}

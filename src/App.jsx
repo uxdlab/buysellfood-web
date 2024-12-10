@@ -16,22 +16,24 @@ import { AddItem } from "./pages/Items/AddItem"
 import { Profile } from "./pages/Profile/Profile"
 import { AdsListing } from "./pages/AdsListing/AdsListing"
 import { MyAds } from "./pages/MyAds/MyAds"
+import { FORM_TYPES } from "./utils/constants"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [formType, setFormType] = useState(FORM_TYPES.login);
   // addRestaurant
   return (
     <>
-      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <> </>}
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} setFormType={setFormType} formType={formType} /> : <> </>}
       <div className="app">
         <ToastContainer />
-        <Navbar setShowLogin={setShowLogin} />
+        <Navbar setShowLogin={setShowLogin} setFormType={setFormType} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify />} />
-          <Route path="/myorders" element={<MyOrders />} />
+          {/* <Route path="/myorders" element={<MyOrders />} /> */}
           <Route path="/restaurantview" element={<RestaurantView />} />
           <Route path="/Restaurants" element={<RestaurantListing />} />
           <Route path="/addItem" element={<AddItem />} />

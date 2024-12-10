@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { Input } from '../../components/Inputs/Input';
 import { Button } from '../../components/Buttons/Button';
 import { DragAndDropInput } from '../../components/Inputs/DragAndDropInput';
-import { CALORIES_COUNT_RANGE, FOOD_FREE_FROM, FOOD_GROUP, FOOD_MAKE, FOOD_VARIETY, IMAGE_EXTENSION_TYPES } from '../../utils/constants';
+import { CALORIES_COUNT_RANGE, COLOR, COOKING_TYPE, FOOD_FREE_FROM, FOOD_GROUP, FOOD_MADE, FOOD_MAKE, FOOD_VARIETY, IMAGE_EXTENSION_TYPES, SELER_TYPE, VERIFICATION_TYPE } from '../../utils/constants';
 import { uploadDoc } from '../../services/apis/api';
 import { addData } from '../../services/firebase/setData';
 import { useSelector } from 'react-redux';
@@ -42,6 +42,13 @@ export const AddItem = () => {
             cityId: '',
             image: [],
 
+            cooking_type: COOKING_TYPE[0],
+            color: COLOR[0],
+            food_made: FOOD_MADE[0],
+            seller_type: SELER_TYPE[0],
+            verification: VERIFICATION_TYPE[0]
+
+
 
         }
     });
@@ -51,15 +58,13 @@ export const AddItem = () => {
 
     async function addItem(dd) {
         try {
-
-
             loader.start()
             let file = dd?.image?.[0]?.file;
             let docData = await uploadDoc([file]);
             let image = docData.data.data[0]
-
             let data = {
                 ...dd,
+                price: parseInt(dd.price),
                 restaurantId: userId, image
             };
             console.log(data)
@@ -110,7 +115,7 @@ export const AddItem = () => {
 
 
 
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Item Name</h6>
                         <Controller
                             name="name"
@@ -128,7 +133,7 @@ export const AddItem = () => {
                             }} />
                     </div>
 
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Price</h6>
                         <Controller
                             name="price"
@@ -144,7 +149,7 @@ export const AddItem = () => {
                             }} />
                     </div>
 
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Food Group</h6>
                         <Controller
                             name="food_group"
@@ -160,7 +165,7 @@ export const AddItem = () => {
                                 )
                             }} />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Food Make</h6>
                         <Controller
                             name="food_make"
@@ -176,7 +181,7 @@ export const AddItem = () => {
                                 )
                             }} />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Food Free From</h6>
                         <Controller
                             name="food_free_from"
@@ -192,7 +197,7 @@ export const AddItem = () => {
                                 )
                             }} />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Food Variety</h6>
                         <Controller
                             name="food_variety"
@@ -208,7 +213,7 @@ export const AddItem = () => {
                                 )
                             }} />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>Calorie Count Range</h6>
                         <Controller
                             name="calorie_count_range"
@@ -224,6 +229,131 @@ export const AddItem = () => {
                                 )
                             }} />
                     </div>
+                    <div className="col-md-4 col-12 mt-3">
+                        <h6>Cooking Type</h6>
+                        <Controller
+                            name="cooking_type"
+                            control={control}
+                            defaultValue={null}
+                            rules={{ required: true }}
+                            render={({ field }) => {
+                                return (
+                                    <select {...field} className={`form-select ${!!errors?.food_variety && "error_input"}`}>
+                                        <option value={null}>Calorie Count Range</option>
+                                        {COOKING_TYPE.map(e => <option value={e}>{e}</option>)}
+                                    </select>
+                                )
+                            }} />
+                    </div>
+
+                    <div className="col-md-4 col-12 mt-3">
+                        <h6>Color</h6>
+                        <Controller
+                            name="color"
+                            control={control}
+                            defaultValue={null}
+                            rules={{ required: true }}
+                            render={({ field }) => {
+                                return (
+                                    <select {...field} className={`form-select ${!!errors?.food_variety && "error_input"}`}>
+                                        <option value={null}>Calorie Count Range</option>
+                                        {COLOR.map(e => <option value={e}>{e}</option>)}
+                                    </select>
+                                )
+                            }} />
+                    </div>
+                    <div className="col-md-4 col-12 mt-3">
+                        <h6>Food Made</h6>
+                        <Controller
+                            name="food_made"
+                            control={control}
+                            defaultValue={null}
+                            rules={{ required: true }}
+                            render={({ field }) => (
+                                <div className={`form-group d-flex gap-2 ${!!errors?.food_made && "error_input"}`}>
+                                    {FOOD_MADE.map((item, index) => (
+                                        <div key={index} className="form-check">
+                                            <input
+                                                {...field}
+                                                type="radio"
+                                                className="form-check-input"
+                                                id={`food_made-${item}`}
+                                                value={item}
+                                                checked={field.value === item}
+                                            />
+                                            <label className="form-check-label" htmlFor={`food_made-${item}`}>
+                                                {item}
+                                            </label>
+                                        </div>
+                                    ))}
+                                    {errors?.food_made && <p className="error-message">This field is required</p>}
+                                </div>
+                            )}
+                        />
+                    </div>
+
+
+
+                    <div className="col-md-4 col-12 mt-3">
+                        <h6>Seller Type</h6>
+                        <Controller
+                            name="seller_type"
+                            control={control}
+                            defaultValue={null}
+                            rules={{ required: true }}
+                            render={({ field }) => (
+                                <div className={`form-group d-flex gap-2 ${!!errors?.seller_type && "error_input"}`}>
+                                    {SELER_TYPE.map((item, index) => (
+                                        <div key={index} className="form-check">
+                                            <input
+                                                {...field}
+                                                type="radio"
+                                                className="form-check-input"
+                                                id={`seller_type-${item}`}
+                                                value={item}
+                                                checked={field.value === item}
+                                            />
+                                            <label className="form-check-label" htmlFor={`seller_type-${item}`}>
+                                                {item}
+                                            </label>
+                                        </div>
+                                    ))}
+                                    {errors?.seller_type && <p className="error-message">This field is required</p>}
+                                </div>
+                            )}
+                        />
+                    </div>
+
+                    <div className="col-md-4 col-12 mt-3">
+                        <h6>Verification</h6>
+                        <Controller
+                            name="verification"
+                            control={control}
+                            defaultValue={null}
+                            rules={{ required: true }}
+                            render={({ field }) => (
+                                <div className={`form-group d-flex gap-2 ${!!errors?.verification && "error_input"}`}>
+                                    {VERIFICATION_TYPE.map((option) => (
+                                        <div key={option} className="form-check">
+                                            <input
+                                                {...field}
+                                                type="radio"
+                                                className="form-check-input"
+                                                id={`verification-${option}`}
+                                                value={option}
+                                                checked={field.value === option}
+                                            />
+                                            <label className="form-check-label" htmlFor={`verification-${option}`}>
+                                                {option}
+                                            </label>
+                                        </div>
+                                    ))}
+                                    {errors?.verification && <p className="error-message">This field is required</p>}
+                                </div>
+                            )}
+                        />
+                    </div>
+
 
 
                     <div className="col-12 mt-3">
@@ -261,7 +391,7 @@ export const AddItem = () => {
                             }} />
                     </div>
 
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>All Country</h6>
                         <Controller
                             name="countryId"
@@ -280,7 +410,7 @@ export const AddItem = () => {
                             )}
                         />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>State</h6>
                         <Controller
                             name="stateId"
@@ -294,7 +424,7 @@ export const AddItem = () => {
                             )}
                         />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-md-4 col-12 mt-3">
                         <h6>City</h6>
                         <Controller
                             name="cityId"

@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from "./firebase";
 
 
@@ -47,6 +47,8 @@ export const filterDataWithKeysValue = async (collectionName, keyValuePairObj) =
     try {
         const collectionRef = collection(db, collectionName);
 
+
+
         let q = collectionRef;
         for (let i in keyValuePairObj) {
             q = query(q, where(i, "==", keyValuePairObj[i]));
@@ -65,4 +67,10 @@ export const filterDataWithKeysValue = async (collectionName, keyValuePairObj) =
         throw new Error(error);
     }
 }
+
+
+
+
+
+
 

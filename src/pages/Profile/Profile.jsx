@@ -24,7 +24,7 @@ export const Profile = () => {
     const { control, handleSubmit, watch, setValue, reset } = useForm({
         defaultValues: {
             profileImage: null,
-            logoImage: null,
+            about_me: userData?.about_me,
             name: userData?.name,
             email: userData?.email,
             mobile: userData?.mobile
@@ -32,7 +32,7 @@ export const Profile = () => {
     })
 
     let profileImage = watch("profileImage")
-    let logoImage = watch("logoImage")
+
     let dispatch = useDispatch()
 
     useEffect(() => {
@@ -41,17 +41,14 @@ export const Profile = () => {
 
     async function updateProfile(data) {
         let file = data.profileImage?.file;
-        let logoFile = data.logoImage?.file;
+
         try {
             loader.start()
             if (file) {
                 let upload = await uploadDoc([file]);
                 data.profileImage = upload.data.data[0]
             }
-            if (logoFile) {
-                let upload = await uploadDoc([logoFile]);
-                data.logoImage = upload.data.data[0]
-            }
+
 
             let rr = await updateDocData("users", userId, data);
             dispatch(updateUserData(data))
@@ -65,8 +62,10 @@ export const Profile = () => {
         }
     }
     return (
+
+
         <div>
-            <h3 className='text-center mt-3'>Profile</h3>
+            <h3 className='text-center mt-3'>Settings</h3>
 
             <form onSubmit={handleSubmit(updateProfile)}>
 
@@ -98,35 +97,9 @@ export const Profile = () => {
                         </div>
                         }
                     </div>
-                    <div className="col-12 mt-3 d-flex align-items-center gap-4">
-                        <div className='flex-fill'>
-                            <label>Logo Image</label>
-                            <Controller
-                                name="logoImage"
-                                control={control}
-                                defaultValue={null}
 
-                                render={({ field: { value, onChange } }) => {
-                                    return (
-                                        <DragAndDropInput
-                                            setDeleted={setDeletedFile}
-                                            acceptedFileTypes={IMAGE_EXTENSION_TYPES}
-                                            value={[value].filter(e => e)}
-                                            onChange={(e) => onChange(e[0])}
-                                        />)
-                                }}
-                            />
-                        </div>
-                        {logoImage?.fileUrl && <div>
-                            <img
-                                src={logoImage?.fileUrl}
-                                className='profile_image'
-                            />
-                        </div>
-                        }
-                    </div>
 
-                    <div className="col-4 mt-3">
+                    <div className="col-lg-6 col-12 mt-3">
                         <label>Name</label>
                         <Controller
                             name="name"
@@ -145,7 +118,7 @@ export const Profile = () => {
                     </div>
 
 
-                    <div className="col-4 mt-3">
+                    <div className="col-lg-6 col-12 mt-3">
                         <label>Email</label>
                         <Controller
                             name="email"
@@ -161,7 +134,7 @@ export const Profile = () => {
                             }}
                         />
                     </div>
-                    <div className="col-4 mt-3">
+                    <div className="col-lg-6 col-12 mt-3">
                         <label>Phone</label>
                         <Controller
                             name="mobile"
@@ -177,6 +150,24 @@ export const Profile = () => {
                             }}
                         />
 
+                    </div>
+                    <div className="col-12 mt-3">
+                        <label>About Me</label>
+                        <Controller
+                            name="about_me"
+                            control={control}
+                            defaultValue={null}
+
+                            render={({ field: { value, onChange } }) => {
+                                return (
+                                    <textarea
+                                    className='form-control'
+                                        value={value}
+                                        placeholder='About me...'
+                                        onChange={onChange}
+                                    ></textarea>)
+                            }}
+                        />
                     </div>
 
                 </div>

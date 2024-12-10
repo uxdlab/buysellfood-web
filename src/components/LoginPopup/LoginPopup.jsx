@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../store/slices/authSlice';
 import { loader } from '../../utils';
 
-const LoginPopup = ({ setShowLogin }) => {
+const LoginPopup = ({ setShowLogin, formType, setFormType }) => {
   const [error, setError] = useState({
     error: false,
     errorMsg: ""
@@ -24,7 +24,6 @@ const LoginPopup = ({ setShowLogin }) => {
   }
   const dispatch = useDispatch()
 
-  const [formType, setFormType] = useState(FORM_TYPES.login)
   function toggleForm() {
     setFormType(formType === FORM_TYPES.login ? FORM_TYPES.signUp : FORM_TYPES.login)
   }
@@ -97,10 +96,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 {formType === FORM_TYPES.login ? 'Create a new Account' : 'Login'}
               </span>
             </p>
-            {/* {(formType !== FORM_TYPES.restaurantType && formType !== FORM_TYPES.login) && <p style={{ color: '#13B251', cursor: 'pointer' }} onClick={() => {
-              setFormType(FORM_TYPES.restaurantType)
-            }
-            }>Register Restaurant</p>} */}
+
           </div>
           <img src={food} alt="food img" />
         </div>
@@ -108,8 +104,7 @@ const LoginPopup = ({ setShowLogin }) => {
 
           {/* form for sign up  */}
           {formType === FORM_TYPES.signUp && <SignupForm signUpFor={USER_ROLES.user} onSubmit={signUp} />}
-          {/* {formType === FORM_TYPES.restaurantType && <SignupForm signUpFor={USER_ROLES.restaurant} onSubmit={signUp} />} */}
-          {/* form for login  */}
+
           {formType === FORM_TYPES.login && <LoginForm error={error} onSubmit={login} />}
         </div>
         <p>

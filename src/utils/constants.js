@@ -2,10 +2,25 @@
 export const CURRENCY_CONVERTER_KEY="b37034a952fa5b9cf619a5a9"
 
 
+
+export const COOKING_TYPE=["Baked","Raw","Grilled Fried","Deep Fried","Fresh"];
+export const COLOR=["All Natural Color","No Color Aditions"];
+export const FOOD_MADE=["Hand Made","Factory Made"];
+export const SELER_TYPE=["Private","Family Owned"];
+export const VERIFICATION_TYPE=["Health Board","Food Safety"];
+
+
+
+
 export const FIREBASE_ERRORS = {
     userAlreadyExists: "Firebase: Error (auth/email-already-in-use).",
     invalidCredential: "Firebase: Error (auth/invalid-credential)."
 }
+export const FORM_TYPES = {
+    login: 'Login',
+    signUp: 'Sign Up',
+    restaurantType: 'Restaurant Sign Up'
+  }
 
 export const USER_ROLES = {
     user: "user",
