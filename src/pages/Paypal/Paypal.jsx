@@ -61,7 +61,9 @@ export const Paypal = () => {
           console.error('Invalid plan')
       }
       loader.start()
+console.log(userId)
       let res = await updateDocData('users', userId, userData)
+
       console.log(res)
       navigate('/addItem')
       window.location.reload()
