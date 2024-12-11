@@ -17,6 +17,7 @@ import { Profile } from "./pages/Profile/Profile"
 import { AdsListing } from "./pages/AdsListing/AdsListing"
 import { MyAds } from "./pages/MyAds/MyAds"
 import { FORM_TYPES } from "./utils/constants"
+import { Paypal } from "./pages/Paypal/Paypal"
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/adsListing" element={<AdsListing />} />
           <Route path="/myAds" element={<MyAds />} />
+          <Route path="/pay-pal" element={<Paypal />} />
         </Routes>
       </div>
       <Footer />

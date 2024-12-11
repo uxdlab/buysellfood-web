@@ -1,5 +1,21 @@
 // authSlice.js
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getDocData } from "../../services/firebase/getData";
+
+
+export const setUserDetailsInStore = createAsyncThunk(
+  'user/setUserDetailsInStore',
+  async (user, { dispatch, rejectWithValue }) => {
+    try {
+      const userData = await getDocData('users', user.uid);
+      dispatch(setUser({ email: user.email, uid: user.uid, userData }));
+      return userData;
+    } catch (error) {
+      dispatch(clearUser());
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 const initialState = {
   user: null,

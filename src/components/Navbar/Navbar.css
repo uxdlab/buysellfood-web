@@ -28,7 +28,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-
 }
 
 .location-name {
@@ -47,19 +46,18 @@
 .navbar-center {
   display: flex;
   align-items: center;
-
 }
 
 .nav-link {
   margin-right: 20px;
-  color: #35497E;
+  color: #35497e;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
 }
 
 .nav-link:hover {
-  color: #1F2B50;
+  color: #1f2b50;
 }
 
 .nav-register {
@@ -72,7 +70,7 @@
 
 .register-icon {
   font-size: 1.5rem;
-  color: #35497E;
+  color: #35497e;
   margin-right: 5px;
 }
 
@@ -124,7 +122,7 @@
 }
 
 .mobile-menu p:hover {
-  color: #1F2B50;
+  color: #1f2b50;
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
 }
@@ -132,7 +130,6 @@
 .mobile-menu p:active {
   color: white;
   transform: scale(1.05);
-
 }
 
 /* Responsive styling */
@@ -153,12 +150,11 @@
   }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .mobile-menu {
     width: 50%;
   }
 }
-
 
 @media (max-width: 400px) {
   .location-name {
@@ -178,8 +174,6 @@
   }
 }
 
-
-
 .loginBtn {
   color: var(--primary-color);
   display: flex;
@@ -187,4 +181,55 @@
   gap: 3px;
   cursor: pointer;
   font-weight: 600;
+}
+.main_navbar_con {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: white;
+}
+
+/* new css  */
+
+.navbar-container {
+  background-color: #fff;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  padding: 1rem 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 1000;
+}
+
+.closemenu {
+  font-size: 2rem;
+  color: #333;
+  align-self: flex-end;
+  cursor: pointer;
 }

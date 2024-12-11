@@ -3,3 +3,10 @@
     grid-template-columns: 300px 1fr;
     gap: 40px;
 }
+
+@media (max-width:700px){
+    .addListing_gridcon{
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+}

@@ -1,0 +1,20 @@
+.paypal_card {
+  box-shadow: 0px 0px 25px rgb(195, 195, 195);
+  border-radius: 20px;
+  padding: 20px 20px 50px 20px;
+
+  .heading {
+    font-size: 2.125rem;
+    color: #22262b;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .days_text {
+    font-weight: 600;
+    text-align: end;
+  }
+  .sub_text {
+  }
+  .choosePlanText {
+  }
+}
