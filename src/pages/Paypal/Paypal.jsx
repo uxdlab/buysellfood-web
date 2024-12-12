@@ -172,7 +172,7 @@ console.log(userId)
             text3={'24/7 support'}
             planDays={
               <div>
-                <div>0</div>
+                <div>30</div>
                 <div>30 Days</div>
               </div>
             }

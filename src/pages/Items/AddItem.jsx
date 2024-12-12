@@ -51,11 +51,11 @@ export const AddItem = () => {
       name: '',
       price: '',
       description: '',
-      food_group: null,
-      food_make: null,
-      food_free_from: null,
-      food_variety: null,
-      calorie_count_range: null,
+      food_group: "",
+      food_make: "",
+      food_free_from: "",
+      food_variety: "",
+      calorie_count_range: "",
       countryId: '',
       stateId: '',
       cityId: '',
@@ -264,7 +264,7 @@ export const AddItem = () => {
                       !!errors?.food_group && 'error_input'
                     }`}
                   >
-                    <option disabled value={null}>
+                    <option disabled value={''}>
                       Select Food Group
                     </option>
                     {FOOD_GROUP.map(e => (
