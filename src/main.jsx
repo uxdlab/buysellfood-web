@@ -10,6 +10,8 @@ import store from './store/store.js'
 import AuthObserver from './AuthObserver.js'
 import { Loader } from './components/common/Loader.jsx'
 import { Toast } from './components/Toast/Toast.jsx'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
