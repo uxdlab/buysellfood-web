@@ -2,7 +2,7 @@
   min-height: 650px;
   max-height: 800px;
   margin: 30px auto;
-  background: url("/public/header_img.png") no-repeat;
+  background: url("/header_img.png") no-repeat;
   background-size: cover;
   position: relative;
   background-position: right;
