@@ -20,6 +20,9 @@ import { FORM_TYPES } from "./utils/constants"
 import { Paypal } from "./pages/Paypal/Paypal"
 
 const App = () => {
+
+  console.log("testing")
+
   const [showLogin, setShowLogin] = useState(false);
   const [formType, setFormType] = useState(FORM_TYPES.login);
   // addRestaurant
