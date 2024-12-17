@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchMatchingData } from '../../services/firebase/getData'
-import { getUserId, loader } from '../../utils'
+import { useGetUserId, loader } from '../../utils'
 import { AllProducts } from '../../components/common/AllProducts/AllProducts'
 
 export const UserAds = () => {
@@ -8,7 +8,7 @@ export const UserAds = () => {
     const [allProducts, setAllProducts] = useState([])
     const [isDataFetched, setIsDataFetched] = useState(false)
 
-    let userId = getUserId()
+    let userId = useGetUserId()
 
     useEffect(() => {
         if (userId) {

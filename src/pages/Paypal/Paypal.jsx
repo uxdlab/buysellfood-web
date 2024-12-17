@@ -4,7 +4,7 @@ import { PaypalCard } from './PaypalCard'
 import { Button } from '../../components/Buttons/Button'
 import {
   getAfterDate,
-  getUserId,
+  useGetUserId,
   isFreePlanAvailable,
   loader
 } from '../../utils'
@@ -13,7 +13,7 @@ import { updateDocData } from '../../services/firebase/updateData'
 import { useNavigate } from 'react-router-dom'
 
 export const Paypal = () => {
-  let userId = getUserId()
+  let userId = useGetUserId()
   const navigate = useNavigate()
 
   const PLAN_AMOUNT = {

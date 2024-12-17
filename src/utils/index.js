@@ -29,26 +29,23 @@ export const getAfterDate = skipedDays => {
   return today.add(skipedDays, 'days').format('YYYY-MM-DD')
 }
 
-export const isUserLoggedIn = () => {
+export const useIsUserLoggedIn = () => {
   const s = useSelector(state => state.auth.userData)
   return s?.role === USER_ROLES.user
 }
-export const isLoggedIn = () => {
+export const useIsLoggedIn = () => {
   const s = useSelector(state => state?.auth?.userData)
   return !!s
 }
 
-export const isRestaurantLoggedIn = () => {
-  const s = useSelector(state => state.auth.userData)
-  return s?.role === USER_ROLES.restaurant
-}
 
-export const getUserId = () => {
+
+export const useGetUserId = () => {
   const s = useSelector(state => state.auth)
   return s?.user?.uid || null
 }
 
-export const getUserData = () => {
+export const useGetUserData = () => {
   const s = useSelector(state => state.auth?.userData)
   return s
 }
@@ -67,6 +64,6 @@ export function isUserPlanExpired (date) {
 }
 
 export const isFreePlanAvailable = () => {
-  let userData = getUserData()
+  let userData = useGetUserData()
   return !userData?.isPaid
 }

@@ -155,7 +155,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import byandselllogo from '../../assets/byandselllogo.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoggedIn } from '../../utils';
+import { useIsLoggedIn } from '../../utils';
 import { clearUser } from '../../store/slices/authSlice';
 import { handleSignOut } from '../../services/firebase/auth';
 import { Button } from '../Buttons/Button';
@@ -172,7 +172,7 @@ const Navbar = ({ setShowLogin, setFormType }) => {
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1280);
-  let isUserLoggedIn = isLoggedIn();
+  let isUserLoggedIn = useIsLoggedIn();
 
   // Close mobile menu when resizing to desktop view
   useEffect(() => {

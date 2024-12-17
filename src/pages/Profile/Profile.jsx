@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DragAndDropInput } from '../../components/Inputs/DragAndDropInput'
 import { IMAGE_EXTENSION_TYPES } from '../../utils/constants'
-import { getUserData, loader } from '../../utils'
+import { useGetUserData, loader } from '../../utils'
 import { Input } from '../../components/Inputs/Input'
 import "./profile.css"
 import { Button } from '../../components/Buttons/Button'
@@ -18,7 +18,7 @@ export const Profile = () => {
 
 
     const [deletedFile, setDeletedFile] = useState([])
-    let userData = getUserData()
+    let userData = useGetUserData()
     let userId = useUserId()
 
     const { control, handleSubmit, watch, setValue, reset } = useForm({

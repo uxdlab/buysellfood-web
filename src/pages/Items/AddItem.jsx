@@ -20,7 +20,7 @@ import {
 import { uploadDoc } from '../../services/apis/api'
 import { addData } from '../../services/firebase/setData'
 import { useSelector } from 'react-redux'
-import { getUserData, getUserId, isUserPlanExpired, loader } from '../../utils'
+import { useGetUserData, isUserPlanExpired, loader } from '../../utils'
 import { City, Country, State } from 'country-state-city'
 import { useUserId } from '../../hooks/useUserId'
 import { Link, useNavigate } from 'react-router-dom'
@@ -121,7 +121,7 @@ export const AddItem = () => {
     }
   }, [stateId])
 
-  let userFullData = getUserData()
+  let userFullData = useGetUserData()
 
   function checkUserPaymentStatus () {
     let date = userFullData?.planExpireDate

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchMatchingData, getCollectionData } from '../../../services/firebase/getData'
-import { getUserId, loader } from '../../../utils'
+import {  loader } from '../../../utils'
 import FoodItem from '../../FoodItem/FoodItem'
 
 export const AllProducts = ({ allProducts, isDataFetched }) => {
