@@ -63,7 +63,7 @@ export function isUserPlanExpired (date) {
   return false // Return true if the plan is still valid
 }
 
-export const isFreePlanAvailable = () => {
+export const useIsFreePlanAvailable = () => {
   let userData = useGetUserData()
   return !userData?.isPaid
 }

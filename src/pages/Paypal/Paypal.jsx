@@ -5,7 +5,7 @@ import { Button } from '../../components/Buttons/Button'
 import {
   getAfterDate,
   useGetUserId,
-  isFreePlanAvailable,
+  useIsFreePlanAvailable,
   loader
 } from '../../utils'
 import { Box, Dialog, DialogContent, DialogTitle, Modal } from '@mui/material'
@@ -118,7 +118,7 @@ console.log(userId)
           >
             <div className='mt-4'>
               <Button
-                disabled={!isFreePlanAvailable()}
+                disabled={!useIsFreePlanAvailable()}
                 onClick={() => {
                   setAmount(PLAN_AMOUNT.free)
                   setSelectedPlan(ALLPLANS.free)
