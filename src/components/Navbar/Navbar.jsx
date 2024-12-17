@@ -155,7 +155,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import byandselllogo from '../../assets/byandselllogo.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { useIsLoggedIn } from '../../utils';
+import { useIsUserLoggedIn } from '../../utils';
 import { clearUser } from '../../store/slices/authSlice';
 import { handleSignOut } from '../../services/firebase/auth';
 import { Button } from '../Buttons/Button';
@@ -172,7 +172,7 @@ const Navbar = ({ setShowLogin, setFormType }) => {
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1280);
-  let isUserLoggedIn = useIsLoggedIn();
+  let isUserLoggedIn = useIsUserLoggedIn();
 
   // Close mobile menu when resizing to desktop view
   useEffect(() => {
@@ -244,7 +244,7 @@ const Navbar = ({ setShowLogin, setFormType }) => {
             <div className="nav-link pointer" onClick={() => navigate("/myAds")}>My Account</div>
           </>
         )}
-        <div style={{ width: '120px' }}>
+        <div style={{ width: '120px',height:"45px",overflow:"hidden"}}>
           <TranslateComponent />
         </div>
         <CurrencyConverter />
