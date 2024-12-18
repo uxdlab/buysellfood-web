@@ -11,6 +11,7 @@ import { getDocData } from '../../services/firebase/getData'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../store/slices/authSlice'
 import { loader, toast } from '../../utils'
+import { ForgotPassword } from './ForgotPassword'
 
 const LoginPopup = ({ setShowLogin, formType, setFormType }) => {
   const [error, setError] = useState({
@@ -20,7 +21,7 @@ const LoginPopup = ({ setShowLogin, formType, setFormType }) => {
   const FORM_TYPES = {
     login: 'Login',
     signUp: 'Sign Up',
-    restaurantType: 'Restaurant Sign Up'
+    forgotPassword: 'ForgotPassword'
   }
   const dispatch = useDispatch()
 
@@ -115,7 +116,10 @@ const LoginPopup = ({ setShowLogin, formType, setFormType }) => {
           )}
 
           {formType === FORM_TYPES.login && (
-            <LoginForm error={error} onSubmit={login} />
+            <LoginForm error={error} onSubmit={login} onForgotPasswordClick={()=>setFormType(FORM_TYPES.forgotPassword)} />
+          )}
+          {formType === FORM_TYPES.forgotPassword && (
+            <ForgotPassword onLoginClick={()=>setFormType(FORM_TYPES.login)} />
           )}
         </div>
         <p>

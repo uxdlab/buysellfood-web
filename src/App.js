@@ -44,6 +44,7 @@ const App = () => {
           <Route path="/adsListing" element={<AdsListing />} />
           <Route path="/myAds" element={<MyAds />} />
           <Route path="/pay-pal" element={<Paypal />} />
+         
         </Routes>
       </div>
       <Footer />

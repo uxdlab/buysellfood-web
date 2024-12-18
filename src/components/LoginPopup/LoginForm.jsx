@@ -3,7 +3,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { Input } from '../Inputs/Input'
 import { Button } from '../Buttons/Button'
 
-export const LoginForm = ({ onSubmit, error }) => {
+export const LoginForm = ({ onSubmit, error,onForgotPasswordClick }) => {
 
 
     const { control, handleSubmit, reset, formState: { errors } } = useForm({
@@ -54,6 +54,7 @@ export const LoginForm = ({ onSubmit, error }) => {
                 {error.error && <div className='text-danger'>{error.errorMsg}</div>}
                 <br />
                 <Button primary fullWidth title={"Login"} type="submit" />
+                <div className='mt-1 pointer' onClick={onForgotPasswordClick}>Forgot Password ?</div>
 
             </form>
         </div>

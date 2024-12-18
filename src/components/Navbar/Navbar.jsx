@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from 'react';
 // import './Navbar.css';
 // import { FiShoppingBag } from "react-icons/fi";
@@ -28,9 +27,7 @@
 //   let userData = useFetchUserData()
 //   let isUserLoggedIn = isLoggedIn();
 
-
 //   const dispatch = useDispatch()
-
 
 //   const [isMobileOpen, setIsMobileOpen] = useState(false);
 //   const [isMobile, setIsMobile] = useState(window.innerWidth < 1080);
@@ -47,7 +44,6 @@
 //       window.removeEventListener('resize', handleResize);
 //     };
 //   }, []);
-
 
 //   const toggleMenu = () => {
 //     setIsMobileOpen(!isMobileOpen);
@@ -91,7 +87,6 @@
 
 //         }} primary title={"+ Place An Add"}></Button>
 
-
 //         <div>Blog</div>
 
 //         {!isUserLoggedIn &&
@@ -118,8 +113,6 @@
 //         </div>
 //         <CurrencyConverter />
 
-
-
 //       </div>
 
 //       {/* Mobile Menu Slider */}
@@ -138,160 +131,230 @@
 
 // export default Navbar;
 
-
-
-
-
-
-
-
-import React, { useState, useEffect } from 'react';
-import './Navbar.css';
-import { FiShoppingBag } from "react-icons/fi";
-import { AiOutlineUserAdd } from "react-icons/ai";
-import { RiMenu3Fill } from "react-icons/ri";
-import { IoMdClose } from "react-icons/io";
-import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import byandselllogo from '../../assets/byandselllogo.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { useIsUserLoggedIn } from '../../utils';
-import { clearUser } from '../../store/slices/authSlice';
-import { handleSignOut } from '../../services/firebase/auth';
-import { Button } from '../Buttons/Button';
-import LoginIcon from '@mui/icons-material/Login';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import TranslateComponent from '../common/LanguageConverter';
-import CurrencyConverter from '../common/CurrencyConverter';
-import { FORM_TYPES } from '../../utils/constants';
+import React, { useState, useEffect } from 'react'
+import './Navbar.css'
+import { FiShoppingBag } from 'react-icons/fi'
+import { AiOutlineUserAdd } from 'react-icons/ai'
+import { RiMenu3Fill } from 'react-icons/ri'
+import { IoMdClose } from 'react-icons/io'
+import { Link, useNavigate } from 'react-router-dom'
+import logo from '../../assets/logo.png'
+import byandselllogo from '../../assets/byandselllogo.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { useIsUserLoggedIn } from '../../utils'
+import { clearUser } from '../../store/slices/authSlice'
+import { handleSignOut } from '../../services/firebase/auth'
+import { Button } from '../Buttons/Button'
+import LoginIcon from '@mui/icons-material/Login'
+import GroupAddIcon from '@mui/icons-material/GroupAdd'
+import TranslateComponent from '../common/LanguageConverter'
+import CurrencyConverter from '../common/CurrencyConverter'
+import { FORM_TYPES } from '../../utils/constants'
 
 const Navbar = ({ setShowLogin, setFormType }) => {
-  const { isAuthenticated } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { isAuthenticated } = useSelector(state => state.auth)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1280);
-  let isUserLoggedIn = useIsUserLoggedIn();
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1280)
+  const [isSidebarAvailable, setIsSidebarAvailable] = useState(
+    window.innerWidth < 992
+  )
+  let isUserLoggedIn = useIsUserLoggedIn()
 
   // Close mobile menu when resizing to desktop view
   useEffect(() => {
     const handleResize = () => {
-      const isNowMobile = window.innerWidth < 1280;
-      setIsMobile(isNowMobile);
+      const isNowMobile = window.innerWidth < 1280
+      setIsMobile(isNowMobile)
+      const isNowSidebarAvailable = window.innerWidth < 992
+      setIsSidebarAvailable(isNowSidebarAvailable)
 
       // Close mobile menu if transitioning to desktop view
       if (!isNowMobile) {
-        setIsMobileOpen(false);
+        setIsMobileOpen(false)
       }
-    };
+    }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
-  const toggleMenu = () => setIsMobileOpen(!isMobileOpen);
+  const toggleMenu = () => setIsMobileOpen(!isMobileOpen)
 
   const logout = async () => {
-    await handleSignOut();
-    dispatch(clearUser());
-  };
+    await handleSignOut()
+    dispatch(clearUser())
+  }
 
   return (
-    <div className="navbar-container d-flex align-items-center justify-content-between py-3">
+    <div className='navbar-container d-flex align-items-center justify-content-between px-0 py-3'>
       {/* Logo */}
-      <Link to="/">
+      <Link to='/'>
         <img
           src={isMobile ? byandselllogo : logo}
-          alt="Logo"
+          alt='Logo'
           className={isMobile ? 'nav-logo-mobile' : 'nav-logo-desktop'}
         />
       </Link>
 
       {/* Desktop Menu */}
       <div className={`d-none d-lg-flex align-items-center gap-xl-4 gap-2`}>
-        <Link to="/adsListing" className="nav-link">Ads Listing</Link>
+        <Link to='/adsListing' className='nav-link'>
+          Ads Listing
+        </Link>
         <div
-          className="nav-link pointer"
+          className='nav-link pointer'
           onClick={() => {
-            isUserLoggedIn ? navigate("/myAds") : setShowLogin(true) && setFormType(FORM_TYPES.login);
+            isUserLoggedIn
+              ? navigate('/myAds')
+              : setShowLogin(true) && setFormType(FORM_TYPES.login)
           }}
         >
           My Ads
         </div>
         <Button
           primary
-          title="+ Place An Ad"
+          title='+ Place An Ad'
           onClick={() => {
-            isUserLoggedIn ? navigate("addItem") : setShowLogin(true) && setFormType(FORM_TYPES.login);
+            isUserLoggedIn
+              ? navigate('addItem')
+              : setShowLogin(true) && setFormType(FORM_TYPES.login)
           }}
         />
-        <Link to="/blog" className="nav-link">Blog</Link>
+        <Link to='/blog' className='nav-link'>
+          Blog
+        </Link>
         {!isUserLoggedIn ? (
           <>
-            <div className="nav-link pointer" onClick={() => { setFormType(FORM_TYPES.login); setShowLogin(true); }}>
+            <div
+              className='nav-link pointer'
+              onClick={() => {
+                setFormType(FORM_TYPES.login)
+                setShowLogin(true)
+              }}
+            >
               <LoginIcon /> Login
             </div>
-            <div className="nav-link pointer" onClick={() => { setFormType(FORM_TYPES.signUp); setShowLogin(true); }}>
+            <div
+              className='nav-link pointer'
+              onClick={() => {
+                setFormType(FORM_TYPES.signUp)
+                setShowLogin(true)
+              }}
+            >
               <GroupAddIcon /> Register
             </div>
           </>
         ) : (
           <>
-            <div className="nav-link pointer" onClick={logout}><LoginIcon /> Logout</div>
-            <div className="nav-link pointer" onClick={() => navigate("/myAds")}>My Account</div>
+            <div className='nav-link pointer' onClick={logout}>
+              <LoginIcon /> Logout
+            </div>
+            <div
+              className='nav-link pointer'
+              onClick={() => navigate('/myAds')}
+            >
+              My Account
+            </div>
           </>
         )}
-        <div style={{ width: '120px',height:"45px",overflow:"hidden"}}>
+        <CurrencyConverter />
+      </div>
+      <div
+        className={`d-flex gap-xl-4 gap-2 align-items-center ${
+          isSidebarAvailable && 'w-100 justify-content-end pe-3'
+        }`}
+      >
+        <div style={{ width: '120px', height: '45px', overflow: 'hidden' }}>
           <TranslateComponent />
         </div>
-        <CurrencyConverter />
       </div>
 
       {/* Mobile Menu Toggle */}
-      <RiMenu3Fill className="d-lg-none nav-icon pointer" onClick={toggleMenu} />
+
+      <RiMenu3Fill
+        className='d-lg-none nav-icon pointer'
+        onClick={toggleMenu}
+      />
 
       {/* Mobile Menu */}
       {isMobileOpen && (
-        <div className="mobile-menu">
-          <IoMdClose className="closemenu pointer" onClick={toggleMenu} />
-          <Link to="/adsListing" className="nav-link" onClick={toggleMenu}>Ads Listing</Link>
-          <div className="nav-link" onClick={() => {
-            toggleMenu();
-            isUserLoggedIn ? navigate("/myAds") : setShowLogin(true) && setFormType(FORM_TYPES.login);
-          }}>
+        <div className='mobile-menu'>
+          <IoMdClose className='closemenu pointer' onClick={toggleMenu} />
+          <Link to='/adsListing' className='nav-link' onClick={toggleMenu}>
+            Ads Listing
+          </Link>
+          <div
+            className='nav-link'
+            onClick={() => {
+              toggleMenu()
+              isUserLoggedIn
+                ? navigate('/myAds')
+                : setShowLogin(true) && setFormType(FORM_TYPES.login)
+            }}
+          >
             My Ads
           </div>
           <Button
             primary
-            title="+ Place An Ad"
+            title='+ Place An Ad'
             onClick={() => {
-              toggleMenu();
-              isUserLoggedIn ? navigate("addItem") : setShowLogin(true) && setFormType(FORM_TYPES.login);
+              toggleMenu()
+              isUserLoggedIn
+                ? navigate('addItem')
+                : setShowLogin(true) && setFormType(FORM_TYPES.login)
             }}
           />
-          <Link to="/blog" className="nav-link" onClick={toggleMenu}>Blog</Link>
+          <Link to='/blog' className='nav-link' onClick={toggleMenu}>
+            Blog
+          </Link>
           {!isUserLoggedIn ? (
             <>
-              <div className="nav-link pointer" onClick={() => { setFormType(FORM_TYPES.login); setShowLogin(true); toggleMenu(); }}>
+              <div
+                className='nav-link pointer'
+                onClick={() => {
+                  setFormType(FORM_TYPES.login)
+                  setShowLogin(true)
+                  toggleMenu()
+                }}
+              >
                 <LoginIcon /> Login
               </div>
-              <div className="nav-link pointer" onClick={() => { setFormType(FORM_TYPES.signUp); setShowLogin(true); toggleMenu(); }}>
+              <div
+                className='nav-link pointer'
+                onClick={() => {
+                  setFormType(FORM_TYPES.signUp)
+                  setShowLogin(true)
+                  toggleMenu()
+                }}
+              >
                 <GroupAddIcon /> Register
               </div>
             </>
           ) : (
             <>
-              <div className="nav-link pointer" onClick={logout}><LoginIcon /> Logout</div>
-              <div className="nav-link pointer" onClick={() => navigate("/myAds")}>My Account</div>
+              <div className='nav-link pointer' onClick={logout}>
+                <LoginIcon /> Logout
+              </div>
+              <div
+                className='nav-link pointer'
+                onClick={() => navigate('/myAds')}
+              >
+                My Account
+              </div>
             </>
           )}
+          <div>
+            <CurrencyConverter />
+          </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

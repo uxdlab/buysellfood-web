@@ -46,7 +46,7 @@ export default function CurrencyConverter() {
         <div>
             <Button primary onClick={() => setOpen(true)}
             //  title={<CurrencyExchangeIcon/>}
-             title={"Currency Converter"}
+             title={"Currency"}
              
              />
 
